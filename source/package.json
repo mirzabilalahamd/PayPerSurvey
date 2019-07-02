@@ -1,0 +1,21 @@
+{
+  "name": "source",
+  "version": "1.0.0",
+  "description": "pay per survey is an web and andriod based survey application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "firebase-admin": "^8.2.0",
+    "firebase-functions": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
