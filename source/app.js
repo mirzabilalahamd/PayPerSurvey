@@ -1,29 +1,34 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const admin = require('firebase-admin');
-const functions = require('firebase-functions');
-let serviceAccount = require('./paypersurvey-67687-firebase-adminsdk-1q4lk-30af14b62d.json')
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-  });
+const express = require('express');
+const app = express();
+const port = 3000;
 
-let db = admin.firestore();
+//setting template engine
+var exphbs  = require('express-handlebars');
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
+//set static files
+app.use(express.static('public'));
+
+//routes folders
+const cusRoutes = require('./routes/customer');
+
+//databse connection
+let db = require('./connection').db;
 
 
 app.get('/', (req, res) => {
-    db.collection('Customers').get()
-    .then((snapshot) => {
-      snapshot.forEach((doc) => {
-        console.log(doc.id, '=>', doc.data());
-      });
-    })
-    .catch((err) => {
-      console.log('Error getting documents', err);
-    });
-
-  
-    res.send('Hello World!');
+    // db.collection('Customers').get()
+    // .then((snapshot) => {
+    //   snapshot.forEach((doc) => {
+    //     console.log(doc.id, '=>', doc.data());
+    //   });
+    // })
+    // .catch((err) => {
+    //   console.log('Error getting documents', err);
+    // });
+    res.render('index');
 });
+app.use("/customer",cusRoutes);
 
 app.listen(port, () => console.log(` PayPerSurvey app listening on port ${port}!`))
