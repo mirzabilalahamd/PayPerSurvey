@@ -21106,7 +21106,9 @@ dl li {
 }
 
 .content-wrapper {
-  background: #f3f3f3;
+  background-image:url("../images/banner.png");
+  background-repeat:no-repeat;
+  background-size:cover;
   padding: 2.1rem 1.04rem;
   width: 100%;
   -webkit-flex-grow: 1;

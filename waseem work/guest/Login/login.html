@@ -7,14 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>PayPerSurvey Login</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
+  
+  
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
-  <!-- endinject -->
+
+  <link rel="stylesheet" href="../../guest/scss/style.min.6c40b04dad8b9a8db8179b89a6de931cf0c7f77763979d9ca24b887ace9d66c3.css">
+    <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
   <style>
   .btnround{
@@ -33,59 +35,52 @@ border-radius: 18px;
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
         <div class="row flex-grow">
-          <div class="col-lg-6 d-flex align-items-center justify-content-center">
+          <div class="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
                 <img src="logo.png">
               </div>
-              <h4>Welcome back!</h4>
-              <h6 class="font-weight-light">Happy to see you again!</h6>
+              <h4 style="background: none;color:white;">Welcome back!</h4>
+              <h6 class="font-weight-light" style="background: none;color:white;"">Happy to see you again!</h6>
               <form class="pt-3">
                 <div class="form-group">
-                  <label for="exampleInputEmail">Username</label>
+                  
                   <div class="input-group">
-                    <div class="input-group-prepend bg-transparent">
-                      <span class="input-group-text bg-transparent border-right-0">
-                        <i class="mdi mdi-account-outline text-primary"></i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Username">
+                    
+                    <input type="text" class="form-control form-control-lg" style="border-color: #ccc;border-radius:50px;background: white;color:#202020"  id="exampleInputPassword" placeholder="Enter your Email" style="-webkit-border-radius: 50px;
+              -moz-border-radius: 50px;
+              border-radius: 50px;">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword">Password</label>
+                 <!-- <label for="exampleInputPassword">Password</label>-->
                   <div class="input-group">
-                    <div class="input-group-prepend bg-transparent">
-                      <span class="input-group-text bg-transparent border-right-0">
-                        <i class="mdi mdi-lock-outline text-primary"></i>
-                      </span>
-                    </div>
-                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">                        
+                    
+                    <input type="password" class="form-control form-control-lg" style="border-color: #ccc;border-radius:50px;background: white;color:#202020"  id="exampleInputPassword" placeholder="Enter your Password" style="-webkit-border-radius: 50px;
+              -moz-border-radius: 50px;
+              border-radius: 50px;">                        
                   </div>
-                </div>
-                <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
-                    </label>
-                  </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
-                </div>
-                <div class="my-3">
-                  
-                  <a class="btn btn-primary btn-lg  font-weight-medium auth-form-btn" href="../index.html" style="border-top-left-radius: 44%;border-bottom-left-radius: 44%;border-bottom-right-radius: 44%;border-top-right-radius: 44%;">LOGIN</a>
                 </div>
                 
-                <div class="text-center mt-4 font-weight-light">
-                  Don't have an account? <a href="register-2.html" class="text-primary">Create</a>
+                <div class="my-3">
+                  
+                  <a class="btn btn-outline-primary text-white ml-3" href="../index.html" style="-webkit-border-radius: 50px;
+              -moz-border-radius: 50px;
+              border-radius: 50px;">Login</a>
+                </div>
+                
+                <div class="text-center mt-4 font-weight-light" style="background: none;color:white;">
+                  Don't have an account? <a href="register.html" class="font-weight-bold" style="background: none;color:#00e0d8;">Create</a>
                 </div>
               </form>
             </div>
           </div>
-          <div class="col-lg-6 login-half-bg d-flex flex-row" style="background-image: src="images/logo.png">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2018  All rights reserved.</p>
+          <div class="col-lg-6 col-sm-12 d-flex flex-row" style="min-height:500px;">
+            <div class="content-wrapper" style="background:url('images/auth/login.png');background-repeat: no-repeat;background-position:center;">
+              
+            </div>
           </div>
+         
         </div>
       </div>
       <!-- content-wrapper ends -->
