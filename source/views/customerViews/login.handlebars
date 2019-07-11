@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>PayPerSurvey Login</title>
+  <!-- plugins:css -->
+  
+  
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/customer/login/css/style.css">
+
+  <link rel="stylesheet" href="/customer/scss/style.min.6c40b04dad8b9a8db8179b89a6de931cf0c7f77763979d9ca24b887ace9d66c3.css">
+    <!-- endinject -->
+  <link rel="shortcut icon" href="/customer/login/images/favicon.png" />
+  <script src="/customer_ajax.js"></script>
+  <style>
+  .btnround{
+border-radius: 18px;
+    background: red;
+    padding: 20px; 
+    width: 1000px;
+    height: 15px;
+
+  }
+</style>
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+        <div class="row flex-grow">
+          <div class="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center">
+            <div class="auth-form-transparent text-left p-3">
+              <div class="brand-logo">
+                <img src="/customer/login/images/logo.png">
+              </div>
+              <h4 style="background: none;color:white;">Welcome back!</h4>
+              <h6 class="font-weight-light" style="background: none;color:white;"">Happy to see you again!</h6>
+                <div id="alert" style="color: red; visibility: hidden; margin: 0px 0px 10px 50px">   Invalid email or password</div>
+                <div class="form-group">
+              <form class="pt-3" method="POST" id="login">
+              
+                  
+                  <div class="input-group">
+                    
+                    <input type="email" name="email" required class="form-control form-control-lg" style="border-color: #ccc;border-radius:50px;background: white;color:#202020"  placeholder="Enter your Email" style="-webkit-border-radius: 50px;
+                    -moz-border-radius: 50px;
+                    border-radius: 50px;">
+                  </div>
+                </div>
+                <div class="form-group">
+                 <!-- <label for="exampleInputPassword">Password</label>-->
+                  <div class="input-group">
+                    
+                    <input type="password" name="password" class="form-control form-control-lg" style="border-color: #ccc;border-radius:50px;background: white;color:#202020"  placeholder="Enter your Password" style="-webkit-border-radius: 50px;
+                    -moz-border-radius: 50px;
+                    border-radius: 50px;">                        
+                  </div>
+                </div>
+                
+                <div class="my-3">
+                  
+                  <button type="submit" class="btn btn-outline-primary text-white ml-3" href="#" style="-webkit-border-radius: 50px;
+              -moz-border-radius: 50px;
+              border-radius: 50px;">Login</button>
+                  {{!-- <a class="btn btn-outline-primary text-white ml-3" href="#" style="-webkit-border-radius: 50px;
+              -moz-border-radius: 50px;
+              border-radius: 50px;">Login</a> --}}
+                </div>
+                
+                <div class="text-center mt-4 font-weight-light" style="background: none;color:white;">
+                  Don't have an account? <a href="/customer/register" class="font-weight-bold" style="background: none;color:#00e0d8;">Create</a>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-12 d-flex flex-row" style="min-height:500px;">
+            <div class="content-wrapper" style="background:url('/customer/login/images/auth/login.png');background-repeat: no-repeat;background-position:center;">
+              
+            </div>
+          </div>
+         
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="/customer/login/js/off-canvas.js"></script>
+  <script src="/customer/login/js/hoverable-collapse.js"></script>
+  {{!-- <script src="/customer/login/js/template.js"></script> --}}
+  <!-- endinject -->
+</body>
+
+</html>

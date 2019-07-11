@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>PayPerSurvey Login</title>
+  <!-- plugins:css -->
+  
+  
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/customer/login/css/style.css">
+  <link rel="stylesheet" href="/customer/scss/style.min.6c40b04dad8b9a8db8179b89a6de931cf0c7f77763979d9ca24b887ace9d66c3.css">
+  
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/customer/login/images/favicon.png" />
+  <style>
+ 
+  .form-control{height:54px !important;}
+</style>
+<script src="/customer_ajax.js"></script>
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+        <div class="row flex-grow" style="padding:20px 0px;">
+          <div class="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center" style="">
+            <div class="auth-form-transparent text-left p-3">
+              <div class="brand-logo">
+                <img src="/customer/login/images/logo.png">
+              </div>
+              <h4 style="background: none;color:white;">Welcome back!</h4>
+              <h6 class="font-weight-light" style="background: none;color:white;"">Happy to see you again!</h6>
+              <div id="alert" style="color: red; visibility: hidden; margin: 0px 0px 10px 50px"> </div>
+              <form id="register" class="pt-3" method="POST" >
+                <div class="form-group">
+                  
+                  <div class="input-group">
+                    
+                    <input type="text" name="name" required class="form-control form-control-lg" style="border-color: #ccc;border-radius:50px;background: white;color:#202020"  placeholder="Enter your Name" pattern=".{3,}"   required title="minimum 3 character required">
+                  </div>
+                </div>
+                <div class="form-group">
+                  
+                  <div class="input-group">
+                    
+                    <input type="email" name ="email" required class="form-control form-control-lg" style="border-color: #ccc;border-radius:50px;background: white;color:#202020"  placeholder="Enter your Email" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  
+                  <div class="input-group">
+                    
+                    <input type="password" name="password"  pattern=".{6,}" title="minimum 6 character long" class="form-control form-control-lg" style="border-color: #ccc;border-radius:50px;background: white;color:#202020"  placeholder="Enter your Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                 <!-- <label for="exampleInputPassword">Password</label>-->
+                  <div class="input-group">
+                    
+                    <input type="password" required name="conf_password" pattern=".{6,}" title="minimum 6 character long" class="form-control form-control-lg" style="border-color: #ccc;border-radius:50px;background: white;color:#202020"  placeholder="Confirm Password" >                        
+                  </div>
+                </div>
+               
+                 
+                <div class="my-3">
+                  
+                  <button type="submit" class="btn btn-outline-primary text-white ml-3" style="-webkit-border-radius: 50px;
+                    -moz-border-radius: 50px;
+                    border-radius: 50px;"> Register</button>
+                    
+                  {{!-- <a class="btn btn-outline-primary text-white ml-3" href="#" style="-webkit-border-radius: 50px;
+              -moz-border-radius: 50px;
+              border-radius: 50px;">Register</a> --}}
+                </div>
+                
+                <div class="text-center mt-4 font-weight-light" style="background: none;color:white;">
+                  Already have an account? <a href="/customer/login" class="font-weight-bold" style="background: none;color:#00e0d8;">Login</a>
+                </div>
+              </form>
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-12 d-flex flex-row" style="min-height:500px;">
+            <div class="content-wrapper" style="background:url('/customer/login/images/auth/login.png');background-repeat: no-repeat;background-position:center;">
+              
+            </div>
+          </div>
+         
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="/customer/login/js/off-canvas.js"></script>
+  <script src="/customer/login/js/hoverable-collapse.js"></script>
+  <script src="/customer/login/js/template.js"></script>
+  <!-- endinject -->
+</body>
+
+</html>
