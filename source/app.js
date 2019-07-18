@@ -32,20 +32,52 @@ const cusRoutes = require('./routes/customer');
 
 //databse connection
 let db = require('./connection').db;
+let firebase = require('./authConnection').firebase;
 
 
-app.get('/', (req, res) => {
-    // db.collection('Customers').get()
-    // .then((snapshot) => {
-    //   snapshot.forEach((doc) => {
-    //     console.log(doc.id, '=>', doc.data());
-    //   });
+app.get('/', async (req, res) => {
+
+    // let customerRef = db.collection('Customers').doc('470bnBREgYBB2QupJrmR');
+    // let data;
+    // let getDoc = await customerRef.get()
+    // .then(doc => {
+    //     if(!doc.exists) console.log('document not exits');
+    //     else{
+    //         console.log("doc", doc.data());
+    //         data = doc.data();
+    //     } 
+
     // })
-    // .catch((err) => {
-    //   console.log('Error getting documents', err);
+    // .catch(err =>{
+    //     console.log("error",err);
     // });
-    res.render('index');
+    // console.log("customer id",data.surveylist);
+
+    // let surveyRef = db.collection('Survey');//.doc(data.surveylist[0])
+    // let a =  surveyRef.where(firebase.firestore.FieldPath.documentId(), '==', 'K0MLUyw4nTMYMyVhrruy').where("status",'==','draft').get()
+    // .then(snapshot =>{
+    //     if(snapshot.empty){
+    //         console.log('document not exist');
+    //     } 
+    //     else{
+    //         snapshot.forEach((doc =>{
+    //             console.log('survey id',doc.id);
+    //         }))
+            
+    //     }
+    //    // console.log(doc.id);
+    // })
+    // .catch(err =>{
+    //     console.log(err);
+    // });
+
+    app.use("/customer",cusRoutes);
+
+
+
 });
-app.use("/customer",cusRoutes);
+
+
+
 
 app.listen(port, () => console.log(` PayPerSurvey app listening on port ${port}!`))

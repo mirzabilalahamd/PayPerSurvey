@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en-us">
 <head>
   <meta charset="utf-8">
@@ -5,10 +6,10 @@
   <meta content="width=device-width,initial-scale=1" name="viewport">
   <meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport">
   <meta content="Hugo 0.54.0" name="generator"><noscript>
-  <link href="/common/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <link href="/common/plugins/slick/slick.css" rel="stylesheet" >
-  <link href="/common/plugins/font-awesome/font-awesome.min.css" rel="stylesheet">
-  <link href="/common/plugins/venobox/venobox.css" rel="stylesheet"></noscript>
+  <link href="/guest/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="/guest/plugins/slick/slick.css" rel="stylesheet">
+  <link href="/guest/plugins/font-awesome/font-awesome.min.css" rel="stylesheet">
+  <link href="/guest/plugins/venobox/venobox.css" rel="stylesheet"></noscript>
   <link href="/guest/scss/style.min.6c40b04dad8b9a8db8179b89a6de931cf0c7f77763979d9ca24b887ace9d66c3.css" media="screen" rel="stylesheet">
   <link href="/guest/images/favicon.html" rel="shortcut icon" type="image/x-icon">
   <link href="/guest/images/favicon.html" rel="icon" type="image/x-icon">
@@ -21,73 +22,75 @@
   <div class="naviagtion fixed-top transition">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark p-0">
-        <a class="navbar-brand p-0" href="index.html"><img style="width: 250px" alt="Agico" src="/guest/images/logo.png"></a> <button aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navigation" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand p-0" href="/"><img style="width: 250px" alt="Agico" src="/guest/images/logo.png"></a> <button aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navigation" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse text-center" id="navigation">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link text-white text-capitalize" href="index.html">Home</a>
+              <a class="nav-link text-white text-capitalize btn-animate" id="home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white text-capitalize" href="about/index.html">About</a>
+              <a class="nav-link text-white text-capitalize btn-animate" id="about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white text-capitalize" href="service/index.html">Service</a>
+              <a class="nav-link text-white text-capitalize btn-animate" id="services">Service</a>
             </li>
             
            
             <li class="nav-item">
-              <a class="nav-link text-white text-capitalize" href="contact/index.html">Contact</a>
+              <a class="nav-link text-white text-capitalize btn-animate" id="contact">Contact</a>
             </li>
            
-          </ul><a class="btn btn-outline-primary text-white ml-3" href="Login/register.html">sign up</a>
-           </ul><a class="btn btn-outline-primary text-white ml-3" href="Login/login.html">Login</a>
+          </ul><a class="btn btn-outline-primary text-white ml-3" href="/customer/register/">sign up</a>
+           </ul><a class="btn btn-outline-primary text-white ml-3" href="/customer/login">Login</a>
         </div>
       </nav>
     </div>
   </div>
-  <section class="hero-area bg-cover" data-background="http://demo.themefisher.com/agico-hugo/images/background/banner.png">
+  <section  id="home-div" class="hero-area bg-cover" data-background="/guest/images/banner.png">
     <div class="container">
       <div class="row align-items-center justify-content-between">
         <div class="col-lg-6 pl-lg-0 text-center text-lg-left">
-          <h1 class="text-white position-relative">Build Your Business Together<span class="watermark">Build</span></h1>
-          <p class="text-white pt-2 pb-3"> PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application<br>
-         .</p><a class="btn btn-primary" href="Login/login.html">Create Survey</a>
+          <h2 class="text-white position-relative">Make better decisions </h2>
+          <h2 class="text-white position-relative"> with <strong style="color:#0d2165; font-style: italic">PayPerSurvey</strong> </h2>
+          <p class="text-white pt-2 pb-3"> <br>
+         </p><a class="btn btn-primary" href="/customerLogin/login.html">Create Survey</a>
         </div>
         <div class="col-lg-5 pl-lg-0 pt-5 pt-lg-0 text-lg-right text-center"><img alt="illustration" class="img-fluid" src="/guest/images/banner/banner-1.png"></div>
       </div>
     </div>
   </section>
-   {{name}}
-  <section class="section pb-0">
+  
+  <section class="section pb-0" id="about-div">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 col-md-7 text-center text-md-left order-md-1 order-2">
           <p class="subtitle"></p>
           <h2 class="section-title">About PayPerSurvey</h2>
-          <p class="mb-4">PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application</p><a class="btn btn-outline-primary" href="#">read more</a>
+          <p class="mb-4">PayPerSurvey is an online survey plateform based on Trust and Reputation System that ensure survey authenticity. PayPerSurvey provides a web based palteform for customer to create their survey, select target audience and analyze results. And also an android application to facilitate subscriber to view and respond a survey.
+		We can help you reach your goals.</p><a class="btn btn-outline-primary" href="#">read more</a>
         </div>
         <div class="col-lg-6 col-md-5 text-center text-md-left order-1 order-md-2 mb-4 mb-md-0"><img alt="about-image" class="img-fluid" src="/guest/images/banner-1.png"></div>
       </div>
     </div>
   </section>
   
-<section class="section pb-0">
+<section class="section pb-0" id="services-div">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <p class="subtitle">fetures</p>
+          <p class="subtitle"><b>How it works</b></p>
           <h2 class="section-title"></h2>
         </div>
         <div class="col-lg-3 col-sm-6 mb-4">
           <div class="hover-bg-primary text-center position-relative px-4 py-5 rounded-lg shadow">
-            <img alt="feature-image" class="img-fluid" src="/guest/images/feature/feature-2.png">
-            <h5 class="pt-5 pb-3 card-title">paypersurvey</h5>
+            <img alt="feature-image" class="img-fluid" src="/guest/images/CA.png">
+            <h5 class="pt-5 pb-3 card-title">Create Survey</h5>
             <p class="mb-4">PayPerSurvey is an online Survey application.</p><a class="btn btn-outline-primary" href="feature/free-trail/index.html">read more</a>
           </div>
         </div>
         <!--<div class="col-lg-3 col-sm-6 mb-4">
           <div class="hover-bg-primary text-center position-relative px-4 py-5 rounded-lg shadow">
-            <img alt="feature-image" class="img-fluid" src="images/feature/feature-1.png">
+            <img alt="feature-image" class="img-fluid" src="/guest/images/feature/feature-1.png">
             <h5 class="pt-3 card-title" style="height: 50px;">paypersurvey</h5>
 
             <p class="mb-4">PayPerSurvey is an online Survey application.</p><a class="btn btn-outline-primary" href="feature/no-setup/index.html">read more</a>
@@ -95,22 +98,22 @@
         </div>-->
         <div class="col-lg-3 col-sm-6 mb-4" style="height: 100%">
           <div class="hover-bg-primary text-center position-relative px-4 py-5 rounded-lg shadow">
-            <img alt="feature-image" class="img-fluid" src="/guest/images/feature/feature-3.png">
-            <h5 class="pt-5 pb-3 card-title">paypersurvey</h5>
+            <img alt="feature-image" class="img-fluid" src="/guest/images/TA.png">
+            <h5 class="pt-5 pb-3 card-title">Target Audience</h5>
             <p class="mb-4">PayPerSurvey is an online Survey application </p><a class="btn btn-outline-primary" href="feature/optimized-data/index.html">read more</a>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6 mb-4">
           <div class="hover-bg-primary text-center position-relative px-4 py-5 rounded-lg shadow">
-            <img alt="feature-image" class="img-fluid" src="/guest/images/feature/feature-3.png">
-            <h5 class="pt-5 pb-3 card-title">paypersurvey </h5>
+            <img alt="feature-image" class="img-fluid" src="/guest/images/money.png">
+            <h5 class="pt-5 pb-3 card-title">Pakages </h5>
             <p class="mb-4">PayPerSurvey is an online Survey application</p><a class="btn btn-outline-primary" href="feature/optimized-data/index.html">read more</a>
           </div>
         </div>
          <div class="col-lg-3 col-sm-6 mb-4">
           <div class="hover-bg-primary text-center position-relative px-4 py-5 rounded-lg shadow">
-            <img alt="feature-image" class="img-fluid" src="/guest/images/feature/feature-2.png">
-            <h5 class="pt-5 pb-3 card-title">paypersurvey</h5>
+            <img alt="feature-image" class="img-fluid" src="/guest/images/result.png">
+            <h5 class="pt-5 pb-3 card-title">Result</h5>
             <p class="mb-4">PayPerSurvey is an online Survey application.</p><a class="btn btn-outline-primary" href="feature/free-trail/index.html">read more</a>
           </div>
         </div>
@@ -121,22 +124,94 @@
 
 
 
-  <section class="section bg-shape-triangles">
-    
+<section class="section pb-0">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-7 text-center text-md-left order-md-1 order-2">
+          
+          <h2 class="section-title">How we autheticate the survey</h2>
+          <p class="mb-4">We use Trust and Reputation technique to authenticate the surveys response.</p><a class="btn btn-outline-primary" href="#">read more</a>
+        </div>
+        <div class="col-lg-6 col-md-5 text-center text-md-left order-1 order-md-2 mb-4 mb-md-0"><img alt="about-image" class="img-fluid" src="/guest/images/Tr.png"></div>
+      </div>
+    </div>
   </section>
+
+
+<section class="section bg-shape-triangles">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <p class="subtitle">testimonial</p>
+          <h2 class="section-title">What Our Clients Says?</h2>
+        </div>
+      </div>
+      <div class="row testimonial-slider">
+        <div class="col-lg-4">
+          <div class="card px-4 py-5 border-0 rounded-lg shadow text-center card-border-bottom mb-5 mt-3">
+            <i class="fa fa-quote-right icon-quote mb-4 mx-auto text-primary"></i>
+            <p class="mb-4">PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application</p>
+            <h4>Nasir Ali</h4><span class="h6">Happy client</span>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card px-4 py-5 border-0 rounded-lg shadow text-center card-border-bottom mb-5 mt-3">
+            <i class="fa fa-quote-right icon-quote mb-4 mx-auto text-primary"></i>
+            <p class="mb-4">PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application</p>
+            <h4>Khalil Ahmed</h4><span class="h6">Happy client</span>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card px-4 py-5 border-0 rounded-lg shadow text-center card-border-bottom mb-5 mt-3">
+            <i class="fa fa-quote-right icon-quote mb-4 mx-auto text-primary"></i>
+            <p class="mb-4">PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.</p>
+            <h4>Muhammad Bilal</h4><span class="h6">Happy client</span>
+          </div>
+        </div>
+       
+      
+      </div>
+    </div>
+  </section>
+
+<section class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
+          <p class="h2 font-weight-light text-dark"><span class="counter" data-count="8000">0</span>+</p>
+          <h6 class="text-dark font-weight-normal">Downloads per day</h6>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
+          <p class="h2 font-weight-light text-dark"><span class="counter" data-count="20">0</span>+</p>
+          <h6 class="text-dark font-weight-normal">Design awards</h6>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
+          <p class="h2 font-weight-light text-dark"><span class="counter" data-count="25000">0</span>+</p>
+          <h6 class="text-dark font-weight-normal">Totally satisfied users</h6>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0 text-center">
+          <p class="h2 font-weight-light text-dark"><span class="counter" data-count="30000">0</span>+</p>
+          <h6 class="text-dark font-weight-normal">People behind this app</h6>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  
   <section class="bg-triangles bg-gradient-primary">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 text-center text-lg-left">
           <div class="section">
             <h2 class="section-title text-white">Download PayPerSurvey</h2>
-            <p class="text-white mb-4">PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application</p>
+            <p class="text-white mb-4">Download PayPerSurvey android application, respond surveys and get paid </p>
             <ul class="list-inline">
               <li class="list-inline-item mb-3 mb-lg-0">
                 <a class="btn btn-white" href="https://play.google.com"><img alt="" class="img-fluid mr-2" src="/guest/images/icon/001-google-play.png">Google Play</a>
-              </li>
               
-              </li>
             </ul>
           </div>
         </div>
@@ -144,16 +219,128 @@
       </div>
     </div>
   </section>
-  <section></section>
-  
+  <section class="section" id="contact-div">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-7 rounded-xs mobile-height mb-5 mb-lg-0" data-latitude="51.5223477" data-longitude="-0.1622023" data-marker="http://demo.themefisher.com/agico-hugo//guest/images/marker.png" id="map_canvas"></div>
+        <div class="col-lg-4">
+          <div class="p-5 rounded-xs shadow">
+            <h3 class="text-dark">Keep in Touch</h3>
+            <p class="border-bottom pb-4">Lorem ipsum dolor sit amet consectetur elit sed do eiusmod tempor</p>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-4">
+                <i class="fa fa-map-o icon-primary"></i>
+                <div class="pl-3">
+                  <h6 class="text-dark">Address</h6>
+                  <ul class="list-unstyled">
+                    <li>Studio 76d, Riley Ford, North Michaelchester, CF99 6QQ</li>
+                  </ul>
+                </div>
+              </li>
+              <li class="d-flex mb-4">
+                <i class="fa fa-envelope-o icon-primary"></i>
+                <div class="pl-3">
+                  <h6 class="text-dark">Email</h6>
+                  <ul class="list-unstyled">
+                    <li>hello@agico.com</li>
+                    <li>info@example.com</li>
+                  </ul>
+                </div>
+              </li>
+              <li class="d-flex mb-4">
+                <i class="fa fa-phone icon-primary"></i>
+                <div class="pl-3">
+                  <h6 class="text-dark">Mobile</h6>
+                  <ul class="list-unstyled">
+                    <li>(&#43;091) 413 554 8598</li>
+                    <li>(&#43;091) 413 554 8599</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-lg-bottom bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <p class="subtitle">Message</p>
+          <h2 class="section-title">Leave A Message</h2>
+        </div>
+        <div class="col-lg-12 text-center p-0">
+          <form action="#" class="row">
+            <div class="col-lg-6">
+              <input class="form-control mb-4" placeholder="Your email" type="text">
+            </div>
+            <div class="col-lg-6">
+              <input class="form-control mb-4" placeholder="Your Name" type="text">
+            </div>
+            <div class="col-lg-12">
+              <input class="form-control mb-4" placeholder="Subject" type="text">
+            </div>
+            <div class="col-lg-12">
+              <textarea class="form-control mb-4" name="message" placeholder="Message"></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit Now</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="subscription" style="background: linear-gradient(80deg,#0030cc 0%,#00a4db 100%);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="subscription-wrapper">
+            <div class="d-flex subscription-content justify-content-between align-items-center flex-column flex-md-row text-center text-md-left">
+              <h3 class="flex-fill text-white">Subscribe<br>
+              to our newsletter</h3>
+              <form class="row flex-fill">
+                <div class="col-lg-7 my-md-2 my-2">
+                  <input class="form-control px-4 border-0 w-100 text-center text-md-left text-white" id="email" name="email" placeholder="Your Email" type="email">
+                </div>
+                <div class="col-lg-5 my-md-2 my-2">
+                  <button class="btn btn-primary btn-lg border-0 w-100" type="submit">Subscribe Now</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="bg-secondary pt-5">
     <section class="section border-bottom border-color">
       <div class="container">
         <div class="row justify-content-between">
           <div class="col-md-5 mb-4 mb-md-0">
-           <!--  <a href="index.html" ><img alt="agico" style="width: 200px, height: 100px;" class="mb-4" src="images/logo.png"></a> -->
+           <!--  <a href="index.html" ><img alt="agico" style="width: 200px, height: 100px;" class="mb-4" src="/guest/images/logo.png"></a> -->
             <p class="text-light mb-4">PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application.PayPerSurvey is an online survey application</p>
-            
+          <div>  
+<ul class="list-inline social-icons">
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-vimeo"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+
+
           </div>
           <div class="col-md-3 col-sm-6">
             <h4 class="text-white mb-4">Service</h4>
@@ -197,32 +384,46 @@
         </div>
       </div>
     </section>
+    <section></section>
   </footer>
   <script type="text/javascript">
-  var css1=document.createElement('link');css1.rel='stylesheet';css1.href='/common/plugins/bootstrap/bootstrap.min.css';css1.type='text/css';var fastCSS1=document.getElementsByTagName('link')[0];fastCSS1.parentNode.insertBefore(css1,fastCSS1);var css2=document.createElement('link');css2.rel='stylesheet';css2.href='plugins/slick/slick.css';css2.type='text/css';var fastCSS2=document.getElementsByTagName('link')[0];fastCSS2.parentNode.insertBefore(css2,fastCSS2);var css3=document.createElement('link');css3.rel='stylesheet';css3.href='plugins/font-awesome/font-awesome.min.css';css3.type='text/css';var fastCSS3=document.getElementsByTagName('link')[0];fastCSS3.parentNode.insertBefore(css3,fastCSS3);var css4=document.createElement('link');css4.rel='stylesheet';css4.href='plugins/venobox/venobox.css';css4.type='text/css';var fastCSS4=document.getElementsByTagName('link')[0];fastCSS4.parentNode.insertBefore(css4,fastCSS4);
+  var css1=document.createElement('link');css1.rel='stylesheet';css1.href='/guest/plugins/bootstrap/bootstrap.min.css';css1.type='text/css';var fastCSS1=document.getElementsByTagName('link')[0];fastCSS1.parentNode.insertBefore(css1,fastCSS1);var css2=document.createElement('link');css2.rel='stylesheet';css2.href='/guest/plugins/slick/slick.css';css2.type='text/css';var fastCSS2=document.getElementsByTagName('link')[0];fastCSS2.parentNode.insertBefore(css2,fastCSS2);var css3=document.createElement('link');css3.rel='stylesheet';css3.href='/guest/plugins/font-awesome/font-awesome.min.css';css3.type='text/css';var fastCSS3=document.getElementsByTagName('link')[0];fastCSS3.parentNode.insertBefore(css3,fastCSS3);var css4=document.createElement('link');css4.rel='stylesheet';css4.href='/guest/plugins/venobox/venobox.css';css4.type='text/css';var fastCSS4=document.getElementsByTagName('link')[0];fastCSS4.parentNode.insertBefore(css4,fastCSS4);
   </script> 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&amp;libraries=places">
   </script> 
-  <script src="/common/plugins/jQuery/jquery.min.js">
+  <script src="/guest/plugins/jQuery/jquery.min.js">
   </script> 
-  <script src="/common/plugins/bootstrap/bootstrap.min.js">
+  <script src="/guest/plugins/bootstrap/bootstrap.min.js">
   </script> 
-  <script src="/common/plugins/slick/slick.min.js">
+  <script src="/guest/plugins/slick/slick.min.js">
   </script> 
-  <script src="/common/plugins/venobox/venobox.min.js">
+  <script src="/guest/plugins/venobox/venobox.min.js">
   </script> 
-  <script src="/common/plugins/google-map/gmap.js">
+  <script src="/guest/plugins/google-map/gmap.js">
   </script> 
-  <script src="/common/plugins/search/fuse.min.js">
+  <script src="/guest/plugins/search/fuse.min.js">
   </script> 
-  <script src="/common/plugins/search/mark.js">
+  <script src="/guest/plugins/search/mark.js">
   </script> 
-  <script src="/common/plugins/search/search.js">
+  <script src="/guest/plugins/search/search.js">
   </script> 
   <script src="/guest/js/script.min.js">
   </script> 
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','../../www.google-analytics.com/analytics.js','ga');ga('create','Your ID','auto');ga('send','pageview');
-  </script><!-- Mirrored from demo.themefisher.com/agico-hugo/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 May 2019 23:22:14 GMT -->
+ 
+   <script>
+    $(document).ready(function(){
+      $('html, body').animate({
+      scrollTop: $("#home-div").offset().top
+      });
+     $(".btn-animate").click(function() {
+      var id=$(this).attr("id");
+      $('html, body').animate({
+      scrollTop: $("#"+id+"-div").offset().top
+      }, 1500);
+           });
+
+    });
+
+  </script>
 </body>
 </html>

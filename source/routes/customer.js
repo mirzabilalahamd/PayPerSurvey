@@ -65,6 +65,7 @@ cr.post('/handleRegisteration', async (req,res) =>{
         res.send(false);
 
     })
+
     var customer = db.collection('Customers');
     await customer.add({
         name: name,
@@ -73,14 +74,12 @@ cr.post('/handleRegisteration', async (req,res) =>{
         balance: 0,
         surveylist: []
     })
+    
     .then( (ref) =>{
         console.log("document added" + ref.id);
         res.send(true);
     });
     
-
-    //res.send('sucessfully registered');
-    // res.render('./customerViews/signup');
 })
 
 cr.get('/', (req,res) =>{
@@ -89,7 +88,7 @@ cr.get('/', (req,res) =>{
         dataset = {email: req.session.email, uid: req.session.uid};
         //console.log(req.session.email);
         //console.log("welcome customer sceen")
-        res.render('./customerViews/dashboard',dataset);    
+        res.render('./customerViews/openSurvey');    
     }
     else res.redirect('/customer/login');
     
