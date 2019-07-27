@@ -1,20 +1,23 @@
-
-var obj1 = {
-	id:           'task-complete',
-	radius:       100,
-	value:        80,
-	maxValue:     100,
-	width:        8,
-	text:         function(value){return value + '%';},
-	colors:       ['#eee', '#1D62F0'],
-	duration:     400,
-	wrpClass:     'circles-wrp',
-	textClass:    'circles-text',
-	styleWrapper: true,
-	styleText:    true
+function per(id,value){
+	
+	var obj1 = {
+		id:           id,
+		radius:       100,
+		value:        value,
+		maxValue:     100,
+		width:        8,
+		text:         function(value){return value + '%';},
+		colors:       ['#eee', '#1D62F0'],
+		duration:     400,
+		wrpClass:     'circles-wrp',
+		textClass:    'circles-text',
+		styleWrapper: true,
+		styleText:    true
+	}
+	
+	Circles.create(obj1)
 }
 
-Circles.create(obj1)
 
  obj2 = {
 	id:           'task-complete-1',
@@ -53,18 +56,7 @@ Circles.create(
 
 
 
-$.notify({
-	icon: 'la la-bell',
-	title: 'Bootstrap notify',
-	message: 'Turning standard Bootstrap alerts into "notify" like notifications',
-},{
-	type: 'success',
-	placement: {
-		from: "bottom",
-		align: "right"
-	},
-	time: 1000,
-});
+
 
 // monthlyChart
 

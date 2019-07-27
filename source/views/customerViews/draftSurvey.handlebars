@@ -91,7 +91,7 @@
 								<span class="badge badge-count">5</span>
 							</a>
 						</li>
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a href="/customer/openSurvey">
 								<i class="la la-check-circle-o"></i>
 								<p>Open Surveys</p>
@@ -105,7 +105,7 @@
 								<span class="badge badge-count">5</span>
 							</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item active">
 							<a href="/customer/draftSurvey">
 								<i class="la la-pencil-square"></i>
 								<p>Draft Surveys</p>
@@ -119,8 +119,10 @@
 			<div class="main-panel">
 				<div class="content">
 					<div class="container-fluid">
-						<h4 class="page-title">Open Survey</h4>
+						<h4 class="page-title"> Draft Survey</h4>
+					
 						
+
 							{{#if survey}}
 							<div class="row">
 								{{#each  survey}}
@@ -129,7 +131,7 @@
 											<div class="card">
 												<div class="card-header">
 													<h4 class="card-title">{{title}} </h4>
-													<p class="card-category">{{status}} : <span id='{{id}}_time'></span> </p>
+													<p class="card-category"> Last Edited  : <span id='{{id}}_time'></span> </p>
 												</div>
 												<div class="card-body">
 													<div id="{{id}}" class ="chart-circle mt-4 mb-3"></div>
@@ -164,11 +166,10 @@
 						 {{/if}}
 
 
-				
 
 					</div>
 				</div>
-				<footer class="footer" style="position: absolute;bottom: 0px">
+				<footer class="footer" style="position: absolute;bottom: 0px; width:100%">
 					<div class="container-fluid">
 						<nav class="pull-left">
 							<ul class="nav">
@@ -233,18 +234,16 @@
 <script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 <script src="/assets/js/ready.min.js"></script>
 <script src="/assets/js/demo.js"></script>
-<script src="/assets/js/jsTimer.js"></script>
 <script>
 	{{#each survey}}
 	
-
-	var t = new Date('{{closeTime}}').getTime();
-
-	//$('#{{id}}_time').text(dt);
-		per("{{id}}", ( {{comp_response}} / {{total_response}} ) * 100 )
-		timer("{{id}}_time",t);
-
+	//console.log();
+	per("{{id}}", 0);
+	var d = new Date('{{lastEdited}}').toDateString();
+	var t = new Date('{{lastEdited}}').toLocaleTimeString();
+	var dt = d + ' '+ t;
+	$('#{{id}}_time').text(dt);
+	
 	{{/each}}
 </script>
-
 </html>
