@@ -91,14 +91,14 @@
 								<span class="badge badge-count">5</span>
 							</a>
 						</li>
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a href="/customer/openSurvey">
 								<i class="la la-check-circle-o"></i>
 								<p>Open Surveys</p>
 								<span class="badge badge-count">5</span>
 							</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item active">
 							<a href="/customer/closedSurvey">
 								<i class="la la-clock-o la"></i>
 								<p>closed Surveys</p>
@@ -119,8 +119,8 @@
 			<div class="main-panel">
 				<div class="content">
 					<div class="container-fluid">
-						<h4 class="page-title">Open Survey</h4>
-						
+						<h4 class="page-title">Closed Survey</h4>
+
 							{{#if survey}}
 							<div class="row">
 								{{#each  survey}}
@@ -163,8 +163,6 @@
 									</div>
 						 {{/if}}
 
-
-				
 
 					</div>
 				</div>
@@ -233,18 +231,19 @@
 <script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 <script src="/assets/js/ready.min.js"></script>
 <script src="/assets/js/demo.js"></script>
-<script src="/assets/js/jsTimer.js"></script>
 <script>
 	{{#each survey}}
 	
+	//console.log();
+//	console.log('{{closeTime}}');
+//	 console.log(new Date('{{closeTime}}').toDateString() );
+//	 console.log(new Date('{{closeTime}}').toLocaleTimeString());
+	var d = new Date('{{closeTime}}').toDateString();
+	var t = new Date('{{closeTime}}').toLocaleTimeString();
+	var dt = d + ' '+ t;
 
-	var t = new Date('{{closeTime}}').getTime();
-
-	//$('#{{id}}_time').text(dt);
+	$('#{{id}}_time').text(dt);
 		per("{{id}}", ( {{comp_response}} / {{total_response}} ) * 100 )
-		timer("{{id}}_time",t);
-
 	{{/each}}
 </script>
-
 </html>
