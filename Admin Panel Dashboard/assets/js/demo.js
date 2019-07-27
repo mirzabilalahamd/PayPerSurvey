@@ -19,7 +19,7 @@ Circles.create(obj1)
  obj2 = {
 	id:           'task-complete-1',
 	radius:       100,
-	value:        66.01,
+	value:        60,
 	maxValue:     100,
 	width:        8,
 	text:         function(value){return value + '%';},
