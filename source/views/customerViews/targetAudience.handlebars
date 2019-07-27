@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Target Audience</title>
+		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+		<link rel="stylesheet" href="/assets/css/ready.css">
+		<link rel="stylesheet" href="/assets/css/demo.css">
+		<link rel="stylesheet" type="text/css" href="/assets/css/mapstyle.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/assets/css/slider/style.css">
+<style>
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: #607d8b;
+  outline: none;
+  opacity: 0.9;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
+	</head>
+<body>
+	<div class="wrapper">
+		<div class="main-header">
+			<div class="logo-header">
+					<a href="index.html" class="logo">
+						PayPerSurvey
+					</a>
+					<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					<button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
+			</div>
+				<nav class="navbar navbar-header navbar-expand-lg">
+					<div class="container-fluid">
+						<form class="col-md-10 navbar-left navbar-form nav-search mr-md-3" action="" id="search">
+							<div class="input-group input-square">
+								<input type="text" placeholder="Search ..." class="form-control input-square">
+								<div class="input-group-append">
+									<span class="input-group-text">
+										<i class="la la-search search-icon"></i>
+									</span>
+								</div>
+							</div>
+						</form>
+						<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+							<li class="btn">
+								<a href="index.html">
+									<button class="btn btn-primary">Create Survey</button>
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+				</nav>
+		</div>
+			<div class="sidebar">
+				<div class="scrollbar-inner sidebar-wrapper">
+					<div class="user">
+						<div class="photo">
+							<img src="/assets/img/nasir.jpg">
+						</div>
+						<div class="info">
+							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+								<span>
+									Nasir Ali
+									<span class="user-level">Business Analyst</span>
+									<span class="caret"></span>
+								</span>
+							</a>
+							<div class="clearfix"></div>
+							<div class="collapse in" id="collapseExample" aria-expanded="true" style="">
+								<ul class="nav">
+									<li>
+										<a href="#profile">
+											<span class="link-collapse">My Profile</span>
+										</a>
+									</li>
+									<li>
+										<a href="#logout">
+											<span class="link-collapse">Logout</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<ul class="nav">
+						<li class="nav-item active">
+							<a href="/customer/">
+								<i class="la la-home"></i>
+								<p>Dashboard</p>
+								<span class="badge badge-count">5</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/customer/openSurvey">
+								<i class="la la-check-circle-o"></i>
+								<p>Open Surveys</p>
+								<span class="badge badge-count">5</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/customer/closedSurvey">
+								<i class="la la-clock-o la"></i>
+								<p>closed Surveys</p>
+								<span class="badge badge-count">5</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/customer/draftSurvey">
+								<i class="la la-pencil-square"></i>
+								<p>Draft Surveys</p>
+								<span class="badge badge-count">5</span>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+			<div class="main-panel">
+				<div class="content">
+					<div class="container-fluid">
+						<h4 class="page-title">Select Survey Target</h4>
+							<div class="row">
+								<div class="col-md-3">
+									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#location">
+										<div class="card card-stats card-success">
+										<div class="card-body card-border">							
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h4><b>Location</b></h4>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h6>All</h6>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-8">			
+												</div>
+												<div class="col-md-4">
+													<div class="icon icon-big text-center">
+														<i class="la la-map-marker"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									</a>
+								</div>
+								
+
+								<div class="col-md-3">
+									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#gender">
+									<div class="card card-stats card-info">
+										<div class="card-body card-border">
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h4><b>Gender</b></h4>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="gender">
+														<p id="genderVal">All</p>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-8">
+												
+												</div>
+												<div class="col-md-4">
+													<div class="icon icon-big text-center">
+														<i class="la la-male"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+								</div>
+
+								<div class="col-md-3">
+									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#age">
+									<div class="card card-stats card-info">
+										<div class="card-body card-border">
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h4><b>Age</b></h4>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h6>All</h6>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-8">
+												
+												</div>
+												<div class="col-md-4">
+													<div class="icon icon-big text-center">
+														<i class="la la-map-marker"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+								</div>
+
+								<div class="col-md-3">
+									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#education">
+									<div class="card card-stats card-info">
+										<div class="card-body card-border">
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h4><b>Education</b></h4>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h6>All</h6>
+													</div>
+												</div>
+												</div>
+											<div class="row">
+												<div class="col-md-8">
+												
+												</div>
+												<div class="col-md-4">
+													<div class="icon icon-big text-center">
+														<i class="la la-graduation-cap"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									</a>
+								</div>
+							
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#occupation">
+									<div class="card card-stats card-info">
+										<div class="card-body card-border">
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h4><b>Occupation</b></h4>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h6>All</h6>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-8">
+												
+												</div>
+												<div class="col-md-4">
+													<div class="icon icon-big text-center">
+														<i class="la la-map-marker"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+								</div>
+								<div class="col-md-3">
+									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#maritalStatus">
+									<div class="card card-stats card-info">
+										<div class="card-body card-border">
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h4><b>Marital Status</b></h4>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h6>All</h6>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-8">
+												
+												</div>
+												<div class="col-md-4">
+													<div class="icon icon-big text-center">
+														<i class="la la-heart"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+								</div>
+								<div class="col-md-3">
+									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#income">
+									<div class="card card-stats card-info">
+										<div class="card-body card-border">
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h4><b>Income</b></h4>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h6>All</h6>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-8">
+												
+												</div>
+												<div class="col-md-4">
+													<div class="icon icon-big text-center">
+														<i class="la la-map-marker"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+								</div>
+								<div class="col-md-3">
+									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#religion">
+									<div class="card card-stats card-info">
+										<div class="card-body card-border">
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h4><b>Religion</b></h4>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 d-flex align-items-center">
+													<div class="title">
+														<h6>All</h6>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-8">
+												
+												</div>
+												<div class="col-md-4">
+													<div class="icon icon-big text-center">
+														<i class="la la-map-marker"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+								</div>
+
+
+
+							</div>
+						</div>						
+					</div>
+				</div>
+
+
+
+
+
+<!-- Model for Location  -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" id="location" role="dialog" aria-labelledby="location" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #335BFF; color: white">
+        <h5 class="modal-title" id="exampleModalLabel">Location:</h5>
+      </div>
+      <div class="modal-body">
+
+        <input id="pac-input" class="controls" type="text" placeholder="Search Place">
+    	<div id="map" style="min-height: 350px; max-height: 250px"></div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+	<!-- Model for Gender  -->
+<div class="modal fade" id="gender" tabindex="-1" role="dialog" aria-labelledby="gender" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #335BFF; color: white">
+        <h5 class="modal-title" id="genderTitle">Gender:</h5>
+      </div>
+      <div class="modal-body">
+		<div class="custom-control custom-radio">
+			<input type="radio" id="male" name="gender" class="custom-control-input">
+			<label class="custom-control-label" for="male">Male</label>
+		</div>
+		<div class="custom-control custom-radio">
+			<input type="radio" id="female" name="gender" class="custom-control-input">
+			<label class="custom-control-label" for="female">Female</label>
+		</div>
+		<div class="custom-control custom-radio">
+			<input type="radio" id="other" name="gender" class="custom-control-input">
+			<label class="custom-control-label" for="other">Other</label>
+		</div>
+		<div class="custom-control custom-radio">
+			<input type="radio" id="All" name="gender" class="custom-control-input" checked="checked">
+			<label class="custom-control-label" for="All">All</label>
+		</div>
+      <div class="modal-footer">
+        <button type="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="genderSave">Save changes</button>
+      </div>
+      	</div>
+    </div>
+  </div>
+</div>
+
+
+	<!-- Model for Age  -->
+<div class="modal fade" id="age" tabindex="-1" role="dialog" aria-labelledby="age" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #335BFF; color: white">
+        <h5 class="modal-title" id="ageTitle">Age:</h5>
+      </div>
+     <div class="modal-body">
+<section class="range-slider" id="facet-price-range-slider">
+  <input name="range-1" value="15" min="0" max="100" step="1" type="range">
+  <input name="range-2" value="75" min="0" max="100" step="1" type="range">
+</section>							
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+	<!-- Model for Education  -->
+<div class="modal fade" id="education" tabindex="-1" role="dialog" aria-labelledby="education" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #335BFF; color: white">
+        <h5 class="modal-title" id="exampleModalLabel">Education:</h5>
+      </div>
+      <div class="modal-body">
+      <fieldset>
+  <legend>Education</legend>
+  <select class="form-control dropdown" id="education" name="education">
+    <option value="" selected="selected" disabled="disabled">-- select one --</option>
+    <optgroup label=" Education:">
+      <option value="1">-  Primary</option>
+      <option value="2">-  Middle</option>
+      <option value="3">-  Matric</option>
+      <option value="4">-  Intermediate</option>
+      <option value="5">-  Bachelor</option>
+      <option value="6">-  Masters</option>
+      <option value="7">-  PHD</option>
+    </optgroup>
+  </select>
+</fieldset>
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	<!-- Model for Occupation  -->
+<div class="modal fade" id="occupation" tabindex="-1" role="dialog" aria-labelledby="occupation" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #335BFF; color: white">
+        <h5 class="modal-title" id="exampleModalLabel">Occupation:</h5>
+      </div>
+      <div class="modal-body">
+ <fieldset>
+  <select class="form-control dropdown" id="occupation" name="occupation">
+    <option value="" selected="selected" disabled="disabled">-- select one --</option>
+    <optgroup label=" Professions:">
+      <option value="1">-  Health Care</option>
+      <option value="2">-  Business</option>
+      <option value="3">-  Engineering</option>
+      <option value="4">-  Education</option>
+      <option value="5">-  Agriculture</option>
+      <option value="6">-  Transportation</option>
+      <option value="7">-  Media/Production</option>
+      <option value="8">-  Computer Sciences</option>
+      <option value="9">-  Others</option>
+    </optgroup>
+  </select>
+</fieldset>
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<!-- Model for Marital Status  -->
+<div class="modal fade" id="maritalStatus" tabindex="-1" role="dialog" aria-labelledby="maritalStatus" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #335BFF; color: white">
+        <h5 class="modal-title" id="exampleModalLabel">Marital Status:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+      		<div class="col-md-12">
+      	<div class="custom-control custom-radio">
+			<input type="radio" id="Single" name="Status" class="custom-control-input">
+			<label class="custom-control-label" for="Single">Single</label>
+		</div>		
+      	<div class="custom-control custom-radio">
+			<input type="radio" id="engaged" name="Status" class="custom-control-input">
+			<label class="custom-control-label" for="engaged">Engaged</label>
+		</div>		
+		<div class="custom-control custom-radio">
+			<input type="radio" id="Married" name="Status" class="custom-control-input">
+			<label class="custom-control-label" for="Married">Married</label>
+		</div>
+		<div class="custom-control custom-radio">
+			<input type="radio" id="divorced" name="Status" class="custom-control-input">
+			<label class="custom-control-label" for="divorced">Divorced</label>
+		</div>
+		
+      		</div>
+      		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	<!-- Model for Income  -->
+<div class="modal fade" id="income" tabindex="-1" role="dialog" aria-labelledby="income" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #335BFF; color: white">
+        <h5 class="modal-title" id="incomeTitle">Income Per Month:</h5>
+      </div>
+     <div class="modal-body">
+<section class="range-slider" id="facet-price-range-slider-income">
+  <input name="range-1" value="25000" min="0" max="100000" step="1" type="range">
+  <input name="range-2" value="75000" min="0" max="100000" step="1" type="range">
+</section>	
+     <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+
+  </div>
+</div>
+</div>
+</div>
+	              
+
+	<!-- Model for Religion  -->
+<div class="modal fade" id="religion" tabindex="-1" role="dialog" aria-labelledby="religion" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #335BFF; color: white">
+        <h5 class="modal-title" id="exampleModalLabel">Religion:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+ <fieldset>
+  <select class="form-control dropdown" id="religion" name="religion">
+  	<optgroup label=" Education:">
+    <option value="" selected="selected" disabled="disabled">-- select one --</option>
+    <option value="Atheist">Atheist</option>
+    <option value="Buddhism">Buddhism</option>
+    <option value="Christianity">Christianity</option>
+    <option value="Hinduism">Hinduism</option>
+    <option value="Islam">Islam</option>
+    <option value="Secular">Secular</option>
+    <option value="Sikhism">Sikhism</option>
+    <option value="Spiritism">Spiritism</option>
+    <option value="Other">Other</option>
+</optgroup>
+
+  </select>
+</fieldset>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+				
+	
+
+<footer class="footer">
+					<div class="container-fluid">
+						<nav class="pull-left">
+							<ul class="nav">
+								<li class="nav-item">
+									<a class="nav-link" href="#">
+										PayperSurvey
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">
+										Help
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">
+										Licenses
+									</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="copyright ml-auto">
+							2019, Developed By Team<i class="la la-heart heart text-danger"></i> by <a href="#">PayPerSurvey</a>
+						</div>				
+					</div>
+</footer>
+
+</body>
+<script src="/assets/js/core/jquery.3.2.1.min.js"></script>
+<script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="/assets/js/core/popper.min.js"></script>
+<script src="/assets/js/core/bootstrap.min.js"></script>
+<script src="/assets/js/plugin/chartist/chartist.min.js"></script>
+<script src="/assets/js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js"></script>
+<!--<script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>-->
+<script src="/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+<script src="/assets/js/plugin/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="/assets/js/plugin/jquery-mapael/maps/world_countries.min.js"></script>
+<script src="/assets/js/plugin/chart-circle/circles.min.js"></script>
+<script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<script src="/assets/js/ready.min.js"></script>
+<script src="/assets/js/demo.js"></script>
+<script type="text/javascript"  src="/assets/js/mapscript.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaS6mfcsGApLEEY13N0VYkIuQXZWyYp0c&libraries=places&callback=initAutocomplete"
+         async defer></script>
+         <script type="text/javascript" src="/assets/js/slider/script.js"></script>
+         <script type="text/javascript" src="/assets/js/slider/income.js"></script>
+<script type="text/javascript" src="/assets/js/slider/Jquery.js"></script>
+</html>
