@@ -169,13 +169,7 @@
 											<div class="row">
 												<div class="col-12 d-flex align-items-center">
 													<div class="title">
-														{{#if location}}
-															<h6>{{location}}</h6>
-														{{else}}
-
-																<h6> not mendetory </h6>
-														{{/if}}
-														
+														<h6>All</h6>
 													</div>
 												</div>
 											</div>
@@ -208,7 +202,7 @@
 											<div class="row">
 												<div class="col-12 d-flex align-items-center">
 													<div class="gender">
-														<p id="genderVal">{{gender}}</p>
+														<p id="genderVal">All</p>
 													</div>
 												</div>
 											</div>
@@ -241,7 +235,7 @@
 											<div class="row">
 												<div class="col-12 d-flex align-items-center">
 													<div class="title">
-														<h6>{{ageR_1}} to {{agrR_2}} </h6>
+														<h6>All</h6>
 													</div>
 												</div>
 											</div>
@@ -267,14 +261,14 @@
 											<div class="row">
 												<div class="col-12 d-flex align-items-center">
 													<div class="title">
-														<h4><b>Education Level</b></h4>
+														<h4><b>Education</b></h4>
 													</div>
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-12 d-flex align-items-center">
 													<div class="title">
-														<h6>{{education}}</h6>
+														<h6>All</h6>
 													</div>
 												</div>
 												</div>
@@ -309,7 +303,7 @@
 											<div class="row">
 												<div class="col-12 d-flex align-items-center">
 													<div class="title">
-														<h6>{{occupation}}</h6>
+														<h6>All</h6>
 													</div>
 												</div>
 											</div>
@@ -341,7 +335,7 @@
 											<div class="row">
 												<div class="col-12 d-flex align-items-center">
 													<div class="title">
-														<h6>{{marital_status}}</h6>
+														<h6>All</h6>
 													</div>
 												</div>
 											</div>
@@ -373,7 +367,7 @@
 											<div class="row">
 												<div class="col-12 d-flex align-items-center">
 													<div class="title">
-														<h6>{{incomeR_1}} to {{incomeR_2}}</h6>
+														<h6>All</h6>
 													</div>
 												</div>
 											</div>
@@ -405,7 +399,7 @@
 											<div class="row">
 												<div class="col-12 d-flex align-items-center">
 													<div class="title">
-														<h6>{{religion}}</h6>
+														<h6>All</h6>
 													</div>
 												</div>
 											</div>
@@ -438,25 +432,21 @@
 <!-- Model for Location  -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" id="location" role="dialog" aria-labelledby="location" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-	  <form action="/customer/updateTA?targetaudience_atr=location&id={{id}}" method="POST">
-			<div class="modal-content">
-		<div class="modal-header" style="background: #335BFF; color: white">
-			<h5 class="modal-title" id="exampleModalLabel">Location:</h5>
-		</div>
-		<div class="modal-body">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #335BFF; color: white">
+        <h5 class="modal-title" id="exampleModalLabel">Location:</h5>
+      </div>
+      <div class="modal-body">
 
-			<input id="pac-input" name = "location" class="controls" type="text" placeholder="Search Place" value={{location}}>
-			<div id="map" style="min-height: 350px; max-height: 250px"></div>
-			
+        <input id="pac-input" class="controls" type="text" placeholder="Search Place">
+    	<div id="map" style="min-height: 350px; max-height: 250px"></div>
 
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary">update</button>
-		</div>
-		</div>
-	  </form>
-    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -466,8 +456,7 @@
 	<!-- Model for Gender  -->
 <div class="modal fade" id="gender" tabindex="-1" role="dialog" aria-labelledby="gender" aria-hidden="true">
   <div class="modal-dialog" role="document">
-	  <form action="/customer/updateTA?targetaudience_atr=gender&id={{id}}" method="POST">
-			<div class="modal-content">
+    <div class="modal-content">
       <div class="modal-header" style="background: #335BFF; color: white">
         <h5 class="modal-title" id="genderTitle">Gender:</h5>
       </div>
@@ -494,8 +483,6 @@
       </div>
       	</div>
     </div>
-	  </form>
-    
   </div>
 </div>
 
@@ -503,25 +490,22 @@
 	<!-- Model for Age  -->
 <div class="modal fade" id="age" tabindex="-1" role="dialog" aria-labelledby="age" aria-hidden="true">
   <div class="modal-dialog" role="document">
-	  <form action="/customer/updateTA?targetaudience_atr=age&id={{id}}" method="POST">
-						<div class="modal-content">
-				<div class="modal-header" style="background: #335BFF; color: white">
-					<h5 class="modal-title" id="ageTitle">Age:</h5>
-				</div>
-				<div class="modal-body">
-			<section class="range-slider" id="facet-price-range-slider">
-			<input name="range-1" value="15" min="0" max="100" step="1" type="range" value={{ageR_1}}>
-			<input name="range-2" value="75" min="0" max="100" step="1" type="range" value={{ageR_2}}>
-			</section>							
+    <div class="modal-content">
+      <div class="modal-header" style="background: #335BFF; color: white">
+        <h5 class="modal-title" id="ageTitle">Age:</h5>
+      </div>
+     <div class="modal-body">
+<section class="range-slider" id="facet-price-range-slider">
+  <input name="range-1" value="15" min="0" max="100" step="1" type="range">
+  <input name="range-2" value="75" min="0" max="100" step="1" type="range">
+</section>							
 
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
-			</div>
-			</div>  
-	  </form>
-    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+  </div>
+</div>
 </div>
 </div>
 
