@@ -136,6 +136,18 @@ app.get('/', async (req, res) => {
         //if(!err) console.log(err);
         console.log("survey",surveys);
     })
+    let ta ={
+        location: 'gujranwala, Pakistan',
+        gender: 'male',
+        age: 0,
+        education:'All',
+        occupation: 'All',
+        marital_status: 'All',
+        income:'All',
+        religion: 'All'
+
+    };
+    db.collection('TargetAudience').doc('K0MLUyw4nTMYMyVhrruy').set(ta,{merge:true})
 
     // let openSurveys = [];
     // let closeSurveys = [];
