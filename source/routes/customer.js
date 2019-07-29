@@ -261,14 +261,14 @@ cr.get('/closedSurvey', (req,res) =>{
 })
 
 cr.get('/targetAudience', (req,res) =>{
-
-    if(req.session.email){
-        //dataset = {email: req.session.email, uid: req.session.uid};
-        //console.log(req.session.email);
-        //console.log("welcome customer sceen")
-        res.render('./customerViews/targetAudience',{layout:false});    
-    }
-    else res.redirect('/customer/login');
+    res.render('./customerViews/targetAudience',{layout:false});  
+    // if(req.session.email){
+    //     //dataset = {email: req.session.email, uid: req.session.uid};
+    //     //console.log(req.session.email);
+    //     //console.log("welcome customer sceen")
+    //     res.render('./customerViews/targetAudience',{layout:false});    
+    // }
+    // else res.redirect('/customer/login');
     
 })
 

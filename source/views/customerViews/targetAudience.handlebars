@@ -10,46 +10,11 @@
 		<link rel="stylesheet" href="/assets/css/demo.css">
 		<link rel="stylesheet" type="text/css" href="/assets/css/mapstyle.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
-		
 		<link rel="stylesheet" type="text/css" href="/assets/css/slider/style.css">
 		
-		<style>
-.slidecontainer {
-  width: 100%;
-}
-
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 10px;
-  background: #607d8b;
-  outline: none;
-  opacity: 0.9;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider:hover {
-  opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  background: #4CAF50;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  background: #4CAF50;
-  cursor: pointer;
-}
-</style>
+		
+		<link rel="stylesheet"  href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		
 	</head>
 <body>
 	<div class="wrapper">
@@ -66,7 +31,7 @@
 				<nav class="navbar navbar-header navbar-expand-lg">
 					<div class="container-fluid">
 						<form class="col-md-10 navbar-left navbar-form nav-search mr-md-3" action="" id="search">
-							<div class="input-group input-square">
+							<div class="input-group input-square" style="margin-top: 13px">
 								<input type="text" placeholder="Search ..." class="form-control input-square">
 								<div class="input-group-append">
 									<span class="input-group-text">
@@ -78,9 +43,9 @@
 						<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 							<li class="btn">
 								<a href="index.html">
-									<button class="btn btn-primary">Create Survey</button>
+									<button class="btn btn-info">Create Survey</button>
 								</a>
-							</li>
+							</li> 
 							
 						</ul>
 					</div>
@@ -118,32 +83,32 @@
 						</div>
 					</div>
 					<ul class="nav">
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a href="/customer/">
 								<i class="la la-home"></i>
 								<p>Dashboard</p>
-								<span class="badge badge-count">5</span>
+								<span class="badge badge-count badge-info">5</span>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="/customer/openSurvey">
 								<i class="la la-check-circle-o"></i>
 								<p>Open Surveys</p>
-								<span class="badge badge-count">5</span>
+								<span class="badge badge-count badge-info">5</span>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="/customer/closedSurvey">
 								<i class="la la-clock-o la"></i>
 								<p>closed Surveys</p>
-								<span class="badge badge-count">5</span>
+								<span class="badge badge-count badge-info">5</span>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="/customer/draftSurvey">
 								<i class="la la-pencil-square"></i>
 								<p>Draft Surveys</p>
-								<span class="badge badge-count">5</span>
+								<span class="badge badge-count badge-info">5</span>
 							</a>
 						</li>
 						
@@ -155,268 +120,164 @@
 					<div class="container-fluid">
 						<h4 class="page-title">Select Survey Target</h4>
 							<div class="row">
-								<div class="col-md-3">
-									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#location">
-										<div class="card card-stats card-success">
-										<div class="card-body card-border">							
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h4><b>Location</b></h4>
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h6>All</h6>
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-8">			
-												</div>
-												<div class="col-md-4">
-													<div class="icon icon-big text-center">
-														<i class="la la-map-marker"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									</a>
-								</div>
 								
 
-								<div class="col-md-3">
-									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#gender">
-									<div class="card card-stats card-info">
-										<div class="card-body card-border">
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h4><b>Gender</b></h4>
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="gender">
-														<p id="genderVal">All</p>
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-8">
-												
-												</div>
-												<div class="col-md-4">
-													<div class="icon icon-big text-center">
-														<i class="la la-male"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</a>
-								</div>
+
+
 
 								<div class="col-md-3">
-									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#age">
-									<div class="card card-stats card-info">
-										<div class="card-body card-border">
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h4><b>Age</b></h4>
-													</div>
+									<a href="" style="width: 100%; text-decoration: none;" 				  data-toggle="modal" data-target="#location">
+										<div class="card card-stats card-info">
+											<div class="card-body card-border">							
+												<div class="title">
+													<h4><b>Location</b></h4>
 												</div>
-											</div>
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h6>All</h6>
-													</div>
+												<div class="title">
+													<h6>All</h6>
 												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-8">
-												
-												</div>
-												<div class="col-md-4">
-													<div class="icon icon-big text-center">
-														<i class="la la-map-marker"></i>
-													</div>
+												<div class="icon icon-big text-right">
+													<i class="fas fa-map-marked-alt"></i>
 												</div>
 											</div>
 										</div>
-									</div>
-								</a>
-								</div>
-
-								<div class="col-md-3">
-									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#education">
-									<div class="card card-stats card-info">
-										<div class="card-body card-border">
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h4><b>Education</b></h4>
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h6>All</h6>
-													</div>
-												</div>
-												</div>
-											<div class="row">
-												<div class="col-md-8">
-												
-												</div>
-												<div class="col-md-4">
-													<div class="icon icon-big text-center">
-														<i class="la la-graduation-cap"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
 									</a>
 								</div>
-							
+
+								
+
+							<div class="col-md-3">
+								<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#gender">
+									<div class="card card-stats card-info">
+										<div class="card-body card-border">
+											<div class="title">
+												<h4><b>Gender</b></h4>
+											</div>
+											<div class="gender">
+												<p>All</p>
+											</div>
+											<div class="icon icon-big text-right">
+												<i class="fa fa-venus-mars"></i>
+											</div>
+										</div>
+									</div>
+								</a>
 							</div>
-							<div class="row">
-								<div class="col-md-3">
-									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#occupation">
+
+						<div class="col-md-3">
+							<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#age">
 									<div class="card card-stats card-info">
-										<div class="card-body card-border">
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h4><b>Occupation</b></h4>
-													</div>
-												</div>
+										<div class="card-body card-border">							
+											<div class="title">
+												<h4><b>Age</b></h4>
 											</div>
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h6>All</h6>
-													</div>
-												</div>
+											<div class="title">
+												<h6>All</h6>
 											</div>
-											<div class="row">
-												<div class="col-md-8">
-												
-												</div>
-												<div class="col-md-4">
-													<div class="icon icon-big text-center">
-														<i class="la la-map-marker"></i>
-													</div>
-												</div>
+											<div class="icon icon-big text-right" >
+												<i class="fa fa-child" aria-hidden="true"></i>
 											</div>
 										</div>
 									</div>
 								</a>
-								</div>
-								<div class="col-md-3">
-									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#maritalStatus">
+							</div>
+
+							<div class="col-md-3">
+								<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#education">
 									<div class="card card-stats card-info">
-										<div class="card-body card-border">
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h4><b>Marital Status</b></h4>
-													</div>
-												</div>
+										<div class="card-body card-border">							
+											<div class="title">
+												<h4><b>Education</b></h4>
 											</div>
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h6>All</h6>
-													</div>
-												</div>
+											<div class="title">
+												<h6>All</h6>
 											</div>
-											<div class="row">
-												<div class="col-md-8">
-												
-												</div>
-												<div class="col-md-4">
-													<div class="icon icon-big text-center">
-														<i class="la la-heart"></i>
-													</div>
-												</div>
+											<div class="icon icon-big text-right" >
+												<i class="fas fa-graduation-cap"></i>
 											</div>
 										</div>
 									</div>
 								</a>
-								</div>
-								<div class="col-md-3">
-									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#income">
+							</div>
+							
+						</div>
+						<div class="row">
+
+							<div class="col-md-3">
+								<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#occupation">
 									<div class="card card-stats card-info">
-										<div class="card-body card-border">
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h4><b>Income</b></h4>
-													</div>
-												</div>
+										<div class="card-body card-border">							
+											<div class="title">
+												<h4><b>Occupation</b></h4>
 											</div>
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h6>All</h6>
-													</div>
-												</div>
+											<div class="title">
+												<h6>All</h6>
 											</div>
-											<div class="row">
-												<div class="col-md-8">
-												
-												</div>
-												<div class="col-md-4">
-													<div class="icon icon-big text-center">
-														<i class="la la-map-marker"></i>
-													</div>
-												</div>
+											<div class="icon icon-big text-right" >
+												<i class="fas fa-briefcase"></i>
 											</div>
 										</div>
 									</div>
 								</a>
-								</div>
-								<div class="col-md-3">
-									<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#religion">
+							</div>
+
+
+
+							<div class="col-md-3">
+								<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#maritalStatus">
 									<div class="card card-stats card-info">
-										<div class="card-body card-border">
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h4><b>Religion</b></h4>
-													</div>
-												</div>
+										<div class="card-body card-border">							
+											<div class="title">
+												<h4><b>Marital Status</b></h4>
 											</div>
-											<div class="row">
-												<div class="col-12 d-flex align-items-center">
-													<div class="title">
-														<h6>All</h6>
-													</div>
-												</div>
+											<div class="title">
+												<h6>All</h6>
 											</div>
-											<div class="row">
-												<div class="col-md-8">
-												
-												</div>
-												<div class="col-md-4">
-													<div class="icon icon-big text-center">
-														<i class="la la-map-marker"></i>
-													</div>
-												</div>
+											<div class="icon icon-big text-right" >
+												<i class="fa fa-heart"></i>
 											</div>
 										</div>
 									</div>
 								</a>
-								</div>
+							</div>
+
+
+								<div class="col-md-3">
+								<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#income">
+									<div class="card card-stats card-info">
+										<div class="card-body card-border">							
+											<div class="title">
+												<h4><b>Annual Income</b></h4>
+											</div>
+											<div class="title">
+												<h6>All</h6>
+											</div>
+											<div class="icon icon-big text-right" >
+												<i class="fas fa-dollar-sign"></i>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+
+
+
+							<div class="col-md-3">
+								<a href="" style="width: 100%; text-decoration: none;" data-toggle="modal" data-target="#religion">
+									<div class="card card-stats card-info">
+										<div class="card-body card-border">							
+											<div class="title">
+												<h4><b>Religion</b></h4>
+											</div>
+											<div class="title">
+												<h6>All</h6>
+											</div>
+											<div class="icon icon-big text-right" >
+												<i class="fas fa-mosque"></i>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
 
 
 
@@ -439,7 +300,7 @@
       <div class="modal-body">
 
         <input id="pac-input" class="controls" type="text" placeholder="Search Place">
-    	<div id="map" style="min-height: 350px; max-height: 250px"></div>
+    	<div id="map"></div>
 
       </div>
       <div class="modal-footer">
@@ -496,8 +357,8 @@
       </div>
      <div class="modal-body">
 <section class="range-slider" id="facet-price-range-slider">
-  <input name="range-1" value="15" min="0" max="100" step="1" type="range">
-  <input name="range-2" value="75" min="0" max="100" step="1" type="range">
+  <input name="range-1" value="0" min="0" max="100" step="1" type="range">
+  <input name="range-2" value="100" min="0" max="100" step="1" type="range">
 </section>							
 
       <div class="modal-footer">
@@ -521,15 +382,18 @@
       <fieldset>
   <legend>Education</legend>
   <select class="form-control dropdown" id="education" name="education">
-    <option value="" selected="selected" disabled="disabled">-- select one --</option>
+    <option value="0" selected="selected" >All</option>
     <optgroup label=" Education:">
-      <option value="1">-  Primary</option>
-      <option value="2">-  Middle</option>
-      <option value="3">-  Matric</option>
-      <option value="4">-  Intermediate</option>
-      <option value="5">-  Bachelor</option>
-      <option value="6">-  Masters</option>
-      <option value="7">-  PHD</option>
+	  <option value="1">Illitrates</option>
+      <option value="2">Primary</option>
+      <option value="3">Secondary</option>
+      <option value="4">Secondary & Above</option>
+      <option value="5">Intermediate</option>
+      <option value="6">Intermediate & Above</option>
+      <option value="7">Bachelor</option>
+      <option value="8">Bachelor & Above</option>
+	  <option value="9">Phd</option>
+	  <option value="10">Phd & Above</option>
     </optgroup>
   </select>
 </fieldset>
@@ -554,17 +418,17 @@
       <div class="modal-body">
  <fieldset>
   <select class="form-control dropdown" id="occupation" name="occupation">
-    <option value="" selected="selected" disabled="disabled">-- select one --</option>
+    <option value="0" selected="selected">All</option>
     <optgroup label=" Professions:">
-      <option value="1">-  Health Care</option>
-      <option value="2">-  Business</option>
-      <option value="3">-  Engineering</option>
-      <option value="4">-  Education</option>
-      <option value="5">-  Agriculture</option>
-      <option value="6">-  Transportation</option>
-      <option value="7">-  Media/Production</option>
-      <option value="8">-  Computer Sciences</option>
-      <option value="9">-  Others</option>
+      <option value="1">Health Care</option>
+      <option value="2">Business</option>
+      <option value="3">Engineering</option>
+      <option value="4">Education</option>
+      <option value="5">Agriculture</option>
+      <option value="6">Transportation</option>
+      <option value="7">Media/Production</option>
+      <option value="8">Computer Sciences</option>
+      <option value="9">Others</option>
     </optgroup>
   </select>
 </fieldset>
@@ -605,6 +469,10 @@
 			<input type="radio" id="divorced" name="Status" class="custom-control-input">
 			<label class="custom-control-label" for="divorced">Divorced</label>
 		</div>
+		<div class="custom-control custom-radio">
+			<input type="radio" id="All" name="Status" class="custom-control-input" checked="checked">
+			<label class="custom-control-label" for="All">All</label>
+		</div>
 		
       		</div>
       		</div>
@@ -628,8 +496,8 @@
       </div>
      <div class="modal-body">
 <section class="range-slider" id="facet-price-range-slider-income">
-  <input name="range-1" value="25000" min="0" max="100000" step="1" type="range">
-  <input name="range-2" value="75000" min="0" max="100000" step="1" type="range">
+  <input name="range-1" value="0" min="0" max="1000000" step="1" type="range">
+  <input name="range-2" value="1000000" min="0" max="1000000" step="1" type="range">
 </section>	
      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -655,16 +523,16 @@
  <fieldset>
   <select class="form-control dropdown" id="religion" name="religion">
   	<optgroup label=" Education:">
-    <option value="" selected="selected" disabled="disabled">-- select one --</option>
-    <option value="Atheist">Atheist</option>
-    <option value="Buddhism">Buddhism</option>
-    <option value="Christianity">Christianity</option>
-    <option value="Hinduism">Hinduism</option>
-    <option value="Islam">Islam</option>
-    <option value="Secular">Secular</option>
-    <option value="Sikhism">Sikhism</option>
-    <option value="Spiritism">Spiritism</option>
-    <option value="Other">Other</option>
+    <option value="0" selected="selected">All</option>
+    <option value="1">Atheist</option>
+    <option value="2">Buddhism</option>
+    <option value="3">Christianity</option>
+    <option value="4">Hinduism</option>
+    <option value="5">Islam</option>
+    <option value="6">Secular</option>
+    <option value="7">Sikhism</option>
+    <option value="8">Spiritism</option>
+    <option value="9">Other</option>
 </optgroup>
 
   </select>
@@ -685,14 +553,13 @@
 
 				
 	
-
-<footer class="footer">
+<footer class="footer" style="position: absolute;bottom: 0px; width:100%">
 					<div class="container-fluid">
 						<nav class="pull-left">
 							<ul class="nav">
 								<li class="nav-item">
 									<a class="nav-link" href="#">
-										PayperSurvey
+										PayPerSurvey
 									</a>
 								</li>
 								<li class="nav-item">
@@ -708,10 +575,10 @@
 							</ul>
 						</nav>
 						<div class="copyright ml-auto">
-							2019, Developed By Team<i class="la la-heart heart text-danger"></i> by <a href="#">PayPerSurvey</a>
+							2018, made with <i class="la la-heart heart text-danger"></i> by <a href="#">PayPerSurvey</a>
 						</div>				
 					</div>
-</footer>
+				</footer>
 
 </body>
 <script src="/assets/js/core/jquery.3.2.1.min.js"></script>
@@ -720,7 +587,6 @@
 <script src="/assets/js/core/bootstrap.min.js"></script>
 <script src="/assets/js/plugin/chartist/chartist.min.js"></script>
 <script src="/assets/js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js"></script>
-<!--<script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>-->
 <script src="/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
 <script src="/assets/js/plugin/jquery-mapael/jquery.mapael.min.js"></script>
 <script src="/assets/js/plugin/jquery-mapael/maps/world_countries.min.js"></script>
@@ -731,7 +597,7 @@
 <script type="text/javascript"  src="/assets/js/mapscript.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaS6mfcsGApLEEY13N0VYkIuQXZWyYp0c&libraries=places&callback=initAutocomplete"
          async defer></script>
-         <script type="text/javascript" src="/assets/js/slider/script.js"></script>
-         <script type="text/javascript" src="/assets/js/slider/income.js"></script>
+<script type="text/javascript" src="/assets/js/slider/script.js"></script>
+<script type="text/javascript" src="/assets/js/slider/income.js"></script>
 <script type="text/javascript" src="/assets/js/slider/Jquery.js"></script>
 </html>
