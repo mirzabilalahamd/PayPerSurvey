@@ -260,68 +260,16 @@ cr.get('/closedSurvey', (req,res) =>{
     
 })
 
-cr.get('/targetaudience', (req,res) =>{
-
+cr.get('/targetAudience', (req,res) =>{
+    res.render('./customerViews/targetAudience',{layout:false});  
     // if(req.session.email){
     //     //dataset = {email: req.session.email, uid: req.session.uid};
     //     //console.log(req.session.email);
     //     //console.log("welcome customer sceen")
-       
+    //     res.render('./customerViews/targetAudience',{layout:false});    
     // }
     // else res.redirect('/customer/login');
-    db.collection('TargetAudience').doc('K0MLUyw4nTMYMyVhrruy').get()
-    .then(doc =>{
-        let data = doc.data();
-        data.id = doc.id;
-        data.layout = false;
-        console.log(data);
-        res.render('./customerViews/targetAudience',data);
-    })
-    .catch( err =>{
-        console.log("target audience",err);
-        
-    })
     
-     
-})
-//update target audience
-cr.post('/updateTA', (req,res)=>{
-    //console.log('updateTA');
-    
-    let atr = req.param('targetaudience_atr');
-    id = req.param('id');
-    let ta ={};
-    if(atr == 'location'){
-        ta.location = req.body.location;    
-    }
-    else if(atr == 'gender'){
-        ta.gender = req.body.gender;
-    }
-    else if(atr == 'age'){
-        ta.ageR_1 = req.body.range-1;
-        ta.ageR_2 = req.body.range-2;
-        }       
-    // else if(atr == 'gender'){
-    //     ta.gender = req.body.gender;
-    // }
-    // else if(atr == 'gender'){
-    //     ta.gender = req.body.gender;
-    // }
-    // else if(atr == 'gender'){
-    //     ta.gender = req.body.gender;
-    // }
-    // else if(atr == 'gender'){
-    //     ta.gender = req.body.gender;
-    // }
-    // else if(atr == 'gender'){
-    //     ta.gender = req.body.gender;
-    // }
-
-    //console.log(ta, id, atr);
-    db.collection('TargetAudience').doc(id).set(ta,{merge:true});
-    res.redirect('/customer/targetaudience');
-//   console.log( req.param('targetaudience_atr'),req.body.location);
-//   res.send( req.param('targetaudience_atr')); 
 })
 
 
