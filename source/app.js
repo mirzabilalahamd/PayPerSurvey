@@ -17,7 +17,27 @@ app.use(session({
 }))
 //setting template engine
 var exphbs  = require('express-handlebars');
-app.engine('handlebars', exphbs());
+let hbs=exphbs.create({
+    helpers:{
+            select: (value,options) =>{
+                return options.fn(this)
+                .split('\n')
+                .map(function(v) {
+                  var t = 'value="' + value + '"'
+                  return ! RegExp(t).test(v) ? v : v.replace(t, t + ' selected="selected"')
+                })
+                .join('\n')
+            },
+            checked:(value,test) =>{
+                if(value == '') return ''
+                return value == test ? 'checked' :'';
+            }
+            
+    }
+
+
+    })  
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 //set static files
@@ -137,9 +157,10 @@ app.get('/', async (req, res) => {
         console.log("survey",surveys);
     })
     let ta ={
-        location: 'gujranwala, Pakistan',
-        gender: 'male',
-        age: 0,
+        location: 'Pakistan',
+        gender: 'All',
+        ageR_1: '13',
+        ageR_2: '100',
         education:'All',
         occupation: 'All',
         marital_status: 'All',

@@ -133,7 +133,7 @@
 													<h4><b>Location</b></h4>
 												</div>
 												<div class="title">
-													<h6>All</h6>
+													<h6>{{location}}</h6>
 												</div>
 												<div class="icon icon-big text-right">
 													<i class="fas fa-map-marked-alt"></i>
@@ -153,7 +153,7 @@
 												<h4><b>Gender</b></h4>
 											</div>
 											<div class="gender">
-												<p>All</p>
+												<p>{{gender}}</p>
 											</div>
 											<div class="icon icon-big text-right">
 												<i class="fa fa-venus-mars"></i>
@@ -171,7 +171,7 @@
 												<h4><b>Age</b></h4>
 											</div>
 											<div class="title">
-												<h6>All</h6>
+												<h6>{{ageR_1}} to {{ageR_2}}</h6>
 											</div>
 											<div class="icon icon-big text-right" >
 												<i class="fa fa-child" aria-hidden="true"></i>
@@ -189,7 +189,7 @@
 												<h4><b>Education</b></h4>
 											</div>
 											<div class="title">
-												<h6>All</h6>
+												<h6>{{education}}</h6>
 											</div>
 											<div class="icon icon-big text-right" >
 												<i class="fas fa-graduation-cap"></i>
@@ -210,7 +210,7 @@
 												<h4><b>Occupation</b></h4>
 											</div>
 											<div class="title">
-												<h6>All</h6>
+												<h6>{{occupation}}</h6>
 											</div>
 											<div class="icon icon-big text-right" >
 												<i class="fas fa-briefcase"></i>
@@ -230,7 +230,7 @@
 												<h4><b>Marital Status</b></h4>
 											</div>
 											<div class="title">
-												<h6>All</h6>
+												<h6>{{marital_status}}</h6>
 											</div>
 											<div class="icon icon-big text-right" >
 												<i class="fa fa-heart"></i>
@@ -249,7 +249,7 @@
 												<h4><b>Annual Income</b></h4>
 											</div>
 											<div class="title">
-												<h6>All</h6>
+												<h6>{{incomeR_1}} to {{incomeR_2}}</h6>
 											</div>
 											<div class="icon icon-big text-right" >
 												<i class="fas fa-dollar-sign"></i>
@@ -269,7 +269,7 @@
 												<h4><b>Religion</b></h4>
 											</div>
 											<div class="title">
-												<h6>All</h6>
+												<h6>{{religion}}</h6>
 											</div>
 											<div class="icon icon-big text-right" >
 												<i class="fas fa-mosque"></i>
@@ -293,21 +293,25 @@
 <!-- Model for Location  -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" id="location" role="dialog" aria-labelledby="location" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header" style="background: #335BFF; color: white">
-        <h5 class="modal-title" id="exampleModalLabel">Location:</h5>
-      </div>
-      <div class="modal-body">
+	  <form action="/customer/updateTA?ta_atr=location&id={{id}}" method="POST">
+			<div class="modal-content">
+				<div class="modal-header" style="background: #335BFF; color: white">
+					<h5 class="modal-title" id="exampleModalLabel">Location:</h5>
+				</div>
+				<div class="modal-body">
 
-        <input id="pac-input" class="controls" type="text" placeholder="Search Place">
-    	<div id="map"></div>
+					<input id="pac-input" name="location" class="controls" type="text" placeholder="Search Place" value={{location}}>
+					<div id="map"></div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Update</button>
+				</div>
+			</div>
+	  </form>
+
+    
   </div>
 </div>
 
@@ -317,33 +321,38 @@
 	<!-- Model for Gender  -->
 <div class="modal fade" id="gender" tabindex="-1" role="dialog" aria-labelledby="gender" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background: #335BFF; color: white">
-        <h5 class="modal-title" id="genderTitle">Gender:</h5>
-      </div>
-      <div class="modal-body">
-		<div class="custom-control custom-radio">
-			<input type="radio" id="male" name="gender" class="custom-control-input">
-			<label class="custom-control-label" for="male">Male</label>
-		</div>
-		<div class="custom-control custom-radio">
-			<input type="radio" id="female" name="gender" class="custom-control-input">
-			<label class="custom-control-label" for="female">Female</label>
-		</div>
-		<div class="custom-control custom-radio">
-			<input type="radio" id="other" name="gender" class="custom-control-input">
-			<label class="custom-control-label" for="other">Other</label>
-		</div>
-		<div class="custom-control custom-radio">
-			<input type="radio" id="All" name="gender" class="custom-control-input" checked="checked">
-			<label class="custom-control-label" for="All">All</label>
-		</div>
-      <div class="modal-footer">
-        <button type="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" id="genderSave">Save changes</button>
-      </div>
-      	</div>
-    </div>
+	  <form action="/customer/updateTA?ta_atr=gender&id={{id}}" method="POST">
+			
+				<div class="modal-content">
+				<div class="modal-header" style="background: #335BFF; color: white">
+					<h5 class="modal-title" id="genderTitle">Gender:</h5>
+				</div>
+				<div class="modal-body">
+					<div class="custom-control custom-radio">
+						<input type="radio" id="All" name="gender" class="custom-control-input" checked="checked" value="All">
+						<label class="custom-control-label" for="All">All</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="male" name="gender" class="custom-control-input" value="male">
+						<label class="custom-control-label" for="male">Male</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="female" name="gender" class="custom-control-input" value="female">
+						<label class="custom-control-label" for="female">Female</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="other" name="gender" class="custom-control-input" value="other">
+						<label class="custom-control-label" for="other">Other</label>
+					</div>
+					
+				<div class="modal-footer">
+					<button type="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary" id="genderSave">Update</button>
+				</div>
+					</div>
+				</div>
+	  </form>
+
   </div>
 </div>
 
@@ -351,22 +360,26 @@
 	<!-- Model for Age  -->
 <div class="modal fade" id="age" tabindex="-1" role="dialog" aria-labelledby="age" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background: #335BFF; color: white">
-        <h5 class="modal-title" id="ageTitle">Age:</h5>
-      </div>
-     <div class="modal-body">
-<section class="range-slider" id="facet-price-range-slider">
-  <input name="range-1" value="0" min="0" max="100" step="1" type="range">
-  <input name="range-2" value="100" min="0" max="100" step="1" type="range">
-</section>							
+	  <form action="/customer/updateTA?ta_atr=age&id={{id}}", method="POST">
+					<div class="modal-content">
+				<div class="modal-header" style="background: #335BFF; color: white">
+					<h5 class="modal-title" id="ageTitle">Age:</h5>
+				</div>
+				<div class="modal-body">
+			<section class="range-slider" id="facet-price-range-slider">
+			<input name="range_1"  min="13" max="100" step="1" type="range" value={{ageR_1}}>
+			<input name="range_2"  min="15" max="100" step="1" type="range" value={{ageR_2}}>
+			</section>							
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-  </div>
-</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Update</button>
+				</div>
+			</div>
+			</div>
+	  </form>
+
+
 </div>
 </div>
 
@@ -374,35 +387,42 @@
 	<!-- Model for Education  -->
 <div class="modal fade" id="education" tabindex="-1" role="dialog" aria-labelledby="education" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background: #335BFF; color: white">
-        <h5 class="modal-title" id="exampleModalLabel">Education:</h5>
-      </div>
-      <div class="modal-body">
-      <fieldset>
-  <legend>Education</legend>
-  <select class="form-control dropdown" id="education" name="education">
-    <option value="0" selected="selected" >All</option>
-    <optgroup label=" Education:">
-	  <option value="1">Illitrates</option>
-      <option value="2">Primary</option>
-      <option value="3">Secondary</option>
-      <option value="4">Secondary & Above</option>
-      <option value="5">Intermediate</option>
-      <option value="6">Intermediate & Above</option>
-      <option value="7">Bachelor</option>
-      <option value="8">Bachelor & Above</option>
-	  <option value="9">Phd</option>
-	  <option value="10">Phd & Above</option>
-    </optgroup>
-  </select>
-</fieldset>
-       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+	  <form action="/customer/updateTA?ta_atr=education&id={{id}}", method="POST">
+			<div class="modal-content">
+			<div class="modal-header" style="background: #335BFF; color: white">
+				<h5 class="modal-title" id="exampleModalLabel">Education:</h5>
+			</div>
+			<div class="modal-body">
+			<fieldset>
+		<legend>Education</legend>
+		{{#select education}}
+			<select class="form-control dropdown" id="education" name="education">
+			<option value="All" >All</option>
+			<optgroup label=" Education:">
+			<option value="illitrates">Illitrates</option>
+			<option value="primary">Primary</option>
+			<option value="secondary">Secondary</option>
+			<option value="secondaryabove">Secondary & Above</option>
+			<option value="intermediate">Intermediate</option>
+			<option value="intermediateabove">Intermediate & Above</option>
+			<option value="bachelor">Bachelor</option>
+			<option value="bachelorabove">Bachelor & Above</option>
+			<option value="phd">Phd</option>
+			<option value="phdabove">Phd & Above</option>
+			</optgroup>
+			{{/select}}
+			</select>
+		 
+		
+		</fieldset>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary">Update</button>
+			</div>
+			</div>
+	  </form>
+    
   </div>
 </div>
 
@@ -411,77 +431,84 @@
 	<!-- Model for Occupation  -->
 <div class="modal fade" id="occupation" tabindex="-1" role="dialog" aria-labelledby="occupation" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background: #335BFF; color: white">
-        <h5 class="modal-title" id="exampleModalLabel">Occupation:</h5>
-      </div>
-      <div class="modal-body">
- <fieldset>
-  <select class="form-control dropdown" id="occupation" name="occupation">
-    <option value="0" selected="selected">All</option>
-    <optgroup label=" Professions:">
-      <option value="1">Health Care</option>
-      <option value="2">Business</option>
-      <option value="3">Engineering</option>
-      <option value="4">Education</option>
-      <option value="5">Agriculture</option>
-      <option value="6">Transportation</option>
-      <option value="7">Media/Production</option>
-      <option value="8">Computer Sciences</option>
-      <option value="9">Others</option>
-    </optgroup>
-  </select>
-</fieldset>
-       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+	 
+							<div class="modal-content">
+				<div class="modal-header" style="background: #335BFF; color: white">
+					<h5 class="modal-title" id="exampleModalLabel">Occupation:</h5>
+				</div>
+				<div class="modal-body">
+			<fieldset>
+			<select class="form-control dropdown" id="occupation" name="occupation">
+				<option value="0" selected="selected">All</option>
+				<optgroup label=" Professions:">
+				<option value="1">Health Care</option>
+				<option value="2">Business</option>
+				<option value="3">Engineering</option>
+				<option value="4">Education</option>
+				<option value="5">Agriculture</option>
+				<option value="6">Transportation</option>
+				<option value="7">Media/Production</option>
+				<option value="8">Computer Sciences</option>
+				<option value="9">Others</option>
+				</optgroup>
+			</select>
+			</fieldset>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Update</button>
+				</div>
+				</div>
+	  
+  
   </div>
 </div>
 
 	<!-- Model for Marital Status  -->
 <div class="modal fade" id="maritalStatus" tabindex="-1" role="dialog" aria-labelledby="maritalStatus" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background: #335BFF; color: white">
-        <h5 class="modal-title" id="exampleModalLabel">Marital Status:</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-      		<div class="col-md-12">
-      	<div class="custom-control custom-radio">
-			<input type="radio" id="Single" name="Status" class="custom-control-input">
-			<label class="custom-control-label" for="Single">Single</label>
-		</div>		
-      	<div class="custom-control custom-radio">
-			<input type="radio" id="engaged" name="Status" class="custom-control-input">
-			<label class="custom-control-label" for="engaged">Engaged</label>
-		</div>		
-		<div class="custom-control custom-radio">
-			<input type="radio" id="Married" name="Status" class="custom-control-input">
-			<label class="custom-control-label" for="Married">Married</label>
-		</div>
-		<div class="custom-control custom-radio">
-			<input type="radio" id="divorced" name="Status" class="custom-control-input">
-			<label class="custom-control-label" for="divorced">Divorced</label>
-		</div>
-		<div class="custom-control custom-radio">
-			<input type="radio" id="All" name="Status" class="custom-control-input" checked="checked">
-			<label class="custom-control-label" for="All">All</label>
-		</div>
-		
-      		</div>
-      		</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+	<form action="/customer/updateTA?ta_atr=marital_status&id={{id}}", method="POST">
+				   <div class="modal-content">
+						<div class="modal-header" style="background: #335BFF; color: white">
+							<h5 class="modal-title" id="exampleModalLabel">Marital Status:</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-12">
+							<div class="custom-control custom-radio">
+								<input type="radio" id="Single" name="Status" class="custom-control-input" value="single">
+								<label class="custom-control-label" for="Single">Single</label>
+							</div>		
+							<div class="custom-control custom-radio">
+								<input type="radio" id="engaged" name="Status" class="custom-control-input" value="engaged">
+								<label class="custom-control-label" for="engaged">Engaged</label>
+							</div>		
+							<div class="custom-control custom-radio">
+								<input type="radio" id="Married" name="Status" class="custom-control-input" value="married">
+								<label class="custom-control-label" for="Married">Married</label>
+							</div>
+							<div class="custom-control custom-radio">
+								<input type="radio" id="divorced" name="Status" class="custom-control-input" value="divorced">
+								<label class="custom-control-label" for="divorced">Divorced</label>
+							</div>
+							<div class="custom-control custom-radio">
+								<input type="radio" id="All" name="Status" class="custom-control-input" checked="checked" value="All">
+								<label class="custom-control-label" for="All">All</label>
+							</div>
+							
+								</div>
+								</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Update</button>
+						</div>
+						</div>
+	  </form>
+
+ 
   </div>
 </div>
 
@@ -490,22 +517,25 @@
 	<!-- Model for Income  -->
 <div class="modal fade" id="income" tabindex="-1" role="dialog" aria-labelledby="income" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background: #335BFF; color: white">
-        <h5 class="modal-title" id="incomeTitle">Income Per Month:</h5>
-      </div>
-     <div class="modal-body">
-<section class="range-slider" id="facet-price-range-slider-income">
-  <input name="range-1" value="0" min="0" max="1000000" step="1" type="range">
-  <input name="range-2" value="1000000" min="0" max="1000000" step="1" type="range">
-</section>	
-     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+	  <form action="/customer/updateTA?ta_atr=income&id={{id}}", method="POST">
+	  		  <div class="modal-content">
+					<div class="modal-header" style="background: #335BFF; color: white">
+						<h5 class="modal-title" id="incomeTitle">Income Per Month:</h5>
+					</div>
+					<div class="modal-body">
+				<section class="range-slider" id="facet-price-range-slider-income">
+				<input name="incomeR_1" value={{incomeR_1}} min="100000" max="10000000" step="1" type="range">
+				<input name="incomeR_2" value={{incomeR_2}} min="100000" max="10000000" step="1" type="range">
+				</section>	
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Save changes</button>
+					</div>
 
-  </div>
-</div>
+				</div>
+			</div>
+	  </form>
+  
 </div>
 </div>
 	              

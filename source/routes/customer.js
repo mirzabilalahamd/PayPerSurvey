@@ -261,15 +261,55 @@ cr.get('/closedSurvey', (req,res) =>{
 })
 
 cr.get('/targetAudience', (req,res) =>{
-    res.render('./customerViews/targetAudience',{layout:false});  
-    // if(req.session.email){
-    //     //dataset = {email: req.session.email, uid: req.session.uid};
-    //     //console.log(req.session.email);
-    //     //console.log("welcome customer sceen")
-    //     res.render('./customerViews/targetAudience',{layout:false});    
-    // }
-    // else res.redirect('/customer/login');
+  
+    db.collection('TargetAudience').doc('K0MLUyw4nTMYMyVhrruy').get()
+    .then(doc =>{
+        let data = doc.data();
+        data.id = doc.id;
+        data.layout = false;
+      //  console.log(data);
+        res.render('./customerViews/targetAudience',data);
+    })
+    .catch( err =>{
+        console.log("target audience",err);
+
+    })
     
+})
+cr.post('/updateTA', async (req,res)=>{
+    console.log('updateTA');
+    let atr = req.param('ta_atr');
+    console.log(atr);
+    let id = req.param('id');
+    let ta ={};
+    if(atr == 'location'){
+        ta.location = req.body.location;    
+    }
+    else if(atr == 'gender'){
+        ta.gender = req.body.gender;
+    }
+    else if(atr == 'age'){
+        ta.ageR_1 = req.body.range_1;
+        ta.ageR_2 = req.body.range_2;
+        }
+   else if(atr == 'education'){
+        ta.education = req.body.education;
+   }
+   else if(atr == 'marital_status'){
+       //console.log('marital if');
+       ta.marital_status = req.body.Status;
+   }
+   else if(atr == 'income'){
+    //console.log('marital if');
+    ta.incomeR_1 = req.body.incomeR_1;
+    ta.incomeR_2 = req.body.incomeR_2;
+}
+    else {}
+        console.log(ta);
+     
+   await db.collection('TargetAudience').doc(id).set(ta,{merge:true});
+    res.redirect('/customer/targetaudience');
+
 })
 
 
