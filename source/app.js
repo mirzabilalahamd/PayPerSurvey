@@ -31,9 +31,15 @@ let hbs=exphbs.create({
             checked:(value,test) =>{
                 if(value == '') return ''
                 return value == test ? 'checked' :'';
+            },
+            checkbox: (value,option) =>{
+                //console.log(value.includes(option))
+            if(value.includes(option)){
+                return 'checked'
             }
-            
-    }
+            return '';
+            }
+        }
 
 
     })  

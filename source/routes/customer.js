@@ -304,6 +304,14 @@ cr.post('/updateTA', async (req,res)=>{
     ta.incomeR_1 = req.body.incomeR_1;
     ta.incomeR_2 = req.body.incomeR_2;
 }
+else if(atr == 'occupation'){
+    //console.log('marital if');
+    ta.occupation = req.body.occupation;
+}
+else if(atr == 'religion'){
+    //console.log('marital if');
+    ta.religion = req.body.religion;
+}
     else {}
         console.log(ta);
      
