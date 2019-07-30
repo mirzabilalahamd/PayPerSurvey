@@ -17,7 +17,15 @@
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 		integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
+<style>
+	.wrap{
+overflow: hidden;
+width:100%;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+}
+</style>
 </head>
 
 <body>
@@ -138,8 +146,8 @@
 										<div class="title">
 											<h4><b>Location</b></h4>
 										</div>
-										<div class="title">
-											<h6>{{location}}</h6>
+										<div class="title" st>
+											<h6 class="wrap">{{location}}</h6>
 										</div>
 										<div class="icon icon-big text-right">
 											<i class="fas fa-map-marked-alt"></i>
@@ -217,10 +225,10 @@
 								<div class="card card-stats card-info">
 									<div class="card-body card-border">
 										<div class="title">
-											<h4><b>Occupation</b></h4>
+											<h4 class="wrap"><b>Occupation</b></h4>
 										</div>
 										<div class="title">
-											<h6>{{occupation}}</h6>
+											<h6 class="wrap">{{occupation}}</h6>
 										</div>
 										<div class="icon icon-big text-right">
 											<i class="fas fa-briefcase"></i>
@@ -282,7 +290,7 @@
 											<h4><b>Religion</b></h4>
 										</div>
 										<div class="title">
-											<h6>{{religion}}</h6>
+											<h6 class="wrap">{{religion}}</h6>
 										</div>
 										<div class="icon icon-big text-right">
 											<i class="fas fa-mosque"></i>
