@@ -179,7 +179,7 @@
 
 												<!-- Survey Question Devision -->
 												<div id="question-block">
-													<div class="row " id="q1" style="margin-top: 5px;">
+													<!-- <div class="row " id="q1" style="margin-top: 5px;">
 														
 														<div class="col-md-8">
 															<input type="text" id="q1Title" class="form-control"
@@ -212,14 +212,14 @@
 															</div>
 															<div class="col-md-2"></div>
 														</div>
-													</div>
+													</div> -->
 
 												</div> 
 												<!-- Question tag end -->
-												 <div class="row" style="text-align: right;">
+												 <!-- <div class="row" style="text-align: right;">
 													<button class="btn btn-primary" style="right:0;" type="button"
 														id="add-question">Add Question</button>
-												</div>
+												</div> -->
 												 <!-- <button class="btn btn-primary dropdown-toggle" type="button"
 														id="dropdownMenu1" data-toggle="dropdown">
 
@@ -230,23 +230,19 @@
 											<!-- Survey Tag end -->
 
 											<!-- Sample Multiple choice question -->
-											<!-- <div class="container p-0" id="question-block"
+											<!-- <div class="container p-0 question" 
 												style="margin-top: 5px; border: 1px Solid black; ">
-												<i class="fa fa-times-circle fa-lg pull-right m-2" style="color:red; "></i>
-												
-											
+												<i class="fa fa-times-circle fa-lg pull-right m-2" id="q1Del" style="color:red;cursor:pointer;"></i>
 												 <div class="row col-sm-12 " id="q1" style=" margin: 0px auto">
-													
-
 													<div class="col-sm-1 pt-2">
 														<span >Q1.</span>
 													</div>
 													<div class="col-sm-9 form-group p-0" style="margin: 0">	
-															<input id="q1Title" type="text" class="form-control input-square"  placeholder="Question Titile" >
+															<input id="q1Title" type="text" class="form-control input-square qEdit"  placeholder="Question Titile" >
 
 													</div>
 													<div class="col-sm-2 ">
-															<select id="q1OptionType" class="form-control input-square" id="qType">
+															<select id="q1OptionType" class="form-control input-square qEdit" id="qType">
 																	<option>Checkbox</option>
 																	<option>Radio</option>
 																	<option>Text</option>
@@ -268,7 +264,7 @@
 																
 																</div>
 																<div class="col-sm-9 form-group p-0">	
-																	<input type="text" placeholder="option.." id="qoption1" style="width: 100%">
+																	<input class="qEdit" type="text" placeholder="option.." id="qoption1" style="width: 100%">
 																			
 																</div>
 																<div class="col-sm-2 container-fluid pt-1" style="text-align: center">
@@ -359,11 +355,7 @@
 													
 
 																	<div class="col-sm-1 pt-1">
-																			<label class="form-radio-label">
-																					<input class="form-radio-input" type="radio" name="optionsRadios" value="" disabled>
-																					<span class="form-radio-sign"></span>
-																				</label>
-																	
+																			<label class="form-radio-label"> <input class="form-radio-input" type="radio" name="optionsRadios" value="" disabled> <span class="form-radio-sign"></span> </label>
 																	</div>
 																	<div class="col-sm-9 form-group p-0">	
 																		<input type="text" placeholder="option.." id="qoption1" style="width: 100%">
@@ -376,6 +368,7 @@
 																	</div>													
 																</div> 												
 												</div>
+
 												<div style="text-align: right">
 														<button class="btn btn-primary pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " >Save</button>
 												</div>
@@ -385,23 +378,23 @@
 											<!-- sample radio question -->
 
 											<!-- Sample Text choice question -->
-											<!-- <div class="container p-0" id="q'+maxid+'"
+										<!-- 	<div class="container p-0 question" id="q'+maxid+'"
 												style="margin-top: 5px; border: 1px Solid black; ">
-												<i class="fa fa-times-circle fa-lg pull-right m-2" style="color:red; "></i>
+												<i id="q'+maxid+'Del" class="fa fa-times-circle fa-lg pull-right m-2" style="color:#ff646d; cursor: pointer; "></i>
 												
 											
 												 <div class="row col-sm-12 " style=" margin: 0px auto">
 													
 
 													<div class="col-sm-1 pt-2 col-xs-1">
-														<span >Q1.</span>
+														<span >Q'+maxid+'.</span>
 													</div>
 													<div class="col-sm-9 form-group p-0 col-xs-2" style="margin: 0">	
-															<input type="text" class="form-control input-square"  placeholder="Question Titile" >
+															<input id="q'+maxid+'Title" type="text" class="form-control input-square"  placeholder="Question Title" >
 
 													</div>
 													<div class="col-sm-2 col-xs-2 ">
-															<select class="form-control input-square" id="qType">
+															<select id="q'+maxid+'OptionType" class="form-control input-square" >
 																	<option>Checkbox</option>
 																	<option >Radio</option>
 																	<option selected>Text</option>
@@ -411,7 +404,7 @@
 												</div> 
 												
 												<div style="text-align: right">
-														<button class="btn btn-primary pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " >Save</button>
+														<button id="q'+maxid+'Save" class="btn btn-primary pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " >Save</button>
 												</div>
 												
 												
@@ -424,11 +417,9 @@
 															<i class="fa fa-plus-circle fa-lg"></i> New Question
 														</button>
 														<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-			
-																<a class="dropdown-item" href="#">CheckBox</a>
-																<a class="dropdown-item" href="#">Radio</a>
-																
-																<a class="dropdown-item" href="#">Text</a>
+			                                                    <a class="dropdown-item questType"  href="0">Radio</a>
+																<a class="dropdown-item questType"  href="1">CheckBox</a>
+																<a class="dropdown-item questType" href="2">Text</a>
 			
 														</ul>
 
@@ -525,49 +516,74 @@
 
 		// 		alert($(this).attr('id'));
 		// });
-
-		$("#add-question").click(function () {
-
+        // var totalinputs = $("#question-block");
+		// console.log("len",$(totalinputs[0]).children('.row').length);
+	   $("#q1Del").click(function(){
+                alert("del");
+	   });
+		
+		$(".questType").click(function (e) {
+			e.preventDefault();
+          
 			var totalinputs = $("#question-block");
-			console.log("len",totalinputs.length);
-			
-			maxid = $(totalinputs[0]).children('.row').length;
-			console.log(maxid);
-			maxid++;
-			$("#question-block").append(' <div class="row" id="q' + maxid +
-				'" style="margin-top: 5px; border: 1px Solid black"> <div class="col-md-8"> <input type="text" id="q' +
-				maxid +
-				'Title" class="form-control" name="title" value="Untitled Question"> </div> <div class="col-md-4" style="text-align: right;"> <select class="select-opt-btn" id="q' +
-				maxid +
-				'OptionType"> <option value="0">Multiple Choice</option> <option value="1">Checkbox</option> <option value="2">Short Answer</option> </select> </div> <div class="container-fluid" id="q' +
-				maxid + 'OptionBlock"> <div id="q' + maxid +
-				'Option1"> <div class="col-md-10"> &nbsp; O &nbsp; <input type="text" id="q' + maxid +
-				'Options1Val"> </div> <div class="col-md-2"> <button type="button" id="q' + maxid +
-				'Option1Del">X</button> </div> </div> </div> <div class="container-fluid"> <div class="col-md-10"> &nbsp; O &nbsp; <button class="addOption" id="q' +
-				maxid +
-				'AddOption"> Add Option </button> </div> <div class="col-md-2"> </div> </div> </div>');
+			maxid = $(totalinputs[0]).children('.question').length;
+			console.log('maxid',maxid);
+			if(maxid !=0 ){
+				console.log(parseInt($(totalinputs[0]).children('.question').last().attr("id").match(/\d+/)[0])+1);
+				maxid=parseInt($(totalinputs[0]).children('.question').last().attr("id").match(/\d+/)[0])+1;
+			}
+			else
+			{
+				maxid++;
+			}
+			 console.log('maxid',maxid);
+		//	 console.log($(totalinputs).children().last().attr('id'));
+			// $("#question-block").append(' <div class="row" id="q' + maxid +
+			// 	'" style="margin-top: 5px; border: 1px Solid black"> <div class="col-md-8"> <input type="text" id="q' +
+			// 	maxid +
+			// 	'Title" class="form-control" name="title" value="Untitled Question"> </div> <div class="col-md-4" style="text-align: right;"> <select class="select-opt-btn" id="q' +
+			// 	maxid +
+			// 	'OptionType"> <option value="0">Multiple Choice</option> <option value="1">Checkbox</option> <option value="2">Short Answer</option> </select> </div> <div class="container-fluid" id="q' +
+			// 	maxid + 'OptionBlock"> <div id="q' + maxid +
+			// 	'Option1"> <div class="col-md-10"> &nbsp; O &nbsp; <input type="text" id="q' + maxid +
+			// 	'Options1Val"> </div> <div class="col-md-2"> <button type="button" id="q' + maxid +
+			// 	'Option1Del">X</button> </div> </div> </div> <div class="container-fluid"> <div class="col-md-10"> &nbsp; O &nbsp; <button class="addOption" id="q' +
+			// 	maxid +
+			// 	'AddOption"> Add Option </button> </div> <div class="col-md-2"> </div> </div> </div>');
+                  if($(this).attr('href')==0)
+                  {
+                  	 $('#question-block').append('<div id="q'+ maxid +'" class=" container p-0 question"style="margin-top: 5px;  ">  <div class="row col-sm-12 " style=" margin: 0px auto"> <div class="col-sm-1 pt-2"> <span >Q'+maxid+'.</span> </div> <div class="col-sm-9 form-group p-0" style="margin: 0"> <input id="q'+ maxid +'Title" type="text" class="form-control input-square qEdit"  placeholder="Question Title" > </div> <div class="col-sm-2 "> <select id="q'+ maxid +'OptionType" class="form-control input-square qEdit"><option value="0" selected>Radio</option> <option value="1">Checkbox</option> <option value="2">Text</option> </select> </div> </div> <div id="q'+maxid+'OptionBlock" class="mt-3"  > <div class="row col-sm-12 " style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-radio-label"> <input class="form-radio-input" type="radio" name="optionsRadios" value="" disabled> <span class="form-radio-sign"></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input class="qEdit" type="text" placeholder="option.." id="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="la la-minus-square la-2x"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="la la-plus-square la-2x"></i> </div> </div> </div> <div style="text-align: right;padding-right:29px;"> <button id="q'+maxid+'Save" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " disabled style="border:1px solid green;background:white;width:60px;margin:5px 5px !important;"><i  class="fa fa-check" style="color:green;  "></i></button> <button id="q'+maxid+'Del" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 "  style="border:1px solid red;background:white;width:60px;margin:0px 5px !important;" ><i  class="fa fa-trash" style="color:red;  "></i></button> </div> <hr style="width:70%"> </div> ');
+
+                  }
+                  else  if($(this).attr('href')==1)
+                  {
+                 $('#question-block').append('<div id="q'+ maxid +'" class=" container p-0 question"style="margin-top: 5px;  ">  <div class="row col-sm-12 " style=" margin: 0px auto"> <div class="col-sm-1 pt-2"> <span >Q'+maxid+'.</span> </div> <div class="col-sm-9 form-group p-0" style="margin: 0"> <input id="q'+ maxid +'Title" type="text" class="form-control input-square qEdit"  placeholder="Question Title" > </div> <div class="col-sm-2 "> <select id="q'+ maxid +'OptionType" class="form-control input-square qEdit"><option value="0">Radio</option> <option value="1" selected>Checkbox</option> <option value="2">Text</option> </select> </div> </div> <div id="q'+maxid+'OptionBlock" class="mt-3"  > <div class="row col-sm-12 " style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-check-label" style="width: 100%" > <input class="form-check-input" type="checkbox" value="" disabled> <span class="form-check-sign" ></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input class="qEdit" type="text" placeholder="option.." id="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="fa fa-minus-circle fa-lg"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="fa fa-plus-circle fa-lg"></i> </div> </div> </div> <div style="text-align: right;padding-right:29px;"> <button id="q'+maxid+'Save" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " disabled style="border:1px solid green;background:white;width:60px;margin:0px 5px !important;"><i  class="fa fa-check" style="color:green;  "></i></button> <button id="q'+maxid+'Del" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 "  style="border:1px solid red;background:white;width:60px;margin:0px 5px !important;" ><i  class="fa fa-trash" style="color:red;  "></i></button> </div> <hr style="width:70%"> </div> ');
+                  }
+              
+                   else if($(this).attr('href')==2)
+                   {
+                   	$('#question-block').append('<div class="container p-0 question" id="q'+maxid+'"style="margin-top: 5px;  ">  <div class="row col-sm-12 " style=" margin: 0px auto"> <div class="col-sm-1 pt-2 col-xs-1"> <span >Q'+maxid+'.</span> </div> <div class="col-sm-9 form-group p-0 col-xs-2" style="margin: 0"> <input id="q'+maxid+'Title" type="text" class="form-control input-square"  placeholder="Question Title" > </div> <div class="col-sm-2 col-xs-2 "> <select id="q'+maxid+'OptionType" class="form-control input-square qEdit" > <option value="0">Radio</option> <option value="1">Checkbox</option> <option value="2" selected>Text</option> </select> </div> </div> <div id="q'+maxid+'OptionBlock" class="mt-3" ></div> <div style="text-align: right;padding-right:29px;"> <button id="q'+maxid+'Save" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " disabled style="border:1px solid green;background:white;width:60px;margin:0px 5px !important;"><i  class="fa fa-check" style="color:green;  "></i></button> <button id="q'+maxid+'Del" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 "  style="border:1px solid red;background:white;width:60px;margin:0px 5px !important;" ><i  class="fa fa-trash" style="color:red;  "></i></button> </div> <hr style="width:70%"> </div>');
+
+                   }
+
 		});
 
-		$(document).on('change', '.select-opt-btn', function () {
+		$(document).on('change', '.qEdit', function () {
 
-
+				
 			if ($(this).val() == 0) {
-				var targetid = $(this).attr('id').match(/\d+/);
+				var maxid = $(this).attr('id').match(/\d+/);
 				
 			
-				$('#q' + targetid + 'OptionBlock').html(
-					'<div id="qOption1"> <div class="col-md-10"> &nbsp; O &nbsp; <input type="text" id="q1Options1Val"> </div> <div class="col-md-2"> <button type="button" id="q1Option1Del">X</button> </div>   </div>'
-					);
+				$('#q' + maxid + 'OptionBlock').html('<div class="row col-sm-12 " style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-radio-label"> <input class="form-radio-input" type="radio" name="optionsRadios" value="" disabled> <span class="form-radio-sign"></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input class="qEdit" type="text" placeholder="option.." id="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="fa fa-minus-circle fa-lg"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="fa fa-plus-circle fa-lg"></i> </div> </div>');
 
 			} else if ($(this).val() == 1) {
-				var targetid = $(this).attr('id').match(/\d+/);
-				$('#q' + targetid + 'OptionBlock').html(
-					'<div id="q1Option1"> <div class="col-md-10"> &nbsp; [] &nbsp; <input type="text" id="q1Option1"> </div> <div class="col-md-2"> <button type="button" id="q1Options1Del">X</button> </div> </div>'
-					);
+				var maxid = $(this).attr('id').match(/\d+/);
+				$('#q' + maxid + 'OptionBlock').html('<div class="row col-sm-12 " style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-check-label" style="width: 100%" > <input class="form-check-input" type="checkbox" value="" disabled> <span class="form-check-sign" ></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input  type="text" placeholder="option.." id="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="fa fa-minus-circle fa-lg"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="fa fa-plus-circle fa-lg"></i> </div> </div>');
 			} else if ($(this).val() == 2) {
-				var targetid = $(this).attr('id').match(/\d+/);
-				$('#q' + targetid + 'OptionBlock').html(
-					'<div id="q1ShortAnswer"> <input type="text" placeholder="Enter question"> </div>');
+				var maxid = $(this).attr('id').match(/\d+/);
+				
+				$('#q' + maxid + 'OptionBlock').html('');
 			}
 		});
 		$(document).on('click', '.addOption', function () {
