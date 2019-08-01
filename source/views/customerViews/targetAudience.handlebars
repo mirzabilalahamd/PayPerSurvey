@@ -459,42 +459,42 @@
 
 						<div class="card">
 							<label class="form-check-label" style="padding: 10px;">
-								<input class="form-check-input" type="checkbox" value="All" name="occupation"{{#checkbox occupation 'All'}}  {{/checkbox}}>
+								<input class="form-check-input" id="o_all" type="checkbox" value="All" name="occupation"{{#checkbox occupation 'All'}}  {{/checkbox}}>
 								<span class="form-check-sign">All</span>
 							</label>
 							<label class="form-check-label" style="padding: 10px;">
-								<input class="form-check-input" type="checkbox" value="health care" name="occupation" {{#checkbox occupation 'health care'}}  {{/checkbox}}>
+								<input class="form-check-input" class="occ" type="checkbox" value="health care" name="occupation" {{#checkbox occupation 'health care'}}  {{/checkbox}}>
 								<span class="form-check-sign">Health Care</span>
 							</label>
 
 							<label class="form-check-label" style="padding: 10px;">
-								<input class="form-check-input" type="checkbox" value="engineering" name="occupation" {{#checkbox occupation 'engineering'}}  {{/checkbox}}>
+								<input class="form-check-input" class="occ" type="checkbox" value="engineering" name="occupation" {{#checkbox occupation 'engineering'}}  {{/checkbox}}>
 								<span class="form-check-sign">Engineering</span>
 							</label>
 
 							<label class="form-check-label" style="padding: 10px;">
-								<input class="form-check-input" type="checkbox" value="business" name="occupation"{{#checkbox occupation 'business'}}  {{/checkbox}}>
+								<input class="form-check-input" class="occ" type="checkbox" value="business" name="occupation"{{#checkbox occupation 'business'}}  {{/checkbox}}>
 								<span class="form-check-sign">Business</span>
 							</label>
 
 							<label class="form-check-label" style="padding: 10px;">
-								<input class="form-check-input" type="checkbox" value="education" name="occupation" {{#checkbox occupation 'education'}}  {{/checkbox}}>
+								<input class="form-check-input" class="occ" type="checkbox" value="education" name="occupation" {{#checkbox occupation 'education'}}  {{/checkbox}}>
 								<span class="form-check-sign">Education</span>
 							</label>
 							<label class="form-check-label" style="padding: 10px;">
-								<input class="form-check-input" type="checkbox" value="agriculture" name="occupation"{{#checkbox occupation 'agriculture'}}  {{/checkbox}}>
+								<input class="form-check-input" class="occ" type="checkbox" value="agriculture" name="occupation"{{#checkbox occupation 'agriculture'}}  {{/checkbox}}>
 								<span class="form-check-sign">Agriculture</span>
 							</label>
 							<label class="form-check-label" style="padding: 10px;">
-								<input class="form-check-input" type="checkbox" value="computer science" name="occupation" {{#checkbox occupation 'computer science'}}  {{/checkbox}}>
+								<input class="form-check-input" class="occ" type="checkbox" value="computer science" name="occupation" {{#checkbox occupation 'computer science'}}  {{/checkbox}}>
 								<span class="form-check-sign">Computer Science related</span>
 							</label>
 							<label class="form-check-label" style="padding: 10px;">
-								<input class="form-check-input" type="checkbox" value="transportation" name="occupation" {{#checkbox occupation 'transportation'}}  {{/checkbox}}>
+								<input class="form-check-input" class="occ" type="checkbox" value="transportation" name="occupation" {{#checkbox occupation 'transportation'}}  {{/checkbox}}>
 								<span class="form-check-sign">Transportation</span>
 							</label>
 							<label class="form-check-label" style="padding: 10px;">
-								<input class="form-check-input" type="checkbox" value="media" name="occupation" {{#checkbox occupation 'media'}}  {{/checkbox}}>
+								<input class="form-check-input" class="occ" type="checkbox" value="media" name="occupation" {{#checkbox occupation 'media'}}  {{/checkbox}}>
 								<span class="form-check-sign">Media/Production</span>
 							</label>
 						</div>
@@ -713,5 +713,19 @@
 <script type="text/javascript" src="/assets/js/slider/script.js"></script>
 <script type="text/javascript" src="/assets/js/slider/income.js"></script>
 <script type="text/javascript" src="/assets/js/slider/Jquery.js"></script>
-
+<script>
+	$(document).on('change', '#o_all', function() {
+    if(this.checked) {
+		alert("checked")
+		//$('.occupation').removeAttr('checked');
+		$(".occ").attr('checked','checked');
+		console.log();
+      // checkbox is checked
+    }
+	if(!this.checked) {
+		alert("unchecked")
+      // checkbox is checked
+    }
+});
+</script>
 </html>
