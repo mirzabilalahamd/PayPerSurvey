@@ -15,6 +15,14 @@
 	cursor:pointer;
 }
 </style>
+
+
+<style>
+	.card-color{
+		background-color: #0068d3;
+		color: white;
+	}
+</style>
 </head>
 <body>
 	<div class="wrapper">
@@ -43,7 +51,7 @@
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="btn">
 							<a href="index.html">
-								<button class="btn btn-primary">Create Survey</button>
+								<button class="btn card-color">Create Survey</button>
 							</a>
 						</li>
 						
@@ -88,28 +96,28 @@
 							<a href="/customer/">
 								<i class="la la-home"></i>
 								<p>Dashboard</p>
-								<span class="badge badge-count">5</span>
+								<span class="badge badge-count card-color">5</span>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="/customer/openSurvey">
 								<i class="la la-check-circle-o"></i>
 								<p>Open Surveys</p>
-								<span class="badge badge-count">5</span>
+								<span class="badge badge-count card-color">5</span>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="/customer/closedSurvey">
 								<i class="la la-clock-o la"></i>
 								<p>closed Surveys</p>
-								<span class="badge badge-count">5</span>
+								<span class="badge badge-count card-color">5</span>
 							</a>
 						</li>
 						<li class="nav-item active">
 							<a href="/customer/draftSurvey">
 								<i class="la la-pencil-square"></i>
 								<p>Draft Surveys</p>
-								<span class="badge badge-count">5</span>
+								<span class="badge badge-count card-color">5</span>
 							</a>
 						</li>
 						
@@ -139,19 +147,13 @@
 												<div class="card-footer">
 													<!--<div class="legend"> -->
 														<div class="row">
-															<div class="col-sm-4 text-center">
-																<button class="btn bg-white border border-primary btn-round">
+																<button class="btn bg-white border border-primary btn-round mr-5 ml-3">
 																<i class="la la-bar-chart text-primary icon-size"></i>
-															</button>
-															</div>
-															<div class="col-sm-4 text-center">
-																<button class="btn bg-white border border-primary btn-round">
+																</button>
+																<button class="btn bg-white border border-primary btn-round  mr-5 ml-3">
 																<i class="la la-send text-primary icon-size"></i></button>
-															</div>
-															<div class="col-sm-4 text-center">
 																<button class="btn bg-white border border-primary btn-round">
 																<i class="la la-trash text-primary icon-size"></i></button>
-															</div>
 														</div>
 												</div>
 											</div>
@@ -169,32 +171,6 @@
 
 					</div>
 				</div>
-				<footer class="footer" style="position: absolute;bottom: 0px; width:100%">
-					<div class="container-fluid">
-						<nav class="pull-left">
-							<ul class="nav">
-								<li class="nav-item">
-									<a class="nav-link" href="#">
-										PayPerSurvey
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="#">
-										Help
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="#">
-										Licenses
-									</a>
-								</li>
-							</ul>
-						</nav>
-						<div class="copyright ml-auto">
-							2018, made with <i class="la la-heart heart text-danger"></i> by <a href="#">PayPerSurvey</a>
-						</div>				
-					</div>
-				</footer>
 			</div>
 		</div>
 	</div>
