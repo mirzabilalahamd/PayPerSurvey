@@ -318,5 +318,17 @@ else if(atr == 'religion'){
 
 })
 
+cr.get('/buypackage', (req,res) =>{
+
+    // if(req.session.email){
+    //     //dataset = {email: req.session.email, uid: req.session.uid};
+    //     //console.log(req.session.email);
+    //     //console.log("welcome customer sceen")
+    // }
+    // else res.redirect('/customer/login');
+
+    res.render('./customerViews/buyPackage',{layout:false});
+
+})
 
 module.exports = cr;
