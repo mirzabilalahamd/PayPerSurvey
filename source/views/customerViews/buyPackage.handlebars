@@ -159,7 +159,7 @@ body { background-color: #fafafa; }
 										</a>
 									</li>
 									<li>
-										<a href="#logout">
+										<a href="/customer/logout">
 											<span class="link-collapse">Logout</span>
 										</a>
 									</li>
@@ -169,33 +169,34 @@ body { background-color: #fafafa; }
 					</div>
 					<ul class="nav">
 						<li class="nav-item">
-							<a href="index.html">
+							<a href="/customer/">
 								<i class="la la-home"></i>
 								<p>Dashboard</p>
-								<span class="badge badge-count badge-info">5</span>
+								<span class="badge badge-count">5</span>
 							</a>
 						</li>
-						<li class="nav-item active">
-							<a href="closedSurvey.html">
+						<li class="nav-item">
+							<a href="/customer/openSurvey">
 								<i class="la la-check-circle-o"></i>
-								<p>Closed Surveys</p>
-								<span class="badge badge-count badge-info">5</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="openSurvey.html">
-								<i class="la la-clock-o la"></i>
 								<p>Open Surveys</p>
-								<span class="badge badge-count badge-info">5</span>
+								<span class="badge badge-count">5</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="draftSurvey.html">
+							<a href="/customer/closedSurvey">
+								<i class="la la-clock-o la"></i>
+								<p>closed Surveys</p>
+								<span class="badge badge-count">5</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/customer/draftSurvey">
 								<i class="la la-pencil-square"></i>
 								<p>Draft Surveys</p>
-								<span class="badge badge-count badge-info">5</span>
+								<span class="badge badge-count">5</span>
 							</a>
 						</li>
+						
 					</ul>
 				</div>
 			</div>
@@ -295,7 +296,7 @@ body { background-color: #fafafa; }
 <div class="container-fluid">
 <div class="card-body mt-5 mb-5 ">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <h4><b>Your Estimate</b></h4>
         <hr style="height: 2px; background: #0068d3;">
         <div class="row">
@@ -320,7 +321,7 @@ body { background-color: #fafafa; }
     </div>
 
 
-    <div class="col-md-6">
+    {{!-- <div class="col-md-6">
           <h4><b>Target Audience</b></h4>
           <hr style="height: 2px; background: #0068d3;">
             <div class="row">
@@ -370,7 +371,7 @@ body { background-color: #fafafa; }
 
 
 
-    </div>
+    </div> --}}
     
   </div>
  
