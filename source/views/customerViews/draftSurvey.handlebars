@@ -46,7 +46,7 @@
 								<button class="btn btn-primary">Create Survey</button>
 							</a>
 						</li>
-						
+
 					</ul>
 				</div>
 			</nav>
@@ -112,7 +112,7 @@
 								<span class="badge badge-count">5</span>
 							</a>
 						</li>
-						
+
 					</ul>
 				</div>
 			</div>
@@ -120,13 +120,13 @@
 				<div class="content">
 					<div class="container-fluid">
 						<h4 class="page-title"> Draft Survey</h4>
-					
-						
+
+
 
 							{{#if survey}}
 							<div class="row">
 								{{#each  survey}}
-									
+
 										<div class="col-md-4">
 											<div class="card">
 												<div class="card-header">
@@ -192,7 +192,7 @@
 						</nav>
 						<div class="copyright ml-auto">
 							2018, made with <i class="la la-heart heart text-danger"></i> by <a href="#">PayPerSurvey</a>
-						</div>				
+						</div>
 					</div>
 				</footer>
 			</div>
@@ -208,7 +208,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body text-center">									
+				<div class="modal-body text-center">
 					<p>Currently the pro version of the <b>Ready Dashboard</b> Bootstrap is in progress development</p>
 					<p>
 						<b>We'll let you know when it's done</b></p>
@@ -236,14 +236,14 @@
 <script src="/assets/js/demo.js"></script>
 <script>
 	{{#each survey}}
-	
+
 	//console.log();
 	per("{{id}}", 0);
 	var d = new Date('{{lastEdited}}').toDateString();
 	var t = new Date('{{lastEdited}}').toLocaleTimeString();
 	var dt = d + ' '+ t;
 	$('#{{id}}_time').text(dt);
-	
+
 	{{/each}}
 </script>
 </html>

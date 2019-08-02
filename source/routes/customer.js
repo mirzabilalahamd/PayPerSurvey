@@ -41,9 +41,12 @@ async function getSurveys(id,status, callback){
         //console.log("soreted",draftSurveys[0].lastEdited.toDate());
       if(draftSurveys.length){
         draftSurveys.sort((a,b) =>{
-           // console.log( a.lastEdited._seconds, b.lastEdited._seconds);
-            return new Date(b.lastEdited) - new Date(a.lastEdited);
+            console.log( a.lastEdited._seconds, b.lastEdited._seconds);
+            //return new Date(b.lastEdited) - new Date(a.lastEdited);
           })
+          for (var i = 0; i < openSurveys.length; i++){
+            draftSurveys[i].lastEdited = (draftSurveys[i].lastEdited.toDate());
+    }
 
         callback(0,{"survey":draftSurveys, "found":1})
          }
@@ -320,6 +323,15 @@ else if(atr == 'religion'){
 
 cr.get('/buypackage', (req,res) =>{
 
+    let id = 'K0MLUyw4nTMYMyVhrruy';
+    db.collection('Survey').doc(id).get()
+    .then(snapshot =>{
+        console.log(Object.getOwnPropertyNames(snapshot.data().questions).length);
+        let totalQuestion = Object.getOwnPropertyNames(snapshot.data().questions).length;
+        data ={id:id, totalQuestion:totalQuestion, layout:false};
+        res.render('./customerViews/buyPackage',data);
+
+    })
     // if(req.session.email){
     //     //dataset = {email: req.session.email, uid: req.session.uid};
     //     //console.log(req.session.email);
@@ -327,7 +339,7 @@ cr.get('/buypackage', (req,res) =>{
     // }
     // else res.redirect('/customer/login');
 
-    res.render('./customerViews/buyPackage',{layout:false});
+
 
 })
 

@@ -42,7 +42,7 @@ let hbs=exphbs.create({
         }
 
 
-    })  
+    })
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -74,7 +74,7 @@ let firebase = require('./authConnection').firebase;
 function getSurveyList(id){
    return db.collection('Customers').doc(id).get();
 
-    
+
 }
 async function getSurvey(id){
     return db.collection('Survey').doc(id).get();
@@ -87,9 +87,9 @@ async function getSurvey(id){
 //     let draftSurveys = [];
 //     let survey;
 //     let snapshot = await getSurveyList('470bnBREgYBB2QupJrmR');
-  
+
 //     console.log(snapshot.data().surveylist);
-  
+
 //     for (const id of snapshot.data().surveylist) {
 //         survey = await getSurvey(id);
 //         console.log(survey.id,'=>',survey.data());
@@ -115,7 +115,7 @@ async function getSurveys(id,status, callback){
     let snapshot = await getSurveyList(id);
     //console.log(snapshot.data().surveylist);
     //console.log((snapshot.data().surveylist).includes('K0MLUyw4nTMYMyVhrruy'));
-    
+
     let survyesIds = snapshot.data().surveylist;
     let surveySnapshot=await db.collection('Survey').get();
         surveySnapshot.forEach(survey =>{
@@ -133,48 +133,48 @@ async function getSurveys(id,status, callback){
     console.log(draftSurveys);
     console.log(openSurveys);
     console.log(closeSurveys);
-    
-    
+
+
     if(status =='draft'){
       if(!draftSurveys.length) callback(null,draftSurveys)//resolve(draftSurveys);
-      else  callback('error',draftSurveys)//reject("draft surveys not found");  
-    } 
+      else  callback('error',draftSurveys)//reject("draft surveys not found");
+    }
     else if(status =='open'){
         let surveys = {"survey": openSurveys, };
         if(!openSurveys.length){ let surveys = {"survey": openSurveys, }; callback(null,surveys) }
-       else callback(0,surveys) 
-      } 
+       else callback(0,surveys)
+      }
       else if(status =='close'){
         if(!closeSurveys.length) callback(null,closeSurveys)
-        else callback(0 ,closeSurveys) 
-      } 
+        else callback(0 ,closeSurveys)
+      }
       else callback(0 ,'error')
 
-     
+
 
 }
 app.get('/', async (req, res) => {
 
     //let a = {'a':'a', 'b':'b'}
   //  a.c = 'c';
-    console.log({'a':'a', 'b':'b'}.c='c');
-    getSurveys('470bnBREgYBB2QupJrmR','open', (err,surveys) =>{
-        //if(!err) console.log(err);
-        console.log("survey",surveys);
-    })
-    let ta ={
-        location: 'Pakistan',
-        gender: 'All',
-        ageR_1: '13',
-        ageR_2: '100',
-        education:'All',
-        occupation: 'All',
-        marital_status: 'All',
-        income:'All',
-        religion: 'All'
+    // console.log({'a':'a', 'b':'b'}.c='c');
+    // getSurveys('470bnBREgYBB2QupJrmR','open', (err,surveys) =>{
+    //     //if(!err) console.log(err);
+    //     console.log("survey",surveys);
+    // })
+    // let ta ={
+    //     location: 'Pakistan',
+    //     gender: 'All',
+    //     ageR_1: '13',
+    //     ageR_2: '100',
+    //     education:'All',
+    //     occupation: 'All',
+    //     marital_status: 'All',
+    //     income:'All',
+    //     religion: 'All'
 
-    };
-    db.collection('TargetAudience').doc('K0MLUyw4nTMYMyVhrruy').set(ta,{merge:true})
+    // };
+    // db.collection('TargetAudience').doc('K0MLUyw4nTMYMyVhrruy').set(ta,{merge:true})
 
     // let openSurveys = [];
     // let closeSurveys = [];
@@ -182,7 +182,7 @@ app.get('/', async (req, res) => {
     // let snapshot = await getSurveyList('470bnBREgYBB2QupJrmR');
     // console.log(snapshot.data().surveylist);
     // //console.log((snapshot.data().surveylist).includes('K0MLUyw4nTMYMyVhrruy'));
-    
+
     // let survyesIds = snapshot.data().surveylist;
     // let surveySnapshot=await db.collection('Survey').get()
     //     surveySnapshot.forEach(survey =>{
@@ -217,32 +217,32 @@ app.get('/', async (req, res) => {
     //         console.log(survey.id,'=>',survey.data());
     // });
 
-     console.log("after");
+    // console.log("after");
     // console.log(draftSurveys);
     // console.log(openSurveys);
     // console.log(closeSurveys);
 
-    
+
 //    getSurveyList('470bnBREgYBB2QupJrmR').then((result) => {
 //        console.log(result.id);
 //    }).catch((err) => {
 //        console.log(err);
-       
+
 //    });
     //  console.log("await",snapshot.id, '=>',snapshot.data());
     // console.log("after await")
 
     // let snapshot = await db.collection('Customers').doc('470bnBREgYBB2QupJrmR').get();
     // console.log(snapshot.id);
-    
+
 //    await db.collection('Customers').doc('470bnBREgYBB2QupJrmR').get()
 //     .then(snapshot =>{
-//         // let surveyList = snapshot.data().surveyList; 
+//         // let surveyList = snapshot.data().surveyList;
 //          console.log(snapshot.data().surveylist);
-         
+
 //          snapshot.data().surveylist.forEach( async (id)=>{
 //             console.log("",id);
-        
+
 //             await db.collection('Survey').doc(id).get()
 //             .then(sdoc =>{
 //                 console.log("sid",sdoc.id);
@@ -254,13 +254,13 @@ app.get('/', async (req, res) => {
 //            .catch(err=>{
 //             console.log(err);
 //         })
-           
+
 //         })
 //     })
 //     .catch(err=>{
 //         console.log(err);
 //     })
-   
+
 
     // let customerRef = db.collection('Customers').doc('470bnBREgYBB2QupJrmR');
     // let data;
@@ -270,7 +270,7 @@ app.get('/', async (req, res) => {
     //     else{
     //         console.log("doc", doc.data());
     //         data = doc.data();
-    //     } 
+    //     }
 
     // })
     // .catch(err =>{
@@ -283,18 +283,27 @@ app.get('/', async (req, res) => {
     // .then(snapshot =>{
     //     if(snapshot.empty){
     //         console.log('document not exist');
-    //     } 
+    //     }
     //     else{
     //         snapshot.forEach((doc =>{
     //             console.log('survey id',doc.id);
     //         }))
-            
+
     //     }
     //    // console.log(doc.id);
     // })
     // .catch(err =>{
     //     console.log(err);
     // });
+
+
+
+
+    db.collection('Survey').doc('K0MLUyw4nTMYMyVhrruy').get()
+    .then(snapshot =>{
+        console.log(Object.getOwnPropertyNames(snapshot.data().questions).length);
+    })
+
 
     res.render('index');
 
