@@ -15,7 +15,7 @@ async function getSurveys(id,status, callback){
     let snapshot = await getSurveyList(id);
     //console.log(snapshot.data().surveylist);
     //console.log((snapshot.data().surveylist).includes('K0MLUyw4nTMYMyVhrruy'));
-    
+
     let survyesIds = snapshot.data().surveylist;
     let surveySnapshot=await db.collection('Survey').get();
         surveySnapshot.forEach(survey =>{
@@ -32,72 +32,70 @@ async function getSurveys(id,status, callback){
     // console.log(draftSurveys);
     // console.log(openSurveys);
     // console.log(closeSurveys);
-    
+
     if(status =='draft'){
         //let surveys = {"survey":draftSurveys};
         //console.log();
-       
-        
+
+
         //console.log("soreted",draftSurveys[0].lastEdited.toDate());
       if(draftSurveys.length){
         draftSurveys.sort((a,b) =>{
-            console.log( a.lastEdited._seconds, b.lastEdited._seconds);
-            return  b.lastEdited._seconds - a.lastEdited._seconds;  
+           // console.log( a.lastEdited._seconds, b.lastEdited._seconds);
+            return new Date(b.lastEdited) - new Date(a.lastEdited);
           })
-          for (var i = 0; i < draftSurveys.length; i++){
-            draftSurveys[i].lastEdited = (draftSurveys[i].lastEdited.toDate());
-    }
+
         callback(0,{"survey":draftSurveys, "found":1})
-         }     
+         }
       else {
         callback(1, {"survey":null, "found":0});
-        //reject("draft surveys not found");  
-      } 
-    } 
+        //reject("draft surveys not found");
+      }
+    }
     else if(status =='open'){
         //let surveys = {"survey":openSurveys};
-       
-            
+
+
         if(openSurveys.length){
             openSurveys.sort((a,b) =>{
                 //   console.log( a.closeTime._seconds, b.closeTime._seconds);
-                   return a.closeTime._seconds - b.closeTime._seconds; 
-                    
+                   return a.closeTime._seconds - b.closeTime._seconds;
+
                  })
             for (var i = 0; i < openSurveys.length; i++){
                     openSurveys[i].closeTime = (openSurveys[i].closeTime.toDate());
             }
             console.log("open survey",openSurveys);
             callback(0,{"survey":openSurveys, "found":1})
-             }     
+             }
           else {
             callback(1, {"survey":null, "found":0});
-            //reject("draft surveys not found");  
-          } 
-      } 
+            //reject("draft surveys not found");
+          }
+      }
       else if(status =='close'){
 
         if(closeSurveys.length){
             closeSurveys.sort((a,b) =>{
                 //   console.log( a.closeTime._seconds, b.closeTime._seconds);
-                   return  b.closeTime._seconds -a.closeTime._seconds; 
-                    
+                   return  b.closeTime._seconds -a.closeTime._seconds;
+
                  })
                  for (var i = 0; i < closeSurveys.length; i++){
                    closeSurveys[i].closeTime = (closeSurveys[i].closeTime.toDate());
                }
-             
+
 
             callback(0,{"survey":closeSurveys, "found":1})
-             }     
+             }
           else {
             callback(1, {"survey":null, "found":0});
-            //reject("draft surveys not found");  
-          } 
-      } 
+            //reject("draft surveys not found");
+          }
+      }
       else callback(0 ,{"found":0})
 
-     
+
 
 }
 cr.get('/login', (req,res) =>{
@@ -115,7 +113,7 @@ cr.post('/handlelogin', async (req,res) =>{
     .then( (user) =>{
          console.log("signin",user.user.uid);
          sess.uid = user.user.uid;
-        
+
         })
     .catch(function(error) {
         // Handle Errors here.
@@ -131,7 +129,7 @@ cr.post('/handlelogin', async (req,res) =>{
 
         res.send(false);
       });
-    sess.email = email; 
+    sess.email = email;
     res.send(true);
     //res.redirect('/paypersurvey-67687/us-central1/app/customer/');
 })
@@ -141,7 +139,7 @@ cr.get('/logout', (req,res) =>{
         if(error) console.log(error);
         else res.redirect('/');
     })
-    
+
 })
 
 cr.get('/register', (req,res) =>{
@@ -149,14 +147,14 @@ cr.get('/register', (req,res) =>{
 })
 
 cr.post('/handleRegisteration', async (req,res) =>{
-    
+
     name = req.body.name;
     email = req.body.email;
     password =req.body.password;
     conf_password = req.body.conf_password;
-    
+
     console.log(name,email, password, conf_password);
-    
+
     await firebase.auth().createUserWithEmailAndPassword(email,password).catch( (error) =>{
         console.log("signup err", error.message);
         res.send(false);
@@ -171,12 +169,12 @@ cr.post('/handleRegisteration', async (req,res) =>{
         balance: 0,
         surveylist: []
     })
-    
+
     .then( (ref) =>{
         console.log("document added" + ref.id);
         res.send(true);
     });
-    
+
 })
 
 cr.get('/', (req,res) =>{
@@ -185,10 +183,10 @@ cr.get('/', (req,res) =>{
         //dataset = {email: req.session.email, uid: req.session.uid};
         //console.log(req.session.email);
         //console.log("welcome customer sceen")
-        res.render('./customerViews/dashboard');    
+        res.render('./customerViews/dashboard');
     }
     else res.redirect('/customer/login');
-    
+
 })
 cr.get('/draftSurvey', (req,res) =>{
 
@@ -205,13 +203,13 @@ cr.get('/draftSurvey', (req,res) =>{
                 console.log("survey",surveys);
                 console.log("surveys not found");
                 res.render('./customerViews/draftSurvey',surveys);
-            } 
-               
-        })   
-         
+            }
+
+        })
+
     }
     else res.redirect('/customer/login');
-    
+
 })
 cr.get('/openSurvey', (req,res) =>{
 
@@ -229,12 +227,12 @@ cr.get('/openSurvey', (req,res) =>{
                console.log("survey",surveys);
                console.log("surveys not found");
                res.render('./customerViews/openSurvey',surveys);
-           }    
-        })    
-       
+           }
+        })
+
     }
     else res.redirect('/customer/login');
-    
+
 })
 
 cr.get('/closedSurvey', (req,res) =>{
@@ -252,16 +250,16 @@ cr.get('/closedSurvey', (req,res) =>{
                // console.log("survey",surveys);
                 console.log("surveys not found");
                 res.render('./customerViews/closedSurvey',surveys);
-            }   
-        })    
-         
+            }
+        })
+
     }
     else res.redirect('/customer/login');
-    
+
 })
 
 cr.get('/targetAudience', (req,res) =>{
-  
+
     db.collection('TargetAudience').doc('K0MLUyw4nTMYMyVhrruy').get()
     .then(doc =>{
         let data = doc.data();
@@ -274,7 +272,7 @@ cr.get('/targetAudience', (req,res) =>{
         console.log("target audience",err);
 
     })
-    
+
 })
 cr.post('/updateTA', async (req,res)=>{
     console.log('updateTA');
@@ -283,7 +281,7 @@ cr.post('/updateTA', async (req,res)=>{
     let id = req.param('id');
     let ta ={};
     if(atr == 'location'){
-        ta.location = req.body.location;    
+        ta.location = req.body.location;
     }
     else if(atr == 'gender'){
         ta.gender = req.body.gender;
@@ -314,7 +312,7 @@ else if(atr == 'religion'){
 }
     else {}
         console.log(ta);
-     
+
    await db.collection('TargetAudience').doc(id).set(ta,{merge:true});
     res.redirect('/customer/targetaudience');
 
