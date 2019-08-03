@@ -339,8 +339,13 @@ cr.get('/buypackage', (req,res) =>{
     // }
     // else res.redirect('/customer/login');
 
-
-
 })
+
+
+cr.get('/createsurvey',(req,res)=>{
+    res.render('./customerViews/builder');
+});
+
+
 
 module.exports = cr;
