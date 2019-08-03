@@ -6,7 +6,7 @@
 	<title>Dashboard</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 		name='viewport' />
-		<link rel="stylesheet" href="/assets/css/breadcrumbs.css">
+	<link rel="stylesheet" href="/assets/css/breadcrumbs.css">
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/assets/css/bootstrap-slider.min.css">
 	<link rel="stylesheet"
@@ -25,11 +25,10 @@
 	<div class="wrapper">
 		<div class="main-header">
 			<div class="logo-header">
-				<a href="index.html" class="logo">
-					PayPerSurvey
+				<a href="/customer/" class="logo">
+					<img src="/assets/logo/logo.png" alt="logo" height="40" width="150">
 				</a>
-				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
-					data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
@@ -48,99 +47,87 @@
 					</form>
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="btn">
-							<a href="builder.html">
+							<a href="/customer/createsurvey">
 								<button class="btn btn-primary">Create Survey</button>
 							</a>
 						</li>
-
+						
 					</ul>
 				</div>
 			</nav>
-		</div>
+			</div>
 		<div class="sidebar">
-			<div class="scrollbar-inner sidebar-wrapper">
-				<div class="user">
-					<div class="photo">
-						<img src="/assets/img/nasir.jpg">
-					</div>
-					<div class="info">
-						<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-							<span>
-								Nasir Ali
-								<span class="user-level">Business Analyst</span>
-								<span class="caret"></span>
-							</span>
-						</a>
-						<div class="clearfix"></div>
+				<div class="scrollbar-inner sidebar-wrapper">
+					<div class="user">
+						<div class="photo">
+							<img src="/assets/img/nasir.jpg">
+						</div>
+						<div class="info">
+							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+								<span>
+									Nasir Ali
+									<span class="user-level">Business Analyst</span>
+									<span class="caret"></span>
+								</span>
+							</a>
+							<div class="clearfix"></div>
 
-						<div class="collapse in" id="collapseExample" aria-expanded="true" style="">
-							<ul class="nav">
-								<li>
-									<a href="#profile">
-										<span class="link-collapse">My Profile</span>
-									</a>
-								</li>
-								<li>
-									<a href="#logout">
-										<span class="link-collapse">Logout</span>
-									</a>
-								</li>
-							</ul>
+							<div class="collapse in" id="collapseExample" aria-expanded="true" style="">
+								<ul class="nav">
+									<li>
+										<a href="#profile">
+											<span class="link-collapse">My Profile</span>
+										</a>
+									</li>
+									<li>
+										<a href="/customer/logout">
+											<span class="link-collapse">Logout</span>
+										</a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
+					<ul class="nav">
+						<li class="nav-item active">
+							<a href="/customer/">
+								<i class="la la-home"></i>
+								<p>Dashboard</p>
+								<span class="badge badge-count bg-primary text-white">5</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/customer/openSurvey">
+								<i class="la la-check-circle-o"></i>
+								<p>Open Surveys</p>
+								<span class="badge badge-count bg-primary text-white">5</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/customer/closedSurvey">
+								<i class="la la-clock-o la"></i>
+								<p>closed Surveys</p>
+								<span class="badge badge-count bg-primary text-white">5</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/customer/draftSurvey">
+								<i class="la la-pencil-square"></i>
+								<p>Draft Surveys</p>
+								<span class="badge badge-count bg-primary text-white">5</span>
+							</a>
+						</li>
+						
+					</ul>
 				</div>
-				<ul class="nav">
-					
-				
-					<li class="nav-item">
-						<a href="components.html">
-							<i class="la la-table"></i>
-							<p>Components</p>
-							<span class="badge badge-count">14</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="forms.html">
-							<i class="la la-keyboard-o"></i>
-							<p>Forms</p>
-							<span class="badge badge-count">50</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="tables.html">
-							<i class="la la-th"></i>
-							<p>Tables</p>
-							<span class="badge badge-count">6</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="notifications.html">
-							<i class="la la-bell"></i>
-							<p>Notifications</p>
-							<span class="badge badge-success">3</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="typography.html">
-							<i class="la la-font"></i>
-							<p>Typography</p>
-							<span class="badge badge-danger">25</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="icons.html">
-							<i class="la la-fonticons"></i>
-							<p>Icons</p>
-						</a>
-					</li>
-				</ul>
 			</div>
-		</div>
 		<div class="main-panel">
 			<div class="content">
 				<div class="container-fluid">
 					<!-- breadcrumbs-->
-					<div class="breadcrumb" style="background:none;"><a class="col-sm-4 breadcrumb__step breadcrumb__step--active" href="#">Design Survey</a> <a class="col-sm-4 breadcrumb__step" href="targetAudience.html">Target Audience</a> <a class="col-sm-4 breadcrumb__step" href="#">Buy Package</a></div>
+					<div class="breadcrumb" style="background:none;">
+						<a class="col-sm-4 breadcrumb__step breadcrumb__step--active" href="/customer/createsurvey">Design Survey</a> 
+						<a class="col-sm-4 breadcrumb__step" href="/customer/targetaudience">Target Audience</a> <a class="col-sm-4 breadcrumb__step" href="/customer/buypackage">Buy Package</a></div>
                     <!-- end breadcrumbs-->
 					 <main class="dash-content">
 						<div class="container">
@@ -564,11 +551,11 @@
 		
                   if($(this).attr('href')==0)
                   {
-                  	 $('#question-block').append('<div id="q'+ maxid +'" class=" container p-0 question"style="margin-top: 5px;  ">  <div class="row col-sm-12 " style=" margin: 0px auto"> <div class="col-sm-1 pt-2"> <span class="qNo">Q'+maxid+'.</span> </div> <div class="col-sm-9 form-group p-0" style="margin: 0"> <input id="q'+ maxid +'Title" name="q'+ maxid +'Title" type="text" class="form-control input-square qInput" placeholder="Question Title" > </div> <div class="col-sm-2 "> <select id="q'+ maxid +'OptionType" name="q'+ maxid +'OptionType" class="form-control input-square qEdit"><option value="0" selected>Radio</option> <option value="1">Checkbox</option> <option value="2">Text</option> </select> </div> </div> <div id="q'+maxid+'OptionBlock" class="mt-3"  > <div class="row col-sm-12 option" style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-radio-label"> <input class="form-radio-input" type="radio" name="optionsRadios" value="" disabled> <span class="form-radio-sign"></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input class="qInput" type="text" placeholder="option.." id="q'+ maxid +'Option1" name="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="la la-minus-square la-2x delOption"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="la la-plus-square la-2x addOption"></i> </div> </div> </div> <div style="text-align: right;padding-right:29px;"><span style="">Complexity Level<i  data-toggle="tooltip" data-placement="bottom" title="Chawala help Chahi di a" style="font-size:22px;" class="la la-question-circle "></i></span> &nbsp; &nbsp; <input id="q'+maxid+'Complexity" name="q'+maxid+'Complexity" type="text" />  <button id="q'+maxid+'Save" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " disabled style="border:1px solid green;background:white;width:60px;margin:5px 5px !important;"><i  class="fa fa-check" style="color:green;  "></i></button> <button id="q'+maxid+'Del" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 delQuest"  style="border:1px solid red;background:white;width:60px;margin:0px 5px !important;" ><i  class="fa fa-trash" style="color:red;  "></i></button> </div> <hr style="width:70%"> </div> ');
+                  	 $('#question-block').append('<div id="q'+ maxid +'" class=" container p-0 question"style="margin-top: 5px;  ">  <div class="row col-sm-12 " style=" margin: 0px auto"> <div class="col-sm-1 pt-2"> <span class="qNo">Q'+maxid+'.</span> </div> <div class="col-sm-9 form-group p-0" style="margin: 0"> <input id="q'+ maxid +'Title" name="q'+ maxid +'Title" type="text" class="form-control input-square qInput" placeholder="Question Title" > </div> <div class="col-sm-2 "> <select id="q'+ maxid +'OptionType" name="q'+ maxid +'OptionType" class="form-control input-square qEdit"><option value="0" selected>Radio</option> <option value="1">Checkbox</option> <option value="2">Text</option> </select> </div> </div> <div id="q'+maxid+'OptionBlock" class="mt-3"  > <div class="row col-sm-12 option" style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-radio-label"> <input class="form-radio-input" type="radio" name="optionsRadios" value="" disabled> <span class="form-radio-sign"></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input class="qInput" type="text" placeholder="option.." id="q'+ maxid +'Option1" name="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="la la-minus-square la-2x delOption"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="la la-plus-square la-2x addOption"></i> </div> </div> </div> <div style="text-align: right;padding-right:29px;"><span style="font-size:19px;">Complexity Level<i  data-toggle="tooltip" data-placement="bottom" title="Chawala help Chahi di a" style="font-size:20px;" class="la la-question-circle "></i></span> &nbsp; &nbsp; <input id="q'+maxid+'Complexity" name="q'+maxid+'Complexity" type="text" />  <button id="q'+maxid+'Save" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " disabled style="border:1px solid green;background:white;width:60px;margin:5px 5px !important;"><i  class="fa fa-check" style="color:green;  "></i></button> <button id="q'+maxid+'Del" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 delQuest"  style="border:1px solid red;background:white;width:60px;margin:0px 5px !important;" ><i  class="fa fa-trash" style="color:red;  "></i></button> </div> <hr style="width:70%"> </div> ');
                   }
                   else  if($(this).attr('href')==1)
                   {
-                 $('#question-block').append('<div id="q'+ maxid +'" class=" container p-0 question"style="margin-top: 5px;  ">  <div class="row col-sm-12 " style=" margin: 0px auto"> <div class="col-sm-1 pt-2"> <span class="qNo">Q'+maxid+'.</span> </div> <div class="col-sm-9 form-group p-0" style="margin: 0"> <input id="q'+ maxid +'Title" name="q'+ maxid +'Title" type="text" class="form-control input-square qInput"  placeholder="Question Title" > </div> <div class="col-sm-2 "> <select id="q'+ maxid +'OptionType" name="q'+ maxid +'OptionType" class="form-control input-square qEdit"><option value="0">Radio</option> <option value="1" selected>Checkbox</option> <option value="2">Text</option> </select> </div> </div> <div id="q'+maxid+'OptionBlock" class="mt-3"  > <div class="row col-sm-12 option" style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-check-label" style="width: 100%" > <input class="form-check-input" type="checkbox" value="" disabled> <span class="form-check-sign" ></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input class="qInput" type="text" placeholder="option.." name="q'+ maxid +'Option1" id="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="la la-minus-square la-2x delOption"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="la la-plus-square la-2x addOption"></i> </div> </div> </div> <div style="text-align: right;padding-right:29px;"> <span style="">Complexity Level<i  data-toggle="tooltip" data-placement="bottom" title="Chawala help Chahi di a" style="font-size:22px;" class="la la-question-circle "></i> </span> &nbsp; &nbsp; <input id="q'+maxid+'Complexity" name="q'+maxid+'Complexity" type="text" /> <button id="q'+maxid+'Save" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " disabled style="border:1px solid green;background:white;width:60px;margin:0px 5px !important;"><i  class="fa fa-check" style="color:green;  "></i></button> <button id="q'+maxid+'Del" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 delQuest"  style="border:1px solid red;background:white;width:60px;margin:0px 5px !important;" ><i  class="fa fa-trash" style="color:red;  "></i></button> </div> <hr style="width:70%"> </div> '); }
+                 $('#question-block').append('<div id="q'+ maxid +'" class=" container p-0 question"style="margin-top: 5px;  ">  <div class="row col-sm-12 " style=" margin: 0px auto"> <div class="col-sm-1 pt-2"> <span class="qNo">Q'+maxid+'.</span> </div> <div class="col-sm-9 form-group p-0" style="margin: 0"> <input id="q'+ maxid +'Title" name="q'+ maxid +'Title" type="text" class="form-control input-square qInput"  placeholder="Question Title" > </div> <div class="col-sm-2 "> <select id="q'+ maxid +'OptionType" name="q'+ maxid +'OptionType" class="form-control input-square qEdit"><option value="0">Radio</option> <option value="1" selected>Checkbox</option> <option value="2">Text</option> </select> </div> </div> <div id="q'+maxid+'OptionBlock" class="mt-3"  > <div class="row col-sm-12 option" style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-check-label" style="width: 100%" > <input class="form-check-input" type="checkbox" value="" disabled> <span class="form-check-sign" ></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input class="qInput" type="text" placeholder="option.." name="q'+ maxid +'Option1" id="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="la la-minus-square la-2x delOption"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="la la-plus-square la-2x addOption"></i> </div> </div> </div> <div style="text-align: right;padding-right:29px;"> <span style="font-size:19px;">Complexity Level<i  data-toggle="tooltip" data-placement="bottom" title="Chawala help Chahi di a" style="font-size:20px;" class="la la-question-circle "></i> </span> &nbsp; &nbsp; <input id="q'+maxid+'Complexity" name="q'+maxid+'Complexity" type="text" /> <button id="q'+maxid+'Save" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " disabled style="border:1px solid green;background:white;width:60px;margin:0px 5px !important;"><i  class="fa fa-check" style="color:green;  "></i></button> <button id="q'+maxid+'Del" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 delQuest"  style="border:1px solid red;background:white;width:60px;margin:0px 5px !important;" ><i  class="fa fa-trash" style="color:red;  "></i></button> </div> <hr style="width:70%"> </div> '); }
                    else if($(this).attr('href')==2)
                    {
                    	$('#question-block').append('<div class="container p-0 question" id="q'+maxid+'"style="margin-top: 5px;  ">  <div class="row col-sm-12 " style=" margin: 0px auto"> <div class="col-sm-1 pt-2 col-xs-1"> <span class="qNo">Q'+maxid+'.</span> </div> <div class="col-sm-9 form-group p-0 col-xs-2" style="margin: 0"> <input id="q'+maxid+'Title" name="q'+maxid+'Title" type="text" class="form-control input-square qInput"  placeholder="Question Title" > </div> <div class="col-sm-2 col-xs-2 "> <select id="q'+maxid+'OptionType" name="q'+maxid+'OptionType" class="form-control input-square qEdit" > <option value="0">Radio</option> <option value="1">Checkbox</option> <option value="2" selected>Text</option> </select> </div> </div> <div id="q'+maxid+'OptionBlock" class="mt-3" ></div> <div style="text-align: right;padding-right:29px;"><span style="">Complexity Level<i  data-toggle="tooltip" data-placement="bottom" title="Chawala help Chahi di a" style="font-size:22px;" class="la la-question-circle "></i> </span> &nbsp; &nbsp; <input id="q'+maxid+'Complexity" name="q'+maxid+'Complexity" type="text" /> <button id="q'+maxid+'Save" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " disabled style="border:1px solid green;background:white;width:60px;margin:0px 5px !important;"><i  class="fa fa-check" style="color:green;  "></i></button> <button id="q'+maxid+'Del" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 delQuest"  style="border:1px solid red;background:white;width:60px;margin:0px 5px !important;" ><i  class="fa fa-trash" style="color:red;  "></i></button> </div> <hr style="width:70%"> </div>'); }

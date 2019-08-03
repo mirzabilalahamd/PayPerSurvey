@@ -345,6 +345,10 @@ cr.get('/buypackage', (req,res) =>{
 cr.get('/createsurvey',(req,res)=>{
     res.render('./customerViews/builder');
 });
+cr.get('/result',(req,res)=>{
+    res.render('./customerViews/results');
+});
+
 
 
 
