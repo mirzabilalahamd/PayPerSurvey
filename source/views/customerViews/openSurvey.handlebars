@@ -217,8 +217,10 @@
 <script>
 	{{#each survey}}
 
-
+	console.log('{{closeTime}}')
 	var t = new Date('{{closeTime}}').getTime();
+	console.log(t);
+	//alert(t, {{closeTime}});
 
 	//$('#{{id}}_time').text(dt);
 		per("{{id}}", ( {{comp_response}} / {{total_response}} ) * 100 )

@@ -14,7 +14,7 @@
 
 
 <style type="text/css">
-  
+
 /*section.pricing {
   background: #007bff;
   background: linear-gradient(to right, #0062E6, #33AEFF);
@@ -135,7 +135,7 @@ body { background-color: #fafafa; }
 								<button class="btn card-color">Create Survey</button>
 							</a>
 						</li>
-						
+
 					</ul>
 				</div>
 			</nav>
@@ -201,17 +201,18 @@ body { background-color: #fafafa; }
 								<span class="badge badge-count card-color">5</span>
 							</a>
 						</li>
-						
+
 					</ul>
 				</div>
 			</div>
+<form method="POST" action="/customer/send/{{id}}">
 			<div class="main-panel">
 				<div class="content">
 					<div class="container-fluid pt-5">
              <h5>Survey Deadline</h5>
 					      <div class="row">
 					        <div class='col-sm-12'>
-					            <input type='text' class="form-control" id='datetimepicker1' placeholder="08/01/2019 2:43 AM" /><span class="input-group-addon">
+					            <input type='text' id="closeTime" name="closeTime" class="form-control" id='datetimepicker1' placeholder="08/01/2019 2:43 AM"/><span class="input-group-addon">
 					        </div>
 
 					    </div>
@@ -226,7 +227,7 @@ body { background-color: #fafafa; }
         <div class="card mb-5 mb-lg-0">
           <div class="card-body">
             <p class="text-center">Basic</p>
-            <h4 class="card-price text-center">Rs.25<span class="period">/Response</span></h4>
+            <h4 class="card-price text-center" id="basic_per_res"><span class="period">/Response</span></h4>
             <hr style="height: 2px; background: #0068d3;">
             <ul class="fa-ul">
              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Two Free surveys</strong></li>
@@ -237,10 +238,10 @@ body { background-color: #fafafa; }
           <div class="card-footer" style="background: none; margin-top: 60px">
             <div class="form-group">
               <p>Number of Response</p>
-              <input type="text" class="form-control input-pill"  id="formGroupExampleInput" placeholder="Input number of responses">
+              <input type="text" class="form-control input-pill"  id="basic_res" placeholder="Input number of responses" name="basic_res">
             </div>
             <p class="text-center">Cost</p>
-            <h4 class="text-center">Rs. 1000</h4>
+            <h4 class="text-center" id = "basic_cost"></h4>
           </div>
           </div>
         </div>
@@ -249,8 +250,8 @@ body { background-color: #fafafa; }
       <div class="col-lg-4">
         <div class="card mb-5 mb-lg-0">
           <div class="card-body">
-            <p class="text-center">Basic</p>
-            <h4 class="card-price text-center">Rs.25<span class="period">/Response</span></h4>
+            <p class="text-center">Standard</p>
+            <h4 class="card-price text-center" id="standard_per_res"><span class="period">/Response</span></h4>
             <hr style="height: 2px; background: #0068d3;">
             <ul class="fa-ul">
              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Two Free surveys</strong></li>
@@ -261,10 +262,10 @@ body { background-color: #fafafa; }
           <div class="card-footer" style="background: none; margin-top: 60px">
             <div class="form-group">
               <p>Number of Response</p>
-              <input type="text" class="form-control input-pill" id="formGroupExampleInput" placeholder="Input number of responses">
+              <input type="text" class="form-control input-pill" id="standard_res" placeholder="Input number of responses" name="standard_res" >
             </div>
             <p class="text-center">Cost</p>
-            <h4 class="text-center">Rs. 1000</h4>
+            <h4 class="text-center" id="standard_cost"</h4>
           </div>
           </div>
         </div>
@@ -273,8 +274,8 @@ body { background-color: #fafafa; }
       <div class="col-lg-4">
         <div class="card mb-5 mb-lg-0">
           <div class="card-body">
-            <p class="text-center">Basic</p>
-            <h4 class="card-price text-center">Rs.25<span class="period">/Response</span></h4>
+            <p class="text-center">Premium</p>
+            <h4 class="card-price text-center" id ="premium_per_res"><span class="period">/Response</span></h4>
             <hr style="height: 2px; background: #0068d3;">
             <ul class="fa-ul">
              <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Two Free surveys</strong></li>
@@ -285,10 +286,11 @@ body { background-color: #fafafa; }
           <div class="card-footer" style="background: none; margin-top: 60px">
             <div class="form-group">
               <p>Number of Response</p>
-              <input type="text" class="form-control input-pill" id="formGroupExampleInput" placeholder="Input number of responses">
+              <input type="text" class="form-control input-pill" id="premium_res" placeholder="Input number of responses"name="premium_res">
             </div>
             <p class="text-center">Cost</p>
-            <h4 class="text-center">Rs. 1000</h4>
+            <h4 class="text-center" id="premium_cost"></h4>
+
 
           </div>
           </div>
@@ -306,84 +308,33 @@ body { background-color: #fafafa; }
         <hr style="height: 2px; background: #0068d3;">
         <div class="row">
           <div class="col-md-6">
-          <span class="font-weight-bold">Complete Response</span>  
+          <h6><span class="font-weight-bold">Total Responses</span></h6>
           </div>
           <div class="col-md-6">
-            <span><i class="fas fa-check"></i>    100   </span>
+           <h6> <span><i class="fas fa-check" id="total_res">0</i>  </span> </h6>
           </div>
 
           <div class="col-md-6">
-            <span class="font-weight-bold">Total Cost</span>
+           <h6> <span class="font-weight-bold">Total Cost</span> </h6>
           </div>
           <div class="col-md-6">
-            <span><i class="fas fa-check"></i>    Rs. 25000   </span>
+            <h6><span><i class="fas fa-check" id = "total_cost">Rs.0</i>     </span> </h6>
+
           </div>
         </div>
 
 
-      
-      
+
+
     </div>
 
-
-    {{!-- <div class="col-md-6">
-          <h4><b>Target Audience</b></h4>
-          <hr style="height: 2px; background: #0068d3;">
-            <div class="row">
-               <div class="col-md-6 pb-2">
-                      <i class="fas fa-check"></i> <span class="font-weight-bold">  Location:  </span>
-                      <span>Gujranwala, Pakistan </span> 
-                </div>
-
-                <div class="col-md-6 pb-2">
-                  <i class="fas fa-check"></i><span class="font-weight-bold">  Gender: </span>
-                  <span>Male</span>
-                </div>
-            </div>
-            <div class="row">
-               <div class="col-md-6 pb-2">
-                      <i class="fas fa-check"></i><span class="font-weight-bold">  Age:  </span>
-                      <span>15-50</span> 
-                </div>
-
-                <div class="col-md-6 pb-2">
-                  <i class="fas fa-check"></i><span class="font-weight-bold">  Education: </span>
-                  <span>Master</span>
-                </div>
-            </div>
-            <div class="row">
-               <div class="col-md-6 pb-2">
-                      <i class="fas fa-check"></i><span class="font-weight-bold"> Occupation:  </span>
-                      <span>Education</span> 
-                </div>
-
-                <div class="col-md-6 pb-2">
-                  <i class="fas fa-check"></i><span class="font-weight-bold"> Marital Status: </span>
-                  <span>Male</span>
-                </div>
-            </div>
-             <div class="row">
-               <div class="col-md-6 pb-2">
-                      <i class="fas fa-check"></i><span class="font-weight-bold"> Annual Income: </span>
-                      <span>25000-100000</span> 
-                </div>
-
-                <div class="col-md-6 pb-2">
-                  <i class="fas fa-check"></i><span class="font-weight-bold"> Religion: </span>
-                  <span>Muslim</span>
-                </div>
-            </div>
-
-
-
-    </div> --}}
-    
   </div>
- 
+
+
 </div>
  <div class="form-row text-center">
     <div class="col-12">
-        <button type="submit" class="btn btn-primary mb-5" style="width: 50%; background: #0068d3">Save &  Send</button>
+        <button type="button" class="btn btn-primary mb-5" style="width: 50%; background: #0068d3" id="send">Save &  Send</button>
     </div>
  </div>
 
@@ -394,6 +345,7 @@ body { background-color: #fafafa; }
 			</div>
 		</div>
 	</div>
+</form>
 </body>
 
 
@@ -464,6 +416,111 @@ body { background-color: #fafafa; }
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+
+
+
+</script>
+
+<script>
+  $(document).ready(()=>{
+
+      let basic_per_q_cost = 5;
+      let standard_per_q_cost = 10;
+      let premium_per_q_cost = 15;
+      // set package per response cost
+      //  alert('set',);
+
+      //package policy
+      const basic_per_res_cost = (basic_per_q_cost * {{totalQuestions}});
+      const standard_per_res_cost = (standard_per_q_cost * {{totalQuestions}});
+      const premium_per_res_cost = (premium_per_q_cost * {{totalQuestions}});
+
+
+
+
+        $('#basic_per_res').prepend('Rs.'+ basic_per_res_cost);
+        $('#standard_per_res').prepend('Rs.'+ standard_per_q_cost * {{totalQuestions}});
+        $('#premium_per_res').prepend('Rs.'+ premium_per_res_cost);
+
+
+      $('#basic_res').keyup( ()=>{
+        let basic_res=$('#basic_res').val();
+        let standard_res =$('#standard_res').val();
+        let premium_res = $('#premium_res').val();
+        if(!basic_res) basic_res = 0;
+        if(!standard_res) standard_res = 0;
+        if(!premium_res) premium_res = 0;
+
+
+        $('#basic_cost').text('Rs.'+ basic_res * basic_per_res_cost);
+
+        let total_respone = parseInt(basic_res) + parseInt(standard_res) + parseInt(premium_res);
+        let total_cost = (basic_res * basic_per_res_cost) + (standard_res * standard_per_res_cost)
+         + (premium_res * premium_per_res_cost);
+         $('#total_res').text(total_respone);
+         $('#total_cost').text('Rs.'+total_cost);
+
+        //let per_question_cost = 5;
+       // $('#basic_cost').text('a');
+      })
+      $('#standard_res').keyup(()=>{
+        let basic_res=$('#basic_res').val();
+        let standard_res =$('#standard_res').val();
+        let premium_res = $('#premium_res').val();
+        if(!basic_res) basic_res = 0;
+        if(!standard_res) standard_res = 0;
+        if(!premium_res) premium_res = 0;
+
+       $('#standard_cost').text('Rs.'+ standard_res*standard_per_res_cost);
+
+       let total_respone = parseInt(basic_res) + parseInt(standard_res) + parseInt(premium_res);
+        let total_cost = (basic_res * basic_per_res_cost) + (standard_res * standard_per_res_cost)
+         + (premium_res * premium_per_res_cost);
+         $('#total_res').text(total_respone);
+         $('#total_cost').text('Rs.'+total_cost);
+      })
+
+      $('#premium_res').keyup(()=>{
+      let basic_res=$('#basic_res').val();
+        let standard_res =$('#standard_res').val();
+        let premium_res = $('#premium_res').val();
+        if(!basic_res) basic_res = 0;
+        if(!standard_res) standard_res = 0;
+        if(!premium_res) premium_res = 0;
+
+       $('#premium_cost').text('Rs.'+ premium_res*premium_per_res_cost);
+
+       let total_respone = parseInt(basic_res) + parseInt(standard_res) + parseInt(premium_res);
+        let total_cost = (basic_res * basic_per_res_cost) + (standard_res * standard_per_res_cost)
+         + (premium_res * premium_per_res_cost);
+         $('#total_res').text(total_respone);
+         $('#total_cost').text('Rs.'+total_cost);
+      })
+
+      //package validation
+      $('#send').click(()=>{
+
+
+        let basic_res=$('#basic_res').val();
+        let standard_res =$('#standard_res').val();
+        let premium_res = $('#premium_res').val();
+        if(!basic_res) basic_res = 0;
+        if(!standard_res) standard_res = 0;
+        if(!premium_res) premium_res = 0;
+
+
+        let total_respone = parseInt(basic_res) + parseInt(standard_res) + parseInt(premium_res);
+        let total_cost = (basic_res * basic_per_res_cost) + (standard_res * standard_per_res_cost)
+         + (premium_res * premium_per_res_cost);
+          if(!$('#closeTime').val()){
+          alert('close time must be selected');
+        }
+        else if(total_respone<1) alert('at least one response required!');
+        else if(total_cost > {{balance}}) alert('your balance is lower then the total cost please add balance!');
+        else $('form').submit();
+
+      })
+  })
 
 </script>
 </html>

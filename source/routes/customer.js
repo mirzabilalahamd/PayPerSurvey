@@ -3,6 +3,7 @@ const cr = express.Router();
 
 const firebase = require('../authConnection').firebase;
 const db = require('../connection').db;
+let FieldValue = require('firebase-admin').firestore.FieldValue;
 function getSurveyList(id){
     return db.collection('Customers').doc(id).get();
 
@@ -21,10 +22,10 @@ async function getSurveys(id,status, callback){
         surveySnapshot.forEach(survey =>{
             let doc = survey.data();
             doc.id = survey.id;
-            console.log(survey.id)
-            if(survyesIds.includes(survey.id) && doc.status == 'draft') { draftSurveys.push(doc); console.log("draft") }
-            else if(survyesIds.includes(survey.id) && doc.status == 'open') {openSurveys.push(doc); console.log("open")}
-            else if(survyesIds.includes(survey.id) && doc.status == 'close') {closeSurveys.push(doc);console.log("close")}
+           // console.log(survey.id)
+            if(survyesIds.includes(survey.id) && doc.status == 'draft') { draftSurveys.push(doc);  }
+            else if(survyesIds.includes(survey.id) && doc.status == 'open') {openSurveys.push(doc); }
+            else if(survyesIds.includes(survey.id) && doc.status == 'close') {closeSurveys.push(doc);}
             else console.log(survey.id,"does not match");
            // console.log(survey.id);
 
@@ -41,12 +42,12 @@ async function getSurveys(id,status, callback){
         //console.log("soreted",draftSurveys[0].lastEdited.toDate());
       if(draftSurveys.length){
         draftSurveys.sort((a,b) =>{
-            console.log( a.lastEdited._seconds, b.lastEdited._seconds);
-            //return new Date(b.lastEdited) - new Date(a.lastEdited);
+            //console.log( a.lastEdited._seconds, b.lastEdited._seconds);
+            return new Date(b.lastEdited) - new Date(a.lastEdited);
           })
-          for (var i = 0; i < openSurveys.length; i++){
-            draftSurveys[i].lastEdited = (draftSurveys[i].lastEdited.toDate());
-    }
+    //       for (var i = 0; i < openSurveys.length; i++){
+    //         draftSurveys[i].lastEdited = (draftSurveys[i].lastEdited.toDate());
+    // }
 
         callback(0,{"survey":draftSurveys, "found":1})
          }
@@ -62,13 +63,13 @@ async function getSurveys(id,status, callback){
         if(openSurveys.length){
             openSurveys.sort((a,b) =>{
                 //   console.log( a.closeTime._seconds, b.closeTime._seconds);
-                   return a.closeTime._seconds - b.closeTime._seconds;
-
+                 //  return a.closeTime._seconds - b.closeTime._seconds;
+                    return new Date(b.closeTime) - new Date(a.closeTime)
                  })
-            for (var i = 0; i < openSurveys.length; i++){
-                    openSurveys[i].closeTime = (openSurveys[i].closeTime.toDate());
-            }
-            console.log("open survey",openSurveys);
+            // for (var i = 0; i < openSurveys.length; i++){
+            //         openSurveys[i].closeTime = (openSurveys[i].closeTime.toDate());
+            // }
+           // console.log("open survey",openSurveys);
             callback(0,{"survey":openSurveys, "found":1})
              }
           else {
@@ -81,12 +82,12 @@ async function getSurveys(id,status, callback){
         if(closeSurveys.length){
             closeSurveys.sort((a,b) =>{
                 //   console.log( a.closeTime._seconds, b.closeTime._seconds);
-                   return  b.closeTime._seconds -a.closeTime._seconds;
-
+                 //  return  b.closeTime._seconds -a.closeTime._seconds;
+                    return new Date(b.closeTime) - new Date(a.closeTime)
                  })
-                 for (var i = 0; i < closeSurveys.length; i++){
-                   closeSurveys[i].closeTime = (closeSurveys[i].closeTime.toDate());
-               }
+            //      for (var i = 0; i < closeSurveys.length; i++){
+            //        closeSurveys[i].closeTime = (closeSurveys[i].closeTime.toDate());
+            //    }
 
 
             callback(0,{"survey":closeSurveys, "found":1})
@@ -227,8 +228,8 @@ cr.get('/openSurvey', (req,res) =>{
                 res.render('./customerViews/openSurvey',surveys);
            }
            else{
-               console.log("survey",surveys);
-               console.log("surveys not found");
+            //   console.log("survey",surveys);
+             //  console.log("surveys not found");
                res.render('./customerViews/openSurvey',surveys);
            }
         })
@@ -278,10 +279,10 @@ cr.get('/targetAudience', (req,res) =>{
 
 })
 cr.post('/updateTA', async (req,res)=>{
-    console.log('updateTA');
-    let atr = req.param('ta_atr');
-    console.log(atr);
-    let id = req.param('id');
+    //console.log('updateTA');
+   // let atr = req.param('ta_atr');
+   // console.log(atr);
+   // let id = req.param('id');
     let ta ={};
     if(atr == 'location'){
         ta.location = req.body.location;
@@ -315,7 +316,7 @@ else if(atr == 'religion'){
 }
     else {}
         console.log(ta);
-
+    console.log(ta);
    await db.collection('TargetAudience').doc(id).set(ta,{merge:true});
     res.redirect('/customer/targetaudience');
 
@@ -326,10 +327,23 @@ cr.get('/buypackage', (req,res) =>{
     let id = 'K0MLUyw4nTMYMyVhrruy';
     db.collection('Survey').doc(id).get()
     .then(snapshot =>{
-        console.log(Object.getOwnPropertyNames(snapshot.data().questions).length);
-        let totalQuestion = Object.getOwnPropertyNames(snapshot.data().questions).length;
-        data ={id:id, totalQuestion:totalQuestion, layout:false};
-        res.render('./customerViews/buyPackage',data);
+        //console.log(Object.getOwnPropertyNames(snapshot.data().questions).length);
+        let totalQuestions = Object.getOwnPropertyNames(snapshot.data().questions).length;
+        data ={id:id, totalQuestions:totalQuestions, layout:false};
+        console.log(data);
+        console.log(req.session.uid);
+        db.collection('Customers').doc(req.session.uid).get()
+        .then(snap=>{
+            console.log(snap.id,'=>',snap.data());
+
+            data.balance = snap.data().balance;
+            console.log(data);
+            res.render('./customerViews/buyPackage',data);
+        })
+        .catch(err =>{
+            console.log(err);
+        })
+
 
     })
     // if(req.session.email){
@@ -340,6 +354,38 @@ cr.get('/buypackage', (req,res) =>{
     // else res.redirect('/customer/login');
 
 
+
+})
+cr.post('/send/:id',(req,res)=>{
+    let id = req.params.id;
+    console.log(id);
+  //  console.log(id);
+    //console.log(id.toString());
+    //let basic_res = req.body.basic_res;
+    let basic = parseInt(req.body.basic_res);
+    let standard = parseInt(req.body.standard_res);
+    let premium = parseInt(req.body.premium_res);
+    total_res = basic +standard + premium;
+    let closeTime = new Date(req.body.closeTime);
+    console.log(closeTime);
+
+    let data = {
+        package: {
+            basic: basic,
+            standard: standard,
+            premium: premium
+        },
+        closeTime: req.body.closeTime,
+        total_response:total_res,
+        comp_response: 0,
+        status:'open',
+
+
+
+    }
+    db.collection('Survey').doc(id).update(data);
+    //console.log(data);
+    res.redirect('/customer/openSurvey');
 
 })
 

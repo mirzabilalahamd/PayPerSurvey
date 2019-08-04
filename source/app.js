@@ -299,10 +299,10 @@ app.get('/', async (req, res) => {
 
 
 
-    db.collection('Survey').doc('K0MLUyw4nTMYMyVhrruy').get()
-    .then(snapshot =>{
-        console.log(Object.getOwnPropertyNames(snapshot.data().questions).length);
-    })
+    // db.collection('Survey').doc('K0MLUyw4nTMYMyVhrruy').get()
+    // .then(snapshot =>{
+    //     console.log(Object.getOwnPropertyNames(snapshot.data().questions).length);
+    // })
 
 
     res.render('index');
