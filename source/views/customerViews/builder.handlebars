@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Dashboard</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+		name='viewport' />
+	<link rel="stylesheet" href="/assets/css/breadcrumbs.css">
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/css/bootstrap-slider.min.css">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="/assets/css/ready.css">
+	<link rel="stylesheet" href="/assets/css/demo.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+		integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		
+  <style>
+   .slider-horizontal{margin-right: 20px !important;}
+  </style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="main-header">
+			<div class="logo-header">
+				<a href="/customer/" class="logo">
+					<img src="/assets/logo/logo.png" alt="logo" height="40" width="150">
+				</a>
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
+			</div>
+			<nav class="navbar navbar-header navbar-expand-lg">
+				<div class="container-fluid">
+					<form class="col-md-10 navbar-left navbar-form nav-search mr-md-3" action="" id="search">
+						<div class="input-group input-square">
+							<input type="text" placeholder="Search ..." class="form-control input-square">
+							<div class="input-group-append">
+								<span class="input-group-text">
+									<i class="la la-search search-icon"></i>
+								</span>
+							</div>
+						</div>
+					</form>
+					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+						<li class="btn">
+							<a href="/customer/createsurvey">
+								<button class="btn btn-primary">Create Survey</button>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+			</nav>
+			</div>
+		<div class="sidebar">
+				<div class="scrollbar-inner sidebar-wrapper">
+					<div class="user">
+						<div class="photo">
+							<img src="/assets/img/nasir.jpg">
+						</div>
+						<div class="info">
+							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+								<span>
+									Nasir Ali
+									<span class="user-level">Business Analyst</span>
+									<span class="caret"></span>
+								</span>
+							</a>
+							<div class="clearfix"></div>
+
+							<div class="collapse in" id="collapseExample" aria-expanded="true" style="">
+								<ul class="nav">
+									<li>
+										<a href="#profile">
+											<span class="link-collapse">My Profile</span>
+										</a>
+									</li>
+									<li>
+										<a href="/customer/logout">
+											<span class="link-collapse">Logout</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<ul class="nav">
+						<li class="nav-item active">
+							<a href="/customer/">
+								<i class="la la-home"></i>
+								<p>Dashboard</p>
+								<span class="badge badge-count bg-primary text-white">5</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/customer/openSurvey">
+								<i class="la la-check-circle-o"></i>
+								<p>Open Surveys</p>
+								<span class="badge badge-count bg-primary text-white">5</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/customer/closedSurvey">
+								<i class="la la-clock-o la"></i>
+								<p>closed Surveys</p>
+								<span class="badge badge-count bg-primary text-white">5</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/customer/draftSurvey">
+								<i class="la la-pencil-square"></i>
+								<p>Draft Surveys</p>
+								<span class="badge badge-count bg-primary text-white">5</span>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		<div class="main-panel">
+			<div class="content">
+				<div class="container-fluid">
+					<!-- breadcrumbs-->
+					<div class="breadcrumb" style="background:none;">
+						<a class="col-sm-4 breadcrumb__step breadcrumb__step--active" href="/customer/createsurvey">Design Survey</a> 
+						<a class="col-sm-4 breadcrumb__step" href="/customer/targetaudience">Target Audience</a> <a class="col-sm-4 breadcrumb__step" href="/customer/buypackage">Buy Package</a></div>
+                    <!-- end breadcrumbs-->
+					 <main class="dash-content">
+						<div class="container">
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="card spur-card">
+										<div class="card-header">
+											<div class="row" style="margin-top: 5px;">
+												<div class="col-md-12 survey">
+													<input type="text" class="form-control" id="surveytitle"
+														name=" title" placeholder="Survey title"
+														style=" font-size: 24px; border: none; word-wrap:break-word ">
+													<hr>
+													<textarea class="form-control" id="description"
+														placeholder="Type Survey description...."
+														style="border:none"></textarea>
+
+														<div style="text-align: right; margin:10px 0px">
+																<button class="btn btn-primary pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " >Save</button>
+														</div>
+												</div>
+											</div>
+										</div>
+										<div class="card-body">
+											<div class="survey">
+												<div class="dropdown" style="text-align: center">
+
+													
+
+													<ul class="dropdown-menu" role="menu"
+														aria-labelledby="dropdownMenu">
+
+														<a class="dropdown-item question1" href="#" id="0">Action</a>
+														<a class="dropdown-item question1" href="#" id="1">Another
+															action</a>
+														<div class="dropdown-divider" id="2"></div>
+														<a class="dropdown-item" href="#">Something else here</a>
+
+													</ul>
+
+												</div>
+
+
+												<!-- Survey Question Devision -->
+												<div id="question-block">
+													<!-- <div class="row " id="q1" style="margin-top: 5px;">
+														
+														<div class="col-md-8">
+															<input type="text" id="q1Title" class="form-control"
+																name="title" value="Untitled Question">
+														</div>
+														<div class="col-md-4 " style="text-align: right;">
+															<select class="select-opt-btn" id="q1OptionType">
+																<option value="0">Multiple Choice</option>
+																<option value="1">Checkbox</option>
+																<option value="2">Short Answer</option>
+															</select>
+														</div>
+
+														<div class="container-fluid" id="q1OptionBlock">
+															<div class="option" id="q1Option1">
+																<div class="col-md-10">
+																	&nbsp; O &nbsp; <input type="text"
+																		id="q1Options1Val" value="Option 1">
+																</div>
+																<div class="col-md-2 qOptionDel">
+																	<button type="button" id="q1Option1Del">X</button>
+																</div>
+															</div>
+														</div>
+
+														<div class="container-fluid">
+															<div class="col-md-10">
+																&nbsp; O &nbsp; <button class="addOption"
+																	id="q1AddOption"> Add Option </button>
+															</div>
+															<div class="col-md-2"></div>
+														</div>
+													</div> -->
+
+												</div> 
+												<!-- Question tag end -->
+												 <!-- <div class="row" style="text-align: right;">
+													<button class="btn btn-primary" style="right:0;" type="button"
+														id="add-question">Add Question</button>
+												</div> -->
+												 <!-- <button class="btn btn-primary dropdown-toggle" type="button"
+														id="dropdownMenu1" data-toggle="dropdown">
+
+														New Question
+
+													</button> -->
+											</div>
+											<!-- Survey Tag end -->
+
+											<!-- Sample Multiple choice question -->
+											<!-- <div class="container p-0 question" 
+												style="margin-top: 5px; border: 1px Solid black; ">
+												<i class="fa fa-times-circle fa-lg pull-right m-2" id="q1Del" style="color:red;cursor:pointer;"></i>
+												 <div class="row col-sm-12 " id="q1" style=" margin: 0px auto">
+													<div class="col-sm-1 pt-2">
+														<span >Q1.</span>
+													</div>
+													<div class="col-sm-9 form-group p-0" style="margin: 0">	
+															<input id="q1Title" type="text" class="form-control input-square qEdit"  placeholder="Question Titile" >
+
+													</div>
+													<div class="col-sm-2 ">
+															<select id="q1OptionType" class="form-control input-square qEdit" id="qType">
+																	<option>Checkbox</option>
+																	<option>Radio</option>
+																	<option>Text</option>
+																	
+															</select>
+													</div>													
+												</div> 
+												
+												<div id="q'+maxid+'OptionBlock" class="mt-3"  >
+
+														<div class="row col-sm-12 " style=" margin:0px 0px 2px 0px ">
+													
+
+																<div class="col-sm-1 pt-1">
+																		<label class="form-check-label" style="width: 100%" >
+																				<input class="form-check-input" type="checkbox" value="" disabled>
+																				<span class="form-check-sign" ></span>
+																		</label>
+																
+																</div>
+																<div class="col-sm-9 form-group p-0">	
+																	<input class="qEdit" type="text" placeholder="option.." id="qoption1" style="width: 100%">
+																			
+																</div>
+																<div class="col-sm-2 container-fluid pt-1" style="text-align: center">
+																		<i class="fa fa-minus-circle fa-lg"></i>
+																		<i class="fa fa-plus-circle fa-lg"></i>
+																		
+																</div>													
+															</div> 
+
+															<div class="row col-sm-12 " style=" margin:0px 0px 2px 0px ">
+													
+
+																	<div class="col-sm-1 pt-1">
+																			<label class="form-check-label" style="width: 100%" >
+																					<input class="form-check-input" type="checkbox" value="" disabled>
+																					<span class="form-check-sign" ></span>
+																			</label>
+																	
+																	</div>
+																	<div class="col-sm-9 form-group p-0">	
+																		<input type="text" placeholder="option.." id="qoption1" style="width: 100%">
+																				
+																	</div>
+																	<div class="col-sm-2 container-fluid p-1 " style="text-align: center">
+																			<i class="fa fa-minus-circle fa-lg"></i>
+																			<i class="fa fa-plus-circle fa-lg"></i>
+																			
+																	</div>													
+																</div> 												
+												</div>
+												<div style="text-align: right">
+														<button class="btn btn-primary pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " >Save</button>
+												</div>
+												
+												
+											</div> -->
+
+											<!-- Sample radio choice question -->
+											<!-- <div class="container p-0" id="q'+maxid+'"
+												style="margin-top: 5px; border: 1px Solid black; ">
+												<i class="fa fa-times-circle fa-lg pull-right m-2" style="color:red; "></i>
+												
+											
+												 <div class="row col-sm-12 " style=" margin: 0px auto">
+													
+
+													<div class="col-sm-1 pt-2">
+														<span >Q1.</span>
+													</div>
+													<div class="col-sm-9 form-group p-0" style="margin: 0">	
+															<input type="text" class="form-control input-square"  placeholder="Question Titile" >
+
+													</div>
+													<div class="col-sm-2 ">
+															<select class="form-control input-square" id="qType">
+																	<option>Checkbox</option>
+																	<option selected>Radio</option>
+																	<option>Text</option>
+																	
+															</select>
+													</div>													
+												</div> 
+												
+												<div id="q'+maxid+'OptionBlock" class="mt-3"  >
+
+														<div class="row col-sm-12 " style=" margin:0px 0px 2px 0px ">
+													
+
+																<div class="col-sm-1 pt-1">
+																		<label class="form-radio-label">
+																				<input class="form-radio-input" type="radio" name="optionsRadios" value="" disabled>
+																				<span class="form-radio-sign"></span>
+																			</label>
+																
+																</div>
+																<div class="col-sm-9 form-group p-0">	
+																	<input type="text" placeholder="option.." id="qoption1" style="width: 100%">
+																			
+																</div>
+																<div class="col-sm-2 container-fluid pt-1" style="text-align: center">
+																		<i class="fa fa-minus-circle fa-lg"></i>
+																		<i class="fa fa-plus-circle fa-lg"></i>
+																		
+																</div>													
+															</div> 
+
+															<div class="row col-sm-12 " style=" margin:0px 0px 2px 0px ">
+													
+
+																	<div class="col-sm-1 pt-1">
+																			<label class="form-radio-label"> <input class="form-radio-input" type="radio" name="optionsRadios" value="" disabled> <span class="form-radio-sign"></span> </label>
+																	</div>
+																	<div class="col-sm-9 form-group p-0">	
+																		<input type="text" placeholder="option.." id="qoption1" style="width: 100%">
+																				
+																	</div>
+																	<div class="col-sm-2 container-fluid p-1 " style="text-align: center">
+																			<i class="fa fa-minus-circle fa-lg"></i>
+																			<i class="fa fa-plus-circle fa-lg"></i>
+																			
+																	</div>													
+																</div> 												
+												</div>
+
+												<div style="text-align: right">
+														<button class="btn btn-primary pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " >Save</button>
+												</div>
+												
+												
+											</div> -->
+											<!-- sample radio question -->
+
+											<!-- Sample Text choice question -->
+										<!-- 	<div class="container p-0 question" id="q'+maxid+'"
+												style="margin-top: 5px; border: 1px Solid black; ">
+												<i id="q'+maxid+'Del" class="fa fa-times-circle fa-lg pull-right m-2" style="color:#ff646d; cursor: pointer; "></i>
+												
+											
+												 <div class="row col-sm-12 " style=" margin: 0px auto">
+													
+
+													<div class="col-sm-1 pt-2 col-xs-1">
+														<span >Q'+maxid+'.</span>
+													</div>
+													<div class="col-sm-9 form-group p-0 col-xs-2" style="margin: 0">	
+															<input id="q'+maxid+'Title" type="text" class="form-control input-square"  placeholder="Question Title" >
+
+													</div>
+													<div class="col-sm-2 col-xs-2 ">
+															<select id="q'+maxid+'OptionType" class="form-control input-square" >
+																	<option>Checkbox</option>
+																	<option >Radio</option>
+																	<option selected>Text</option>
+																	
+															</select>
+													</div>													
+												</div> 
+												
+												<div style="text-align: right">
+														<button id="q'+maxid+'Save" class="btn btn-primary pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " >Save</button>
+												</div>
+												
+												
+											</div> -->
+											<!-- sample Text question -->
+											
+											<div style="text-align: center; margin: 30px 0px 50px 0px">
+													<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+
+															<i class="fa fa-plus-circle fa-lg"></i> New Question
+														</button>
+														<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+			                                                    <a class="dropdown-item questType"  href="0">Radio</a>
+																<a class="dropdown-item questType"  href="1">CheckBox</a>
+																<a class="dropdown-item questType" href="2">Text</a>
+			
+														</ul>
+
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+				</div>
+			</div>
+
+			<!-- <footer class="footer" style="bottom:0;position:absolute; width: 100%; margin-top:20px">
+				<div class="container-fluid">
+					<nav class="pull-left">
+						<ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link" href="http://www.themekita.com">
+									PayperSurvey
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">
+									Help
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://themewagon.com/license/#free-item">
+									Licenses
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="copyright ml-auto">
+						2019, Developed By Team<i class="la la-heart heart text-danger"></i> by <a
+							href="#">PayPerSurvey</a>
+					</div>
+				</div>
+			</footer> -->
+
+		</div>
+	</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header bg-primary">
+					<h6 class="modal-title"><i class="la la-frown-o"></i> Under Development</h6>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<p>Currently the pro version of the <b>Ready Dashboard</b> Bootstrap is in progress development</p>
+					<p>
+						<b>We'll let you know when it's done</b></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="/assets/js/breadcrumbs.js"></script>
+<script src="/assets/js/core/jquery.3.2.1.min.js"></script>
+<script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="/assets/js/core/popper.min.js"></script>
+<script src="/assets/js/core/bootstrap.min.js"></script>
+<script src="/assets/js/core/bootstrap-slider.min.js"></script>
+<script src="/assets/js/plugin/chartist/chartist.min.js"></script>
+<script src="/assets/js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js"></script>
+<!--<script src="/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>-->
+<script src="/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+<script src="/assets/js/plugin/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="/assets/js/plugin/jquery-mapael/maps/world_countries.min.js"></script>
+<script src="/assets/js/plugin/chart-circle/circles.min.js"></script>
+<script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<script src="/assets/js/ready.min.js"></script>
+<script src="/assets/js/demo.js"></script>
+
+
+
+
+
+
+<script>
+	$(document).ready(function () {
+	
+
+       function tooltip() {
+         $('[data-toggle="tooltip"]').tooltip();
+       }
+
+        function serialize(){  //serialize Q numbers
+			   i=1;
+			   $(".question").each(function(){
+                 $(this).children().children().children(".qNo").html("Q"+(i++)+".");
+			   }); 
+        }
+
+
+
+	   $(document).on("click",".delQuest",function(){ //function for delete questions and serialize Q number
+                var delid=$(this).attr('id').match(/\d+/);
+                $("#q"+delid).remove();
+                serialize();
+                
+	   });
+
+	   $(document).on("keyup",".qInput",function(){  //function for enable save button
+        var enableid=$(this).attr('id').match(/\d+/);
+            $("#q"+enableid+"Save").prop("disabled",false);
+	   });
+		
+		$(".questType").click(function (e) {  //function for add question
+			e.preventDefault();
+          
+			var totalinputs = $("#question-block");
+			maxid = $(totalinputs[0]).children('.question').length;
+			console.log('maxid',maxid);
+			if(maxid !=0 ){
+				console.log(parseInt($(totalinputs[0]).children('.question').last().attr("id").match(/\d+/)[0])+1);
+				maxid=parseInt($(totalinputs[0]).children('.question').last().attr("id").match(/\d+/)[0])+1;
+			}
+			else
+			{
+				maxid++;
+			}
+			 //console.log('maxid',maxid);
+		
+                  if($(this).attr('href')==0)
+                  {
+                  	 $('#question-block').append('<div id="q'+ maxid +'" class=" container p-0 question"style="margin-top: 5px;  ">  <div class="row col-sm-12 " style=" margin: 0px auto"> <div class="col-sm-1 pt-2"> <span class="qNo">Q'+maxid+'.</span> </div> <div class="col-sm-9 form-group p-0" style="margin: 0"> <input id="q'+ maxid +'Title" name="q'+ maxid +'Title" type="text" class="form-control input-square qInput" placeholder="Question Title" > </div> <div class="col-sm-2 "> <select id="q'+ maxid +'OptionType" name="q'+ maxid +'OptionType" class="form-control input-square qEdit"><option value="0" selected>Radio</option> <option value="1">Checkbox</option> <option value="2">Text</option> </select> </div> </div> <div id="q'+maxid+'OptionBlock" class="mt-3"  > <div class="row col-sm-12 option" style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-radio-label"> <input class="form-radio-input" type="radio" name="optionsRadios" value="" disabled> <span class="form-radio-sign"></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input class="qInput" type="text" placeholder="option.." id="q'+ maxid +'Option1" name="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="la la-minus-square la-2x delOption"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="la la-plus-square la-2x addOption"></i> </div> </div> </div> <div style="text-align: right;padding-right:29px;"><span style="font-size:19px;">Complexity Level<i  data-toggle="tooltip" data-placement="bottom" title="Chawala help Chahi di a" style="font-size:20px;" class="la la-question-circle "></i></span> &nbsp; &nbsp; <input id="q'+maxid+'Complexity" name="q'+maxid+'Complexity" type="text" />  <button id="q'+maxid+'Save" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " disabled style="border:1px solid green;background:white;width:60px;margin:5px 5px !important;"><i  class="fa fa-check" style="color:green;  "></i></button> <button id="q'+maxid+'Del" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 delQuest"  style="border:1px solid red;background:white;width:60px;margin:0px 5px !important;" ><i  class="fa fa-trash" style="color:red;  "></i></button> </div> <hr style="width:70%"> </div> ');
+                  }
+                  else  if($(this).attr('href')==1)
+                  {
+                 $('#question-block').append('<div id="q'+ maxid +'" class=" container p-0 question"style="margin-top: 5px;  ">  <div class="row col-sm-12 " style=" margin: 0px auto"> <div class="col-sm-1 pt-2"> <span class="qNo">Q'+maxid+'.</span> </div> <div class="col-sm-9 form-group p-0" style="margin: 0"> <input id="q'+ maxid +'Title" name="q'+ maxid +'Title" type="text" class="form-control input-square qInput"  placeholder="Question Title" > </div> <div class="col-sm-2 "> <select id="q'+ maxid +'OptionType" name="q'+ maxid +'OptionType" class="form-control input-square qEdit"><option value="0">Radio</option> <option value="1" selected>Checkbox</option> <option value="2">Text</option> </select> </div> </div> <div id="q'+maxid+'OptionBlock" class="mt-3"  > <div class="row col-sm-12 option" style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-check-label" style="width: 100%" > <input class="form-check-input" type="checkbox" value="" disabled> <span class="form-check-sign" ></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input class="qInput" type="text" placeholder="option.." name="q'+ maxid +'Option1" id="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="la la-minus-square la-2x delOption"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="la la-plus-square la-2x addOption"></i> </div> </div> </div> <div style="text-align: right;padding-right:29px;"> <span style="font-size:19px;">Complexity Level<i  data-toggle="tooltip" data-placement="bottom" title="Chawala help Chahi di a" style="font-size:20px;" class="la la-question-circle "></i> </span> &nbsp; &nbsp; <input id="q'+maxid+'Complexity" name="q'+maxid+'Complexity" type="text" /> <button id="q'+maxid+'Save" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " disabled style="border:1px solid green;background:white;width:60px;margin:0px 5px !important;"><i  class="fa fa-check" style="color:green;  "></i></button> <button id="q'+maxid+'Del" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 delQuest"  style="border:1px solid red;background:white;width:60px;margin:0px 5px !important;" ><i  class="fa fa-trash" style="color:red;  "></i></button> </div> <hr style="width:70%"> </div> '); }
+                   else if($(this).attr('href')==2)
+                   {
+                   	$('#question-block').append('<div class="container p-0 question" id="q'+maxid+'"style="margin-top: 5px;  ">  <div class="row col-sm-12 " style=" margin: 0px auto"> <div class="col-sm-1 pt-2 col-xs-1"> <span class="qNo">Q'+maxid+'.</span> </div> <div class="col-sm-9 form-group p-0 col-xs-2" style="margin: 0"> <input id="q'+maxid+'Title" name="q'+maxid+'Title" type="text" class="form-control input-square qInput"  placeholder="Question Title" > </div> <div class="col-sm-2 col-xs-2 "> <select id="q'+maxid+'OptionType" name="q'+maxid+'OptionType" class="form-control input-square qEdit" > <option value="0">Radio</option> <option value="1">Checkbox</option> <option value="2" selected>Text</option> </select> </div> </div> <div id="q'+maxid+'OptionBlock" class="mt-3" ></div> <div style="text-align: right;padding-right:29px;"><span style="">Complexity Level<i  data-toggle="tooltip" data-placement="bottom" title="Chawala help Chahi di a" style="font-size:22px;" class="la la-question-circle "></i> </span> &nbsp; &nbsp; <input id="q'+maxid+'Complexity" name="q'+maxid+'Complexity" type="text" /> <button id="q'+maxid+'Save" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 " disabled style="border:1px solid green;background:white;width:60px;margin:0px 5px !important;"><i  class="fa fa-check" style="color:green;  "></i></button> <button id="q'+maxid+'Del" class="btn pt-1 pb-1 pr-2 pl-2 mt-2 mb-2 ml-4 mr-4 delQuest"  style="border:1px solid red;background:white;width:60px;margin:0px 5px !important;" ><i  class="fa fa-trash" style="color:red;  "></i></button> </div> <hr style="width:70%"> </div>'); }
+                         serialize();
+                         tooltip();
+
+                         var globalScope ={};   
+                         globalScope['slider' + maxid]= new Slider("#q"+maxid+"Complexity", {
+                                ticks: [1, 2, 3],
+                                ticks_labels: ['Low', 'Medium', 'High'],
+                                ticks_snap_bounds: 1
+                                });
+                   
+                                     
+                    
+
+		});
+
+		$(document).on('change', '.qEdit', function () {  //function to change option type
+
+				
+			if ($(this).val() == 0) {
+				var maxid = $(this).attr('id').match(/\d+/);
+				
+			
+				$('#q' + maxid + 'OptionBlock').html('<div class="row col-sm-12 option" style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-radio-label"> <input class="form-radio-input" type="radio" name="optionsRadios" value="" disabled> <span class="form-radio-sign"></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input class="qInput" type="text" placeholder="option.." id="q'+ maxid +'Option1" name="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="la la-minus-square la-2x delOption"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="la la-plus-square la-2x addOption"></i> </div> </div>');
+			} else if ($(this).val() == 1) {
+				var maxid = $(this).attr('id').match(/\d+/);
+				$('#q' + maxid + 'OptionBlock').html('<div class="row col-sm-12 option" style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-check-label" style="width: 100%" > <input class="form-check-input" type="checkbox" value="" disabled> <span class="form-check-sign" ></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input  class="qInput" type="text" placeholder="option.." id="q'+ maxid +'Option1" name="q'+ maxid +'Option1" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ maxid +'Option1Del" style="cursor:pointer;" class="la la-minus-square la-2x delOption"></i> <i id="q'+ maxid +'Option1Add" style="cursor:pointer;" class="la la-plus-square la-2x addOption"></i> </div> </div>'); } else if ($(this).val() == 2) {
+				var maxid = $(this).attr('id').match(/\d+/);
+				
+				$('#q' + maxid + 'OptionBlock').html('');
+			}
+		});
+		$(document).on('click', '.addOption', function () {
+			
+			var targetid = $(this).attr('id').match(/\d+/)[0];
+			var totaloptions = $('#q'+targetid+'OptionBlock');
+			maxid = $(totaloptions[0]).children('.option').length;
+		    
+			console.log('opt',targetid);
+			console.log("max",maxid);
+			 var newId  = maxid++; 
+			if ($('#q' + targetid + 'OptionType').val() == 0) {
+				$('#q' + targetid + 'OptionBlock').append('<div class="row col-sm-12 option" style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-radio-label"> <input class="form-radio-input" type="radio" name="optionsRadios" value="" disabled> <span class="form-radio-sign"></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input class="qInput" type="text" placeholder="option.." id="q'+ targetid +'Option'+maxid+'" name="q'+ targetid +'Option'+maxid+'" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ targetid +'Option'+maxid+'Del" style="cursor:pointer;" class="la la-minus-square la-2x delOption"></i> <i id="q'+ targetid +'Option'+maxid+'Add" style="cursor:pointer;" class="la la-plus-square la-2x addOption"></i> </div> </div>'); }
+			else if ($('#q' + targetid + 'OptionType').val() == 1) {
+				$('#q' + targetid + 'OptionBlock').append('<div class="row col-sm-12 option" style=" margin:0px 0px 2px 0px "> <div class="col-sm-1 pt-1"> <label class="form-check-label" style="width: 100%" > <input class="form-check-input" type="checkbox" value="" disabled> <span class="form-check-sign" ></span> </label> </div> <div class="col-sm-9 form-group p-0"> <input  class="qInput" type="text" placeholder="option.." id="q'+ targetid +'Option'+maxid+'" name="q'+ targetid +'Option'+maxid+'" style="width: 100%"> </div> <div class="col-sm-2 container-fluid pt-1" style="text-align: center"> <i id="q'+ targetid +'Option'+maxid+'Del" style="cursor:pointer;" class="la la-minus-square la-2x delOption"></i> <i id="q'+ targetid +'Option'+maxid+'Add" style="cursor:pointer;" class="la la-plus-square la-2x addOption"></i> </div> </div>'); }
+			
+		});
+		$(document).on('click', '.delOption', function () {
+			
+		    var delop=$(this).parent().parent();
+		    $(delop).remove();
+			
+		});
+	});
+</script>
+
+</html>

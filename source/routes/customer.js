@@ -353,9 +353,17 @@ cr.get('/buypackage', (req,res) =>{
     // }
     // else res.redirect('/customer/login');
 
-
-
 })
+
+
+cr.get('/createsurvey',(req,res)=>{
+    res.render('./customerViews/builder');
+});
+cr.get('/result',(req,res)=>{
+    res.render('./customerViews/results');
+});
+
+
 cr.post('/send/:id',(req,res)=>{
     let id = req.params.id;
     console.log(id);
