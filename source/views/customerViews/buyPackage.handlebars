@@ -4,6 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>Buy Package</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <link rel="stylesheet" href="/assets/css/breadcrumbs.css">
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/assets/css/ready.css">
 	<link rel="stylesheet" href="/assets/css/demo.css">
@@ -109,7 +110,7 @@ body { background-color: #fafafa; }
 	<div class="wrapper">
 		<div class="main-header">
 			<div class="logo-header">
-				<a href="index.html" class="logo">
+				<a href="/customer" class="logo">
           <img src="/assets/logo/logo.png" alt="logo" height="40" width="150">
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
@@ -131,7 +132,7 @@ body { background-color: #fafafa; }
 					</form>
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="btn">
-							<a href="builder.html">
+							<a href="/customer/createsurvey">
 								<button class="btn card-color">Create Survey</button>
 							</a>
 						</li>
@@ -207,9 +208,14 @@ body { background-color: #fafafa; }
 			</div>
 <form method="POST" action="/customer/send/{{id}}">
 			<div class="main-panel">
+
 				<div class="content">
+          <div class="breadcrumb" style="background:none;">
+						<a class="col-sm-4 breadcrumb__step " href="/customer/createsurvey">Design Survey</a>
+						<a class="col-sm-4 breadcrumb__step " href="/customer/targetaudience">Target Audience</a> <a class="col-sm-4 breadcrumb__step breadcrumb__step--active" href="/customer/buypackage">Buy Package</a></div>
 					<div class="container-fluid pt-5">
-             <h5>Survey Deadline</h5>
+
+             <h6>Survey Deadline</h6>
 					      <div class="row">
 					        <div class='col-sm-12'>
 					            <input type='text' id="closeTime" name="closeTime" class="form-control" id='datetimepicker1' placeholder="08/01/2019 2:43 AM"/><span class="input-group-addon">
@@ -378,7 +384,7 @@ body { background-color: #fafafa; }
 
 
 
-
+<script src="/assets/js/breadcrumbs.js"></script>
 <script src="/assets/js/core/jquery.3.2.1.min.js"></script>
 <script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 <script src="/assets/js/core/popper.min.js"></script>
