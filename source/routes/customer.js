@@ -423,63 +423,99 @@ cr.post('/addquestion',(req,res)=>{
     let opt_word_count=0;
     let title_count=0;
     op = {}
-    for (var i = 0; i < keys.length; i++) {
-        if(keys[i].includes('Title')){
 
-            title = req.body[keys[i]];
-            temp =title.replace(/ /g, "")
+    if(req.body[keys[1]] == 2){
+        console.log(req.body);
+        title = req.body[keys[0]];
+        temp =title.replace(/ /g, "")
+        title_count = temp.length;
             //console.log();
-            title_count = temp.length;
-         //   console.log('titile',title_count);
-        }
-        else if(keys[i].includes('OptionType')){
-            q_type = req.body[keys[i]];
-            //console.log('option type');
-        }
-        else if(keys[i].includes('Option')){
-            op_title= req.body[keys[i]];
-            temp =op_title.replace(/ /g, "")
-            //console.log();
-            opt_word_count = opt_word_count + temp.length;
-          //  console.log('opt count',opt_word_count);
-           options[optioncount] ={
-            op_res:0,
-             op_title: req.body[keys[i]]
+        let readTime = (title_count)/280;
+        let req_time = readTime + cf;
 
-        }
-           optioncount++;
-        }
-        else if(keys[i].includes('Complexity')){
-            cf = req.body[keys[i]];
-            optioncount++;
-         }
-         else if(keys[i].includes('q_no')){
-              q_no  = req.body[keys[i]];
+        data ={
+            questions:{
+                [id]:{
+                    title: req.body[keys[0]],
+                    q_type:req.body[keys[1]],
+                    cf:req.body[keys[2]],
+                    q_no:req.body[keys[4]],
 
-         }
-         else{}
 
-    }
-    console.log('words',opt_word_count+title_count);
 
-    //calculate required time
-
-    let readTime = (opt_word_count + title_count)/280;
-    let req_time = readTime + cf;
-
-    //console.log(id,q_no,title,q_type,options,cf);
-    data ={
-        questions:{
-            [id]:{
-                q_no: q_no,
-                title: title,
-                cf:cf,
-                options:options,
-                req_time:req_time
+                    req_time:req_time
+                }
             }
+
         }
 
     }
+    else{
+        for (var i = 0; i < keys.length; i++) {
+            if(keys[i].includes('Title')){
+
+                title = req.body[keys[i]];
+                temp =title.replace(/ /g, "")
+                //console.log();
+                title_count = temp.length;
+             //   console.log('titile',title_count);
+            }
+            else if(keys[i].includes('OptionType')){
+                q_type = req.body[keys[i]];
+                if(q_type =='0') q_type = 'radio';
+                else if(q_type =='1') q_type = 'checkbox';
+                else q_type = 'text';
+
+                //console.log('option type');
+            }
+            else if(keys[i].includes('Option')){
+                op_title= req.body[keys[i]];
+                temp =op_title.replace(/ /g, "")
+                //console.log();
+                opt_word_count = opt_word_count + temp.length;
+              //  console.log('opt count',opt_word_count);
+               options[optioncount] ={
+                op_res:0,
+                 op_title: req.body[keys[i]]
+
+            }
+               optioncount++;
+            }
+            else if(keys[i].includes('Complexity')){
+                cf = req.body[keys[i]];
+                optioncount++;
+             }
+             else if(keys[i].includes('q_no')){
+                  q_no  = req.body[keys[i]];
+
+             }
+             else{}
+
+        }
+        console.log('words',opt_word_count+title_count);
+
+        //calculate required time
+
+        let readTime = (opt_word_count + title_count)/280;
+        let req_time = readTime + cf;
+
+        //console.log(id,q_no,title,q_type,options,cf);
+        data ={
+            questions:{
+                [id]:{
+                    q_no: q_no,
+                    q_type:q_type,
+                    title: title,
+                    cf:cf,
+                    options:options,
+                    req_time:req_time
+                }
+            }
+
+        }
+
+    }
+
     console.log(data);
    //db.collection('Survey').doc('PKJLpbc5my7FsmLWO4B9').update(data);
 
