@@ -187,11 +187,31 @@ cr.get('/', (req,res) =>{
         //dataset = {email: req.session.email, uid: req.session.uid};
         //console.log(req.session.email);
         //console.log("welcome customer sceen")
-        res.render('./customerViews/dashboard');
+        let id= req.session.uid
+
+        db.collection('Customers').doc(id).get()
+        .then(snapshot=>{
+            data ={id:id, balance:snapshot.data().balance}
+            res.render('./customerViews/dashboard',data)
+
+        })
+
     }
     else res.redirect('/customer/login');
 
 })
+
+cr.post('/updatebalance', (req,res) =>{
+
+    let id = req.param('id');
+    console.log(req.body.balance);
+
+    const increment = FieldValue.increment(parseInt(req.body.balance));
+    db.collection('Customers').doc(id).update({balance: increment})
+    res.redirect('/customer/');
+
+})
+
 cr.get('/draftSurvey', (req,res) =>{
 
     if(req.session.email){
@@ -280,9 +300,9 @@ cr.get('/targetAudience', (req,res) =>{
 })
 cr.post('/updateTA', async (req,res)=>{
     //console.log('updateTA');
-   // let atr = req.param('ta_atr');
+    let atr = req.param('ta_atr');
    // console.log(atr);
-   // let id = req.param('id');
+    let id = req.param('id');
     let ta ={};
     if(atr == 'location'){
         ta.location = req.body.location;
