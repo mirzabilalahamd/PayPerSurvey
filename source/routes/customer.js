@@ -429,10 +429,10 @@ cr.post('/addquestion',(req,res)=>{
     let id =req.body.qid;
     var keys = Object.keys(req.body);
     console.log(keys);
-
+    
     let title="";
     let q_type="";
-    let options =[];
+    let options ={};
     let optioncount = 0;
     let cf = 0;
     let q_no = 0;
@@ -486,17 +486,25 @@ cr.post('/addquestion',(req,res)=>{
                 //console.log('option type');
             }
             else if(keys[i].includes('Option')){
+                result=keys[i].split('Option');
+                let oid =parseInt(result[1]);
+                console.log(oid);
                 op_title= req.body[keys[i]];
                 temp =op_title.replace(/ /g, "")
                 //console.log();
                 opt_word_count = opt_word_count + temp.length;
+                options = Object.assign({[oid]:{op_res:0, op_title: req.body[keys[i]]}},options)
               //  console.log('opt count',opt_word_count);
-               options[optioncount] ={
-                op_res:0,
-                 op_title: req.body[keys[i]]
+            //    options[optioncount] ={
+            //        [oid]:{
+            //         op_res:0,
+            //         op_title: req.body[keys[i]]
+                       
+            //        }
+              
 
-            }
-               optioncount++;
+            // }
+               //optioncount++;
             }
             else if(keys[i].includes('Complexity')){
                 cf = req.body[keys[i]];
@@ -532,6 +540,8 @@ cr.post('/addquestion',(req,res)=>{
         }
 
     }
+    console.log(JSON.stringify(options));
+    console.log('data=>',data);
 
     db.collection('Survey').doc(sid).set(data,{merge:true});
    
@@ -540,17 +550,15 @@ cr.post('/addquestion',(req,res)=>{
 cr.post('/updateoption',(req,res)=>{
    
     let qid=parseInt(req.body.qid);
-    console.log(qid);
-    let sid=parseInt(req.body.sid);
+    let sid=(req.body.sid);
     let oid=parseInt(req.body.oid);
+    console.log(sid,qid,oid)
 
     db.collection('Survey').doc(sid).set({
         questions:{
             [qid]:{
                 options:{
-                    [oid]:{
-                    op_title:FieldValue.delete()
-                    }
+                    [oid]:FieldValue.delete()
                 }
             }
         }
@@ -563,6 +571,23 @@ cr.post('/updateoption',(req,res)=>{
         res.send('0');
     })
     
+})
+cr.post('/deletequestion',(req,res)=>{
+    let sid=req.body.sid;
+    let qid=req.body.qid;
+    db.collection('Survey').doc(sid).set({
+        questions:{
+            [qid]:FieldValue.delete()
+        }
+       },{merge:true})
+    .then(snapshot=>{
+        res.send('1');
+    })
+    .catch(err=>{
+        console.log(err);
+        res.send('0');
+    })
+    // res.send(true);
 })
 
 module.exports = cr;

@@ -573,9 +573,37 @@
             })
 	   });
 
-	   $(document).on("click",".delQuest",function(){ //function for delete questions and serialize Q number
-                var delid=$(this).attr('id').match(/\d+/);
-                $("#q"+delid+"Form").remove();
+	   $(document).on("click",".delQuest",function(e){ //function for delete questions and serialize Q number
+              e.preventDefault();
+			   let sid={{id}};
+			   let qid=parseInt($(this).attr("id").match(/\d+/)[0]);
+			   
+			    var data = {
+            'qid': qid,
+			'sid': sid
+       };
+				 $.ajax({
+                type: 'post',
+                url: '/customer/deletequestion',
+                data: data,
+                dataType: 'json'
+            })
+            .done( (response) =>{
+               //console.log('response',response);
+                if(response== '1'){
+				  console.log('ajax res', response);
+				  var delid=$(this).attr('id').match(/\d+/);
+                  $("#q"+delid+"Form").remove();
+				 
+			    }
+                else {
+				  console.log('ajax res not found');
+                }
+            })
+			 
+				
+				
+				
                 serialize();
 
 	   });
@@ -683,7 +711,7 @@
             'qid': qid,
             'oid': oid,
 			'sid': sid
-    };
+       };
 			  $.ajax({
                 type: 'post',
                 url: '/customer/updateoption',
@@ -693,12 +721,13 @@
             .done( (response) =>{
                // console.log(response);
                 if(response ==1){
-                  //  $('#alert').css("visibility","visible").text("this email is already exists!");
-					console.log('ajax res', response);
+                  
+				  console.log('ajax res', response);
+				  var delop=$(this).parent().parent();
+			      $(delop).remove();
 			    }
                 else {
-					console.log('ajax res not found');
-
+				  console.log('ajax res not found');
                 }
             })
 			 
