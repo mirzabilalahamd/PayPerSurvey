@@ -380,7 +380,28 @@ cr.get('/createsurvey',(req,res)=>{
     res.render('./customerViews/builder');
 });
 cr.get('/result',(req,res)=>{
-    res.render('./customerViews/results');
+
+    let id ='mjjwZVGvKwYmWhCmEOA6ZnbRM5v1';
+   let surveyId = '1565023337490';
+    db.collection('Survey').doc(surveyId).get()
+    .then(snapshot=>{
+        res.render('./customerViews/results',snapshot.data());
+        // console.log('snapshot=>',snapshot.data())
+        // let q =[];
+
+        // let key =Object.keys(snapshot.data().questions);
+        // for(let i =0; i<key.length; i++){
+        // //    console.log(snapshot.data().questions[key[i]]);
+        //     q[i]= snapshot.data().questions[key[i]];
+        // }
+        // console.log("data=>",q);
+        //console.log(q);
+
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+
 });
 
 
@@ -460,9 +481,6 @@ cr.post('/addquestion',(req,res)=>{
                     q_type:req.body[keys[1]],
                     cf:req.body[keys[2]],
                     q_no:req.body[keys[4]],
-
-
-
                     req_time:req_time
                 }
             }
