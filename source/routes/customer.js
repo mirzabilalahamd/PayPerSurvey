@@ -187,11 +187,31 @@ cr.get('/', (req,res) =>{
         //dataset = {email: req.session.email, uid: req.session.uid};
         //console.log(req.session.email);
         //console.log("welcome customer sceen")
-        res.render('./customerViews/dashboard');
+        let id= req.session.uid
+
+        db.collection('Customers').doc(id).get()
+        .then(snapshot=>{
+            data ={id:id, balance:snapshot.data().balance}
+            res.render('./customerViews/dashboard',data)
+
+        })
+
     }
     else res.redirect('/customer/login');
 
 })
+
+cr.post('/updatebalance', (req,res) =>{
+
+    let id = req.param('id');
+    console.log(req.body.balance);
+
+    const increment = FieldValue.increment(parseInt(req.body.balance));
+    db.collection('Customers').doc(id).update({balance: increment})
+    res.redirect('/customer/');
+
+})
+
 cr.get('/draftSurvey', (req,res) =>{
 
     if(req.session.email){
@@ -280,9 +300,9 @@ cr.get('/targetAudience', (req,res) =>{
 })
 cr.post('/updateTA', async (req,res)=>{
     //console.log('updateTA');
-   // let atr = req.param('ta_atr');
+    let atr = req.param('ta_atr');
    // console.log(atr);
-   // let id = req.param('id');
+    let id = req.param('id');
     let ta ={};
     if(atr == 'location'){
         ta.location = req.body.location;
@@ -395,6 +415,136 @@ cr.post('/send/:id',(req,res)=>{
     //console.log(data);
     res.redirect('/customer/openSurvey');
 
+})
+cr.post('/addquestion',(req,res)=>{
+    //console.log();
+    let id =req.body.qid;
+    // let title = req.body[Object.values(req.body)[0]];
+    // let q_type = 'q'+id+'OptionType';
+    //console.log(title);
+    //console.log(req.body.q1Title);
+
+    var keys = Object.keys(req.body);
+    console.log(keys);
+
+
+   // console.log(q);
+//    let questions = {[id]: ''};
+//     console.log('questions =>',questions);
+
+
+    let title="";
+    let q_type="";
+    let options =[];
+    let optioncount = 0;
+    let cf = 0;
+    let q_no = 0;
+    let wordcount;
+    let opt_word_count=0;
+    let title_count=0;
+    op = {}
+
+    if(req.body[keys[1]] == 2){
+        console.log(req.body);
+        title = req.body[keys[0]];
+        temp =title.replace(/ /g, "")
+        title_count = temp.length;
+            //console.log();
+        let readTime = (title_count)/280;
+        let req_time = readTime + cf;
+
+        data ={
+            questions:{
+                [id]:{
+                    title: req.body[keys[0]],
+                    q_type:req.body[keys[1]],
+                    cf:req.body[keys[2]],
+                    q_no:req.body[keys[4]],
+
+
+
+                    req_time:req_time
+                }
+            }
+
+        }
+
+    }
+    else{
+        for (var i = 0; i < keys.length; i++) {
+            if(keys[i].includes('Title')){
+
+                title = req.body[keys[i]];
+                temp =title.replace(/ /g, "")
+                //console.log();
+                title_count = temp.length;
+             //   console.log('titile',title_count);
+            }
+            else if(keys[i].includes('OptionType')){
+                q_type = req.body[keys[i]];
+                if(q_type =='0') q_type = 'radio';
+                else if(q_type =='1') q_type = 'checkbox';
+                else q_type = 'text';
+
+                //console.log('option type');
+            }
+            else if(keys[i].includes('Option')){
+                op_title= req.body[keys[i]];
+                temp =op_title.replace(/ /g, "")
+                //console.log();
+                opt_word_count = opt_word_count + temp.length;
+              //  console.log('opt count',opt_word_count);
+               options[optioncount] ={
+                op_res:0,
+                 op_title: req.body[keys[i]]
+
+            }
+               optioncount++;
+            }
+            else if(keys[i].includes('Complexity')){
+                cf = req.body[keys[i]];
+                optioncount++;
+             }
+             else if(keys[i].includes('q_no')){
+                  q_no  = req.body[keys[i]];
+
+             }
+             else{}
+
+        }
+        console.log('words',opt_word_count+title_count);
+
+        //calculate required time
+
+        let readTime = (opt_word_count + title_count)/280;
+        let req_time = readTime + cf;
+
+        //console.log(id,q_no,title,q_type,options,cf);
+        data ={
+            questions:{
+                [id]:{
+                    q_no: q_no,
+                    q_type:q_type,
+                    title: title,
+                    cf:cf,
+                    options:options,
+                    req_time:req_time
+                }
+            }
+
+        }
+
+    }
+
+    console.log(data);
+   //db.collection('Survey').doc('PKJLpbc5my7FsmLWO4B9').update(data);
+
+
+
+    //  console.log(Object.values(req.body));
+  //  let title = 'q'+qid+'Title';
+   // console.log(req.params.title);
+    res.send('1');
 })
 
 module.exports = cr;

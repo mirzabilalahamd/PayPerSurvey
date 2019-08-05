@@ -47,7 +47,7 @@
 								<button class="btn card-color">Create Survey</button>
 							</a>
 						</li>
-						
+
 					</ul>
 				</div>
 			</nav>
@@ -113,7 +113,7 @@
 								<span class="badge badge-count card-color">5</span>
 							</a>
 						</li>
-						
+
 					</ul>
 				</div>
 			</div>
@@ -188,10 +188,10 @@
 								<div class="card">
 									<div class="card-body">
 										<p class="fw-bold mt-1">Current Balance</p>
-										<h4><b>$ 318</b></h4>
+										<h4><b>Rs. {{balance}}</b></h4>
 											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Add Balance</button>
 									</div>
-									
+
 
 									<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									  <div class="modal-dialog" role="document">
@@ -203,21 +203,20 @@
 									        </button>
 									      </div>
 									      <div class="modal-body">
-									        <form action="#" name="model" method="POST">
-									          <div class="form-group">
-									            <label for="recipient-name" class="col-form-label">Enter Account No.</label>
-									            <input type="text" class="form-control" id="account-no" placeholder="0000 0000-0000-0000">
-									          </div>
+									    	<form action="/customer/updatebalance?id={{id}}" name="model" method="POST">
+
 									          <div class="form-group">
 									            <label for="recipient-name" class="col-form-label">Add Amount</label>
-									            <input type="text" class="form-control" id="amount" placeholder="$2000">
+									            <input type="text" name="balance" class="form-control" id="amount" placeholder="Enter Amount">
 									          </div>
-									        </form>
+
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									        <button type="button" class="btn btn-primary">Add</button>
+									        <button type="submit" class="btn btn-primary">Add</button>
 									      </div>
+										  </form>
+
 									    </div>
 									  </div>
 									</div>
@@ -306,7 +305,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
