@@ -377,7 +377,8 @@ cr.get('/buypackage', (req,res) =>{
 
 
 cr.get('/createsurvey',(req,res)=>{
-    res.render('./customerViews/builder');
+    let id=new Date().getTime();
+    res.render('./customerViews/builder',{id:id});
 });
 cr.get('/result',(req,res)=>{
     res.render('./customerViews/results');
@@ -416,22 +417,18 @@ cr.post('/send/:id',(req,res)=>{
     res.redirect('/customer/openSurvey');
 
 })
+cr.post('/updatesurvey',(req,res)=>{
+    let id=req.body.id;
+    let title=req.body.surveyTitle;
+    let desc=req.body.surveyDesc;
+    db.collection('Survey').doc(id).set({title:title,description:desc},{merge:true});
+})
 cr.post('/addquestion',(req,res)=>{
     //console.log();
+    let sid=req.body.sid;
     let id =req.body.qid;
-    // let title = req.body[Object.values(req.body)[0]];
-    // let q_type = 'q'+id+'OptionType';
-    //console.log(title);
-    //console.log(req.body.q1Title);
-
     var keys = Object.keys(req.body);
     console.log(keys);
-
-
-   // console.log(q);
-//    let questions = {[id]: ''};
-//     console.log('questions =>',questions);
-
 
     let title="";
     let q_type="";
@@ -536,15 +533,36 @@ cr.post('/addquestion',(req,res)=>{
 
     }
 
-    console.log(data);
-   //db.collection('Survey').doc('PKJLpbc5my7FsmLWO4B9').update(data);
-
-
-
-    //  console.log(Object.values(req.body));
-  //  let title = 'q'+qid+'Title';
-   // console.log(req.params.title);
+    db.collection('Survey').doc(sid).set(data,{merge:true});
+   
     res.send('1');
+})
+cr.post('/updateoption',(req,res)=>{
+   
+    let qid=parseInt(req.body.qid);
+    console.log(qid);
+    let sid=parseInt(req.body.sid);
+    let oid=parseInt(req.body.oid);
+
+    db.collection('Survey').doc(sid).set({
+        questions:{
+            [qid]:{
+                options:{
+                    [oid]:{
+                    op_title:FieldValue.delete()
+                    }
+                }
+            }
+        }
+       },{merge:true})
+    .then(snapshot=>{
+        res.send('1');
+    })
+    .catch(err=>{
+        console.log(err);
+        res.send('0');
+    })
+    
 })
 
 module.exports = cr;
