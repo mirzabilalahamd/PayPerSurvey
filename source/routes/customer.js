@@ -170,7 +170,7 @@ cr.post('/handleRegisteration', async (req,res) =>{
         password: password,
         balance: 0,
         surveylist: []
-        
+
     })
     res.send(true);
     })
@@ -191,7 +191,7 @@ cr.get('/', (req,res) =>{
         //console.log("welcome customer sceen")
         let id= req.session.uid;
         console.log(id);
-    
+
         db.collection('Customers').doc(id).get()
         .then(snapshot=>{
             console.log(snapshot.data());
@@ -287,17 +287,23 @@ cr.get('/closedSurvey', (req,res) =>{
 })
 
 cr.get('/targetAudience', (req,res) =>{
-
-    db.collection('TargetAudience').doc('K0MLUyw4nTMYMyVhrruy').get()
+    //console.log(req.param('id'));
+    let sid =req.param('id');
+    console.log('sid',sid);
+    db.collection('TargetAudience').doc(sid).get()
     .then(doc =>{
-        let data = doc.data();
-        data.id = doc.id;
-        data.layout = false;
-      //  console.log(data);
-        res.render('./customerViews/targetAudience',data);
+
+            console.log('if');
+            let data = doc.data();
+            data.id = sid;
+            data.layout = false;
+             console.log('target audience ',data);
+            res.render('./customerViews/targetAudience',data);
+
     })
     .catch( err =>{
         console.log("target audience",err);
+
 
     })
 
@@ -306,7 +312,7 @@ cr.post('/updateTA', async (req,res)=>{
     //console.log('updateTA');
     let atr = req.param('ta_atr');
    // console.log(atr);
-    let id = req.param('id');
+    let sid = req.param('id');
     let ta ={};
     if(atr == 'location'){
         ta.location = req.body.location;
@@ -339,29 +345,47 @@ else if(atr == 'religion'){
     ta.religion = req.body.religion;
 }
     else {}
-        console.log(ta);
-    console.log(ta);
-   await db.collection('TargetAudience').doc(id).set(ta,{merge:true});
-    res.redirect('/customer/targetaudience');
+    console.log('sid',sid);
+   // console.log(ta);
+   await db.collection('TargetAudience').doc(sid).set(ta,{merge:true});
+
+   db.collection('TargetAudience').doc(sid).get()
+    .then(doc =>{
+
+            //console.log('if');
+            let data = doc.data();
+            data.id = sid;
+            data.layout = false;
+             console.log('updated target audience',data);
+            res.render('./customerViews/targetAudience',data);
+
+    })
+    .catch( err =>{
+        console.log("target audience",err);
+
+
+    })
+
 
 })
 
 cr.get('/buypackage', (req,res) =>{
 
-    let id = 'K0MLUyw4nTMYMyVhrruy';
-    db.collection('Survey').doc(id).get()
+    let sid = req.param('id');
+   // console.log('buy package sid',sid);
+    db.collection('Survey').doc(sid).get()
     .then(snapshot =>{
         //console.log(Object.getOwnPropertyNames(snapshot.data().questions).length);
         let totalQuestions = Object.getOwnPropertyNames(snapshot.data().questions).length;
-        data ={id:id, totalQuestions:totalQuestions, layout:false};
-        console.log(data);
-        console.log(req.session.uid);
+        data ={id:sid, totalQuestions:totalQuestions, layout:false};
+       // console.log(data);
+        //console.log(req.session.uid);
         db.collection('Customers').doc(req.session.uid).get()
         .then(snap=>{
-            console.log(snap.id,'=>',snap.data());
+          //  console.log(snap.id,'=>',snap.data());
 
             data.balance = snap.data().balance;
-            console.log(data);
+          //  console.log(data);
             res.render('./customerViews/buyPackage',data);
         })
         .catch(err =>{
@@ -385,7 +409,7 @@ cr.get('/createsurvey',(req,res)=>{
     let lastEdited = new Date().toLocaleString();
     console.log('id=>',id,'last edited',lastEdited);
     db.collection('Survey').doc(id).set({
-        title:'Untited Survey',
+        title:'Untitled Survey',
         description:'',
         lastEdited: lastEdited,
         status:'draft'
@@ -398,12 +422,37 @@ cr.get('/createsurvey',(req,res)=>{
     .then(result=>{
         console.log('survey created in customer doc')
     })
+    db.collection('TargetAudience').doc(id).set({
+        ageR_1:15,
+        ageR_2:70,
+        education:"All",
+        gender:"All",
+        incomeR_1:0,
+        incomeR_2:10000,
+        location:'Pakistan',
+        marital_status:"All",
+        occupation:"All",
+        religion: "All"
+
+    })
+    .then(result=>{
+        console.log('target audience added');
+    })
+
     res.render('./customerViews/builder',{id:id});
 });
+
+cr.get('/delsurvey',(req,res)=>{
+    let sid = req.param('id');
+    console.log(sid);
+    db.collection('Survey').doc(sid).delete();
+    res.redirect('/customer/draftSurvey');
+})
 cr.get('/result',(req,res)=>{
 
-    let id ='mjjwZVGvKwYmWhCmEOA6ZnbRM5v1';
-   let surveyId = 'sid1565095390112';
+   // let id ='mjjwZVGvKwYmWhCmEOA6ZnbRM5v1';
+   //let surveyId = '1565023337490';
+   let surveyId = req.param('id');
     db.collection('Survey').doc(surveyId).get()
     .then(snapshot=>{
 
@@ -462,6 +511,12 @@ cr.post('/send/:id',(req,res)=>{
 
     }
     db.collection('Survey').doc(id).update(data);
+    db.collection('TargetAudience').doc(id).get()
+    .then(snapshot=>{
+        console.log('send target audience',snapshot.data());
+
+
+    })
     //console.log(data);
     res.redirect('/customer/openSurvey');
 
@@ -472,12 +527,12 @@ cr.post('/updatesurvey',(req,res)=>{
     let title=req.body.surveyTitle;
     let desc=req.body.surveyDesc;
     let lastEdited=new Date().toLocaleString();
-   
+
     db.collection('Survey').doc(sid).set({
         title:title,
         description:desc,
         lastEdited:lastEdited,
-        
+
     },{merge:true})
     .then(result=>{
         console.log('last edited',lastEdited);
@@ -485,7 +540,7 @@ cr.post('/updatesurvey',(req,res)=>{
     .catch(err=>{
         console.log('update survey err',err)
     })
-    
+
 })
 cr.post('/addquestion',(req,res)=>{
     //console.log();
@@ -589,7 +644,7 @@ cr.post('/addquestion',(req,res)=>{
         //console.log(id,q_no,title,q_type,options,cf);
         data ={
             lastEdited:lastEdited,
-            
+
             questions:{
                 [id]:{
                     q_no: q_no,
@@ -660,11 +715,13 @@ cr.post('/deletequestion',(req,res)=>{
 /* my code */
 cr.get('/editsurvey',(req,res)=>{
     //let id=new Date().getTime();
-    let surveyId = '1565023337490';
+    //let surveyId = req.param('id');
+    let surveyId = 'zXIH49G41Brvt7cERycV';
+
     db.collection('Survey').doc(surveyId).get()
     .then(snapshot=>{
         res.render('./customerViews/editsurvey',snapshot.data());
-       
+
     })
     .catch(err=>{
         console.log(err);
