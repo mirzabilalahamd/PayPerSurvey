@@ -118,60 +118,9 @@
 		</div>
 		<div class="main-panel">
 			<div class="content">
-				<div class="container-fluid">
-					<h4 class="page-title">Survey Results</h4>
+				<div class="container-fluid results-div">
+					<h4 class="page-title">{{title}}</h4>
 
-
-					<div class="row">
-						<div class="col-md-12">
-							<div id="piechart" style="width: 100%; height: 400px;"></div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div id="top_x_div" style="width: 100%; height: 400px;"></div>
-						</div>
-					</div>
-					<div class="row bg-white" style="margin:0px;">
-						<div class="col-md-8" style="margin:10px auto;display:block;height:300px;overflow-y:scroll;">
-							<table class="table table-striped">
-								<thead>
-									<th>
-										Question
-									</th>
-								</thead>
-
-								<tbody>
-									<tr>
-										<td>John</td>
-										<td>Doe</td>
-										<td>john@example.com</td>
-									</tr>
-									<tr>
-										<td>Mary</td>
-										<td>Moe</td>
-										<td>mary@example.com</td>
-									</tr>
-									<tr>
-										<td>July</td>
-										<td>Dooley</td>
-										<td>july@example.com</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					{{#each questions}}
-					<snap> question number--- {{q_no}}</snap> <br>
-					<snap> question type--- {{q_type}}</snap> <br>
-					<snap> title--- {{title}}</snap> <br>
-					{{#each options}}
-					option ---{{op_title}} <br>
-
-					{{/each}}
-					<snap> cf--- {{cf}}</snap> <br>
-					<snap>------------------------</snap> <br>
-					{{/each}}
 				</div>
 			</div>
 
@@ -201,70 +150,139 @@
 <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 <script src="../assets/js/ready.min.js"></script>
 <script src="../assets/js/demo.js"></script>
+{{!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> --}}
+
+
+   <script type="text/javascript">
+
+   async function drw(qid,title,ot,or){
+       $(".results-div").append('<div class="row"> <div class="col-md-12"> <div id="p'+qid+'" style="width: 100%; height: 400px;"></div> </div></div>');
+	   await google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawChart(qid,title,'cf',ot,or));
+
+   }
+   async function drawHist(qid,title,ot,or){
+	   $(".results-div").append('<div class="row"><div class="col-md-12"><div id="b'+qid+'" style="width: 100%; height: 400px;"></div></div></div>');
+	  await google.charts.load('current', {'packages':['bar']});
+     google.charts.setOnLoadCallback(drawStuff(qid,title,'cf',ot,or));
+   }
+   //var count =1;
+   {{#each questions}}
+   if('{{q_type}}'=='radio' || '{{q_type}}'=='checkbox')
+     {
+     var ot=[];
+	 var or =[];
+	 var title='{{title}}';
+	 var id='{{@key}}';
+	 {{#each options}}
+	 ot.push('{{op_title}}');
+	 or.push('{{op_res}}')
+	 {{/each}}
+        if('{{q_type}}'=='radio')
+		{
+	 	drw(id,title,ot,or);
+		}
+		else if('{{q_type}}'=='checkbox')
+		{
+         drawHist(id,title,ot,or);
+		}
+	 }
+     if('{{q_type}}'=='text')
+     { //var tr=[];
+	   let t=`
+       <div class="row bg-white" style="margin:0px;">
+						<div class="col-md-11" style="margin:10px auto;display:block;height:250px;overflow-y:scroll;">
+							<table class="table table-striped">
+								<thead>
+									<th>
+										{{title}}
+									</th>
+								</thead>
+
+								<tbody>`;
+                                 {{#each q_res}}
+                                  //alert('{{this}}');
+								   t+=` <tr>
+
+									<td>{{this}}</td>
+
+									</tr>`;
+		                          {{/each}}
+
+
+								t+=` </tbody>
+							</table>
+						</div>
+					</div>`;
+				$(".results-div").append(t);
+	 }
+		 //count++;
+   {{/each}}
 
 
 
 
+	function drawChart(qno,title,cf,opt,res) {
 
-
-<script type="text/javascript">
-	google.charts.load('current', {
-		'packages': ['corechart']
-	});
-	google.charts.setOnLoadCallback(drawChart);
-
-	function drawChart() {
-
-		var data = google.visualization.arrayToDataTable([
-			['Task', 'Hours per Day'],
-			['Work', 11],
-			['Eat', 2],
-			['Sleep', 7]
-		]);
-
-		var options = {
-			title: 'My Daily Activities'
-		};
-
-		var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-		chart.draw(data, options);
-	}
-</script>
-
-<script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-          ['Opening Move', 'Percentage'],
-          ["King's pawn (e4)", 44],
-          ["Queen's pawn (d4)", 31],
-          ["Knight to King 3 (Nf3)", 12],
-          ["Queen's bishop pawn (c4)", 10],
-          ['Other', 3]
-        ]);
+		var option_res = [];
+		option_res.push(['Task', 'Hours per Day']);
+		var count =0;
+		for(var i =0; i < opt.length; i++){
+			//alert('loop');
+			option_res.push([opt[i],parseInt(res[i])]);
+			//count++;
+		}
+		//console.log('option_res',option_res);
+		console.log(option_res);
+		var d= [['Task', 'Hours per Day'],['o1',10],['o2',5]];
+		console.log(opt);
+        var data = google.visualization.arrayToDataTable(option_res);
 
         var options = {
-          title: 'Chess opening moves',
+          title: 'Q'+qno+'.  '+title
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('p'+qno));
+
+        chart.draw(data, options);
+      }
+
+	function drawStuff(qno,title,cf,opt,res) {
+		var option_res = [];
+		option_res.push(['Options', 'Percentage']);
+		var count =0;
+		for(var i =0; i < opt.length; i++){
+			//alert('loop');
+			option_res.push([opt[i],parseInt(res[i])]);
+			//count++;
+		}
+		console.log('option_res',option_res);
+        console.log(res);
+        var data = new google.visualization.arrayToDataTable(option_res);
+        var options = {
+          title: '',
           legend: { position: 'none' },
-          chart: { title: 'Chess opening moves',
-                   subtitle: 'popularity by percentage' },
+          chart: { title: 'Q'+qno+'.  '+title,
+                   subtitle: '' },
           bars: 'horizontal', // Required for Material Bar Charts.
           axes: {
             x: {
               0: { side: 'top', label: 'Percentage'} // Top x-axis.
             }
           },
-          bar: { groupWidth: "90%" }
+          bar: { groupWidth: "10%" }
         };
 
-        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        var chart = new google.charts.Bar(document.getElementById('b'+qno));
         chart.draw(data, options);
-      };
+      }
+
+
+
+
+
     </script>
 
 
-
 </html>
+

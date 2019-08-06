@@ -383,21 +383,29 @@ cr.get('/createsurvey',(req,res)=>{
 cr.get('/result',(req,res)=>{
 
     let id ='mjjwZVGvKwYmWhCmEOA6ZnbRM5v1';
-   let surveyId = '1565023337490';
+   let surveyId = 'sid1565095390112';
     db.collection('Survey').doc(surveyId).get()
     .then(snapshot=>{
-        res.render('./customerViews/results',snapshot.data());
-        // console.log('snapshot=>',snapshot.data())
-        // let q =[];
 
-        // let key =Object.keys(snapshot.data().questions);
-        // for(let i =0; i<key.length; i++){
-        // //    console.log(snapshot.data().questions[key[i]]);
-        //     q[i]= snapshot.data().questions[key[i]];
-        // }
-        // console.log("data=>",q);
+        // console.log(snapshot.data().options)
+        // snapshot.data().questions.options.forEach(opt=>{
+        //     console.log('opt=>',opt);
+        // })
+
+        // console.log('snapshot=>',snapshot.data())
+         let q =[];
+
+        let key =Object.keys(snapshot.data().questions);
+        for(let i =0; i<key.length; i++){
+        //    console.log(snapshot.data().questions[key[i]]);
+            q[i]= snapshot.data().questions[key[i]].options;
+           console.log(snapshot.data().questions[key[i]].options);
+        }
+       //  console.log("data=>",q);
         //console.log(q);
 
+        res.render('./customerViews/results',snapshot.data());
+      //  res.render('./customerViews/results',snapshot.data());
     })
     .catch(err=>{
         console.log(err);
@@ -450,7 +458,7 @@ cr.post('/addquestion',(req,res)=>{
     let id =req.body.qid;
     var keys = Object.keys(req.body);
     console.log(keys);
-    
+
     let title="";
     let q_type="";
     let options ={};
@@ -517,9 +525,9 @@ cr.post('/addquestion',(req,res)=>{
             //        [oid]:{
             //         op_res:0,
             //         op_title: req.body[keys[i]]
-                       
+
             //        }
-              
+
 
             // }
                //optioncount++;
@@ -562,11 +570,11 @@ cr.post('/addquestion',(req,res)=>{
     console.log('data=>',data);
 
     db.collection('Survey').doc(sid).set(data,{merge:true});
-   
+
     res.send('1');
 })
 cr.post('/updateoption',(req,res)=>{
-   
+
     let qid=parseInt(req.body.qid);
     let sid=(req.body.sid);
     let oid=parseInt(req.body.oid);
@@ -588,7 +596,7 @@ cr.post('/updateoption',(req,res)=>{
         console.log(err);
         res.send('0');
     })
-    
+
 })
 cr.post('/deletequestion',(req,res)=>{
     let sid=req.body.sid;
