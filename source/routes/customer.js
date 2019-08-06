@@ -157,27 +157,29 @@ cr.post('/handleRegisteration', async (req,res) =>{
     password =req.body.password;
     conf_password = req.body.conf_password;
 
-    console.log(name,email, password, conf_password);
+    //console.log(name,email, password, conf_password);
 
-    await firebase.auth().createUserWithEmailAndPassword(email,password).catch( (error) =>{
-        console.log("signup err", error.message);
-        res.send(false);
-
-    })
-
-    var customer = db.collection('Customers');
-    await customer.add({
+    await firebase.auth().createUserWithEmailAndPassword(email,password)
+    .then(customer=>{
+        console.log('customer',customer.user.uid);
+        let id = customer.user.uid;
+        console.log(id);
+     db.collection('Customers').doc(id).set({
         name: name,
         email: email,
         password: password,
         balance: 0,
         surveylist: []
+        
+    })
+    res.send(true);
+    })
+    .catch( (error) =>{
+        console.log("signup err", error.message);
+        res.send(false);
+
     })
 
-    .then( (ref) =>{
-        console.log("document added" + ref.id);
-        res.send(true);
-    });
 
 })
 
@@ -187,10 +189,12 @@ cr.get('/', (req,res) =>{
         //dataset = {email: req.session.email, uid: req.session.uid};
         //console.log(req.session.email);
         //console.log("welcome customer sceen")
-        let id= req.session.uid
-
+        let id= req.session.uid;
+        console.log(id);
+    
         db.collection('Customers').doc(id).get()
         .then(snapshot=>{
+            console.log(snapshot.data());
             data ={id:id, balance:snapshot.data().balance}
             res.render('./customerViews/dashboard',data)
 
@@ -218,7 +222,7 @@ cr.get('/draftSurvey', (req,res) =>{
         //dataset = {email: req.session.email, uid: req.session.uid};
         //console.log(req.session.email);
         //console.log("welcome customer sceen")
-        getSurveys('470bnBREgYBB2QupJrmR','draft', (err,surveys) =>{
+        getSurveys(req.session.uid,'draft', (err,surveys) =>{
             if(!err){
                  console.log("survey",surveys);
                  res.render('./customerViews/draftSurvey',surveys);
@@ -241,7 +245,7 @@ cr.get('/openSurvey', (req,res) =>{
         //dataset = {email: req.session.email, uid: req.session.uid};
         //console.log(req.session.email);
         //console.log("welcome customer sceen")
-        getSurveys('470bnBREgYBB2QupJrmR','open', (err,surveys) =>{
+        getSurveys(req.session.uid,'open', (err,surveys) =>{
 
             if(!err){
                 console.log("survey",surveys);
@@ -265,7 +269,7 @@ cr.get('/closedSurvey', (req,res) =>{
         //dataset = {email: req.session.email, uid: req.session.uid};
         //console.log(req.session.email);
         //console.log("welcome customer sceen")
-        getSurveys('470bnBREgYBB2QupJrmR','close', (err,surveys) =>{
+        getSurveys(req.session.uid,'close', (err,surveys) =>{
         if(!err){
                  //console.log("survey",surveys);
                  res.render('./customerViews/closedSurvey',surveys);
@@ -377,10 +381,56 @@ cr.get('/buypackage', (req,res) =>{
 
 
 cr.get('/createsurvey',(req,res)=>{
-    res.render('./customerViews/builder');
+    let id='sid'+new Date().getTime()
+    let lastEdited = new Date().toLocaleString();
+    console.log('id=>',id,'last edited',lastEdited);
+    db.collection('Survey').doc(id).set({
+        title:'Untited Survey',
+        description:'',
+        lastEdited: lastEdited,
+        status:'draft'
+
+    },{merge:true})
+    console.log('survey created in survey doc');
+    db.collection('Customers').doc(req.session.uid).set({
+        surveylist:FieldValue.arrayUnion(id)
+    },{merge:true})
+    .then(result=>{
+        console.log('survey created in customer doc')
+    })
+    res.render('./customerViews/builder',{id:id});
 });
 cr.get('/result',(req,res)=>{
-    res.render('./customerViews/results');
+
+    let id ='mjjwZVGvKwYmWhCmEOA6ZnbRM5v1';
+   let surveyId = 'sid1565095390112';
+    db.collection('Survey').doc(surveyId).get()
+    .then(snapshot=>{
+
+        // console.log(snapshot.data().options)
+        // snapshot.data().questions.options.forEach(opt=>{
+        //     console.log('opt=>',opt);
+        // })
+
+        // console.log('snapshot=>',snapshot.data())
+         let q =[];
+
+        let key =Object.keys(snapshot.data().questions);
+        for(let i =0; i<key.length; i++){
+        //    console.log(snapshot.data().questions[key[i]]);
+            q[i]= snapshot.data().questions[key[i]].options;
+           console.log(snapshot.data().questions[key[i]].options);
+        }
+       //  console.log("data=>",q);
+        //console.log(q);
+
+        res.render('./customerViews/results',snapshot.data());
+      //  res.render('./customerViews/results',snapshot.data());
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+
 });
 
 
@@ -416,26 +466,37 @@ cr.post('/send/:id',(req,res)=>{
     res.redirect('/customer/openSurvey');
 
 })
+cr.post('/updatesurvey',(req,res)=>{
+    console.log('update survey called');
+    let sid=req.body.id;
+    let title=req.body.surveyTitle;
+    let desc=req.body.surveyDesc;
+    let lastEdited=new Date().toLocaleString();
+   
+    db.collection('Survey').doc(sid).set({
+        title:title,
+        description:desc,
+        lastEdited:lastEdited,
+        
+    },{merge:true})
+    .then(result=>{
+        console.log('last edited',lastEdited);
+    })
+    .catch(err=>{
+        console.log('update survey err',err)
+    })
+    
+})
 cr.post('/addquestion',(req,res)=>{
     //console.log();
+    let sid=req.body.sid;
     let id =req.body.qid;
-    // let title = req.body[Object.values(req.body)[0]];
-    // let q_type = 'q'+id+'OptionType';
-    //console.log(title);
-    //console.log(req.body.q1Title);
-
     var keys = Object.keys(req.body);
     console.log(keys);
 
-
-   // console.log(q);
-//    let questions = {[id]: ''};
-//     console.log('questions =>',questions);
-
-
     let title="";
     let q_type="";
-    let options =[];
+    let options ={};
     let optioncount = 0;
     let cf = 0;
     let q_no = 0;
@@ -443,7 +504,7 @@ cr.post('/addquestion',(req,res)=>{
     let opt_word_count=0;
     let title_count=0;
     op = {}
-
+    let lastEdited=new Date().toLocaleString();
     if(req.body[keys[1]] == 2){
         console.log(req.body);
         title = req.body[keys[0]];
@@ -454,15 +515,13 @@ cr.post('/addquestion',(req,res)=>{
         let req_time = readTime + cf;
 
         data ={
+        lastEdited:lastEdited,
             questions:{
                 [id]:{
                     title: req.body[keys[0]],
-                    q_type:req.body[keys[1]],
+                    q_type:'text',
                     cf:req.body[keys[2]],
                     q_no:req.body[keys[4]],
-
-
-
                     req_time:req_time
                 }
             }
@@ -489,17 +548,25 @@ cr.post('/addquestion',(req,res)=>{
                 //console.log('option type');
             }
             else if(keys[i].includes('Option')){
+                result=keys[i].split('Option');
+                let oid =parseInt(result[1]);
+                console.log(oid);
                 op_title= req.body[keys[i]];
                 temp =op_title.replace(/ /g, "")
                 //console.log();
                 opt_word_count = opt_word_count + temp.length;
+                options = Object.assign({[oid]:{op_res:0, op_title: req.body[keys[i]]}},options)
               //  console.log('opt count',opt_word_count);
-               options[optioncount] ={
-                op_res:0,
-                 op_title: req.body[keys[i]]
+            //    options[optioncount] ={
+            //        [oid]:{
+            //         op_res:0,
+            //         op_title: req.body[keys[i]]
 
-            }
-               optioncount++;
+            //        }
+
+
+            // }
+               //optioncount++;
             }
             else if(keys[i].includes('Complexity')){
                 cf = req.body[keys[i]];
@@ -521,6 +588,8 @@ cr.post('/addquestion',(req,res)=>{
 
         //console.log(id,q_no,title,q_type,options,cf);
         data ={
+            lastEdited:lastEdited,
+            
             questions:{
                 [id]:{
                     q_no: q_no,
@@ -535,16 +604,73 @@ cr.post('/addquestion',(req,res)=>{
         }
 
     }
+    console.log(JSON.stringify(options));
+    console.log('data=>',data);
 
-    console.log(data);
-   //db.collection('Survey').doc('PKJLpbc5my7FsmLWO4B9').update(data);
+    db.collection('Survey').doc(sid).set(data,{merge:true});
 
-
-
-    //  console.log(Object.values(req.body));
-  //  let title = 'q'+qid+'Title';
-   // console.log(req.params.title);
     res.send('1');
 })
+cr.post('/updateoption',(req,res)=>{
+
+    let qid=parseInt(req.body.qid);
+    let sid=(req.body.sid);
+    let oid=parseInt(req.body.oid);
+    console.log(sid,qid,oid)
+    let lastEdited=new Date().toLocaleString();
+    db.collection('Survey').doc(sid).set({
+        lastEdited:lastEdited,
+        questions:{
+            [qid]:{
+                options:{
+                    [oid]:FieldValue.delete()
+                }
+            }
+        }
+       },{merge:true})
+    .then(snapshot=>{
+        res.send('1');
+    })
+    .catch(err=>{
+        console.log(err);
+        res.send('0');
+    })
+
+})
+cr.post('/deletequestion',(req,res)=>{
+    let sid=req.body.sid;
+    let qid=req.body.qid;
+    let lastEdited=new Date().toLocaleString();
+    db.collection('Survey').doc(sid).set({
+        lastEdited:lastEdited,
+        questions:{
+            [qid]:FieldValue.delete()
+        }
+       },{merge:true})
+    .then(snapshot=>{
+        res.send('1');
+    })
+    .catch(err=>{
+        console.log(err);
+        res.send('0');
+    })
+    // res.send(true);
+})
+
+/* my code */
+cr.get('/editsurvey',(req,res)=>{
+    //let id=new Date().getTime();
+    let surveyId = '1565023337490';
+    db.collection('Survey').doc(surveyId).get()
+    .then(snapshot=>{
+        res.render('./customerViews/editsurvey',snapshot.data());
+       
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+
+    //res.render('./customerViews/editsurvey');
+});
 
 module.exports = cr;
