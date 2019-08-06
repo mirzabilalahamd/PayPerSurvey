@@ -28,7 +28,7 @@ $(document).ready(function(){
 
     $('form#register').on('submit',(e)=>{
         e.preventDefault();
-        alert("ajax");
+        //alert("ajax");
       
         var password = $("input[name='password']").val();
         var conf_password = $("input[name='conf_password']").val();
