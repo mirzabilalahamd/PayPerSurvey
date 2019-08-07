@@ -96,28 +96,28 @@
 							<a href="/customer/">
 								<i class="la la-home"></i>
 								<p>Dashboard</p>
-								
+
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="/customer/openSurvey">
 								<i class="la la-check-circle-o"></i>
 								<p>Open Surveys</p>
-								
+
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="/customer/closedSurvey">
 								<i class="la la-clock-o la"></i>
 								<p>closed Surveys</p>
-								
+
 							</a>
 						</li>
 						<li class="nav-item active">
 							<a href="/customer/draftSurvey">
 								<i class="la la-pencil-square"></i>
 								<p>Draft Surveys</p>
-								
+
 							</a>
 						</li>
 
@@ -147,13 +147,13 @@
 												<div class="card-footer">
 													<!--<div class="legend"> -->
 														<div class="row">
-																<button class="btn bg-white border border-primary btn-round mr-5 ml-3" disabled>
+																<button class="btn bg-white border border-primary btn-round mr-5 ml-3 disabled" >
 																<i class="la la-bar-chart text-primary icon-size"></i>
 																</button>
-																<button class="btn bg-white border border-primary btn-round  mr-5 ml-3" style="border:5px ">
-																<i class="la la-pencil text-primary icon-size"></i></button>
-																<button class="btn bg-white border border-primary btn-round">
-																<i class="la la-trash text-primary icon-size"></i></button>
+																<a href="/customer/editsurvey?id={{id}}" class="btn bg-white border border-primary btn-round  mr-5 ml-3" style="border:5px ">
+																<i class="la la-pencil text-primary icon-size"></i></a>
+																<a  href="/customer/delsurvey?id={{id}}" class="btn bg-white border border-primary btn-round">
+																<i class="la la-trash text-primary icon-size"></i></a>
 														</div>
 												</div>
 											</div>
